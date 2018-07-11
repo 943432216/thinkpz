@@ -1,0 +1,88 @@
+{
+    "name": "首页",
+    "action": "portal/Index/index",
+    "description": "首页模板文件",
+    "order": 1.0,
+    "more": {
+        "vars": {
+            "varName1": {
+                "title": "测试 text",
+                "value": "1",
+                "type": "text",
+                "tip": "这是一个text",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets": {
+            "about": {
+                "title": "简介、资质",
+                "display": "1",
+                "vars": {
+                    "introduction": {
+                        "title": "集团简介",
+                        "value": "集团简介",
+                        "type": "text",
+                        "tip": "限40个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "qualification":{
+                        "title": "企业资质",
+                        "value": "企业资质",
+                        "type": "text",
+                        "tip": "限40个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "business": {
+                "title": "主营业务",
+                "display": "1",
+                "vars": {
+                    "sem": {
+                        "title": "SEM服务",
+                        "value": "SEM服务",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        } 
+                    },
+                    "seo": {
+                        "title": "SEO服务",
+                        "value": "SEO服务",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        } 
+                    },
+                    "flow": {
+                        "title": "信息流",
+                        "value": "信息流",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        } 
+                    },
+                    "dsp": {
+                        "title": "DSP系统",
+                        "value": "DSP系统",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        } 
+                    }
+                }
+
+            }
+        }
+    }
+}
