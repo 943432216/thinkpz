@@ -1,0 +1,22 @@
+<div class="nav_con left position">
+	<ul>
+		<navigation nav-id="1" root="" id="" class="">
+            <navigationMenu>
+                <li class="{$level}">
+                    <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                        {$menu.name|default=''}
+                    </a>
+                </li>
+            </navigationMenu>
+            <navigationFolder root=""
+                              class=""
+                              dropdown="ul"
+                              dropdown-class="">
+                <a href="#" target="{$menu.target|default=''}">
+                    {$menu.name|default=''}
+                </a>
+            </navigationFolder>
+        </navigation>
+	</ul>
+	<div class="hx"></div>
+</div>
