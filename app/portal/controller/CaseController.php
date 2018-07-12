@@ -12,10 +12,11 @@ class CaseController extends HomeBaseController
 {
 	public function list_case()
 	{
-		$year = 2016;
-		$limit = 4;
-		
-		list_case(2018);
-
+		if (!input('?post.year')) {
+			$this->error('缺少年份参数...');
+		}
+		$year = input('post.year');
+		$limit = 4;		
+		return list_case($year, $limit);
 	}
 }
