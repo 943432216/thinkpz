@@ -16,7 +16,8 @@ class CaseController extends HomeBaseController
 			$this->error('缺少年份参数...');
 		}
 		$year = input('post.year');
-		$limit = 4;		
-		return list_case($year, $limit);
+		$limit = 4;	
+		$case_data = list_case($year, $limit);	
+		return json_encode($case_data, JSON_UNESCAPED_UNICODE);
 	}
 }
