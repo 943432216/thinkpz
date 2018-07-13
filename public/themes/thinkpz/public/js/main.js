@@ -351,12 +351,12 @@ function toload() {
 	$.ajax({
 		type: 'post',
 		url: 'http://thinkpz.cn/index.php/Portal/Case/list_case',
-		data: {
+		data:{
 			year:'2018'
 		},
 		success: function(data) {
-			var jsons=JSON.parse(data)
-			console.log(jsons)
+//			var jsons=JSON.parse(data)
+			console.log(data)
 		}
 	})
 
