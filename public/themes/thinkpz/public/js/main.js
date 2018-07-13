@@ -354,6 +354,7 @@ function toload() {
 		data:{
 			year:'2018'
 		},
+		dataType:'json',
 		success: function(data) {
 //			var jsons=JSON.parse(data)
 			console.log(data)

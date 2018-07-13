@@ -12,7 +12,6 @@ class CaseController extends HomeBaseController
 {
 	public function list_case()
 	{
-		var_dump(input('post.'));exit;
 		if (!input('?post.year')) {
 			$this->error('缺少年份参数...');
 		}
@@ -22,6 +21,7 @@ class CaseController extends HomeBaseController
 		foreach ($case_arr as $k => $v) {
 			$case_arr[$k]['more'] =  cmf_get_image_url($case_arr[$k]['more']['thumbnail']);
 		}	
-		return json_encode($case_data, JSON_UNESCAPED_UNICODE);
+	
+		return json_encode($case_arr, JSON_UNESCAPED_UNICODE);
 	}
 }
