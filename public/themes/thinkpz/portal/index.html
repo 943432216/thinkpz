@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css"  id="ins"/>
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-		
+		<taglib name="app\portal\taglib\Portal"/>
 	</head>
 	<body>
 		<div class="pz_box overflow position">
@@ -337,69 +337,34 @@
 						<h1 class="width left">新闻中心</h1>
 						<p class="width left">NEWS CENTER</p>
 					</div>
-					<div class="conwidth left overflow news_index">
-						<div class="left news_index_box overflow" onclick="caseck('details/news_company_1.html')">
-							<span class="left width overflow"><img src="__TMPL__/public/img/news_b.png" class="img centre"/></span>
-							<div class="news_index_bn width overflow left">
-								<ul>
-									<li>
-										<b>11</b>
-										<p>2018.03</p>
-									</li>
-									<li>
-										<h3>品专互动赞助“千里侠”公益骑行挑战</h3>
-										<p>2016年12月31日，在年末的最后一天，第二届“千里侠”公益骑行挑战活动将...</p>
-									</li>
-								</ul>
+					<div class="conwidth left overflow news_index">						
+						<php>
+							$category_ids=2;
+						</php>
+						<portal:articles limit="3" order="post.published_time DESC" categoryIds="$category_ids">
+							<div class="left news_index_box overflow" onclick="caseck('details/news_company_1.html')">
+								<span class="left width overflow"><img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img centre"/></span>
+								<div class="news_index_bn width overflow left">
+									<ul>
+										<li>
+											<b>{$vo.published_time|date='d',###}</b>
+											<p>{$vo.published_time|date='Y.m',###}</p>
+										</li>
+										<li>
+											<h3>{$vo.post_title}</h3>
+											<p>{$vo.post_excerpt|mb_substr=###,0,33,'utf-8'}
+											<if condition="mb_strlen($vo['post_excerpt'],'utf-8') gt 33">...</if>
+											</p>
+										</li>
+									</ul>
+								</div>
+								<div class="left width news_index_se position">
+									<p>{$vo.post_hits}</p>
+									<p>分享</p>
+									<a href="details/news_company_1.html">进入查看</a>
+								</div>
 							</div>
-							<div class="left width news_index_se position">
-								<p>5743</p>
-								<p>4694</p>
-								<a href="details/news_company_1.html">进入查看</a>
-							</div>
-						</div>
-						<!--1-->
-						<div class="left news_index_box overflow" onclick="caseck('details/news_trade_1.html')">
-							<span class="left width overflow"><img src="details___TMPL__/public/img/news_trade_1.png" class="img centre"/></span>
-							<div class="news_index_bn width overflow left">
-								<ul>
-									<li>
-										<b>11</b>
-										<p>2018.03</p>
-									</li>
-									<li>
-										<h3>2018年Q1中国App Store吸金224亿元，同比增长29％</h3>
-										<p>刚刚结束的2018年第一季度期间，中国iOS用户在App Store消费总量约224亿元...</p>
-									</li>
-								</ul>
-							</div>
-							<div class="left width news_index_se position">
-								<p>5743</p>
-								<p>4694</p>
-								<a href="details/news_trade_1.html">进入查看</a>
-							</div>
-						</div>
-						<!--2-->
-						<div class="left news_index_box overflow" onclick="caseck('details/news_trade_2.html')">
-							<span class="left width overflow"><img src="details___TMPL__/public/img/news_trade_2.png" class="img centre"/></span>
-							<div class="news_index_bn width overflow left">
-								<ul>
-									<li>
-										<b>11</b>
-										<p>2018.04</p>
-									</li>
-									<li>
-										<h3>2018年广告内容在PC端与移动端占比增长依旧</h3>
-										<p>消费者接触的媒介比以往更丰富，但是人们收看的典型内容仍然没变。广告支持的...</p>
-									</li>
-								</ul>
-							</div>
-							<div class="left width news_index_se position">
-								<p>5743</p>
-								<p>4694</p>
-								<a href="details/news_trade_2.html">进入查看</a>
-							</div>
-						</div>
+						</portal:articles>
 					</div>
 					<div class="left width more_box">
 						<div class="more position">

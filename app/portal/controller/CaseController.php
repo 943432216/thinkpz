@@ -17,7 +17,10 @@ class CaseController extends HomeBaseController
 		}
 		$year = input('post.year');
 		$limit = 4;	
-		$case_data = list_case($year, $limit);	
+		$case_arr = list_case('2016', $limit, 'post_title,post_excerpt,post_hits,more');
+		foreach ($case_arr as $k => $v) {
+			$case_arr[$k]['more'] =  cmf_get_image_url($case_arr[$k]['more']['thumbnail']);
+		}	
 		return json_encode($case_data, JSON_UNESCAPED_UNICODE);
 	}
 }
