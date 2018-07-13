@@ -12,6 +12,7 @@ class CaseController extends HomeBaseController
 {
 	public function list_case()
 	{
+		var_dump(input('post.'));exit;
 		if (!input('?post.year')) {
 			$this->error('缺少年份参数...');
 		}
