@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
->>>>>>> 07c310bd1b188cdc425302913fb159090f024c2e
 
 	<head>
 		<meta charset="utf-8" />
@@ -8,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/nitialize.css" />
 		<link rel="stylesheet" type="text/css" href="css/main_1366.css" />
 		<!--<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />-->
+		<taglib name="app\portal\taglib\Portal"/>
 	</head>
 
 	<body>
@@ -27,32 +27,9 @@
 			</div>
 			<div class="nav overflow left">
 				<div class="nav_logo left"></div>
-				<div class="nav_con left position">
-					<ul>
-						<li>
-							<a href="index.html">首页</a>
-						</li>
-						<li>
-							<a href="group.html">品专集团</a>
-						</li>
-						<li>
-							<a href="business.html">业务板块</a>
-						</li>
-						<li>
-							<a href="news.html">新闻中心</a>
-						</li>
-						<li>
-							<a href="successful_case.html">经典案例</a>
-						</li>
-						<li>
-							<a href="DSPsystem.html">DSP系统</a>
-						</li>
-						<li>
-							<a href="join_us.html">加入我们</a>
-						</li>
-					</ul>
-					<div class="hx"></div>
-				</div>
+				<!-- 引入导航模板 -->
+				<include file="common/nav" />
+				<!-- 引入导航模板结束 -->
 				<div class="nav_ss left position">
 					<div class="search_click">
 						<input type="text" name="search" id="search" value="" />

@@ -1,0 +1,118 @@
+{
+    "name": "品专集团",
+    "action": "portal/group/index",
+    "description": "品专集团模板文件",
+    "order": 2.0,
+    "more": {
+        "vars": {
+            "varName1": {
+                "title": "测试 text",
+                "value": "1",
+                "type": "text",
+                "tip": "这是一个text",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets": {
+            "pinzhuan": {
+                "title": "品专互动",
+                "display": "1",
+                "vars": {
+                    "introduction": {
+                        "title": "简介",
+                        "value": "",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "link":{
+                        "title": "链接",
+                        "value": "",
+                        "type": "text",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "yizhe": {
+                "title": "易哲网络",
+                "display": "1",
+                "vars": {
+                    "introduction": {
+                        "title": "简介",
+                        "value": "",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "link":{
+                        "title": "链接",
+                        "value": "",
+                        "type": "text",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "zhenghe": {
+                "title": "正和药业",
+                "display": "1",
+                "vars": {
+                    "introduction": {
+                        "title": "简介",
+                        "value": "",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "link":{
+                        "title": "链接",
+                        "value": "",
+                        "type": "text",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "douying": {
+                "title": "抖影传媒",
+                "display": "1",
+                "vars": {
+                    "introduction": {
+                        "title": "简介",
+                        "value": "",
+                        "type": "textarea",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "link":{
+                        "title": "链接",
+                        "value": "",
+                        "type": "text",
+                        "tip": "限100个字以内",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+ 
+        }
+    }
+}
