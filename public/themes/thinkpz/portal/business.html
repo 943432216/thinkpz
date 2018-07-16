@@ -270,12 +270,16 @@
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
-			//图片懒加载
-			$("img").lazyload({
-				effect: "fadeIn",
-				threshold: 200,
-				 placeholder: "img/pz_sy.png"
-			})
+			var margins = $('.pz_box').offset().left;
+			var widt=$('.pz_box').width();
+			var navh = $('.nav_con').height();
+			$('.nav').css({
+				'display': 'block',
+				'background': 'transparent',
+				'height': navh,
+				'width': widt,
+				'margin-left': margins
+			});
 			//返回顶部
 			$('.top').click(function() {
 				$("html,body").animate({
