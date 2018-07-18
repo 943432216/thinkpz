@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>品专互动</title>
-		<link rel="stylesheet" type="text/css" href="css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="css/main_1366.css" />
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
 		<taglib name="app\portal\taglib\Portal"/>
 	</head>
 
@@ -33,15 +33,17 @@
 				<div class="nav_ss left position">
 					<div class="search_click">
 						<input type="text" name="search" id="search" value="" />
-						<span><img src="img/search.png"/></span>
+						<span><img src="__TMPL__/public/img/search.png"/></span>
 					</div>
-					<div class="click_one"><img src="img/search.png" /></div>
+					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
 				</div>
 			</div>
 			<header class="width left overflow">
 				<div class="swiper-container header_banner position business_til">
-					<img src="img/serve.png" alt="" class="img centre" />
-					<div class="banner_wz"><img src="img/business_wz.png" class="img"/></div>
+					<slides id="4">
+						<img src="{:cmf_get_image_url($vo.image)}" alt="" class="img centre" />
+					</slides>
+					<div class="banner_wz"><img src="__TMPL__/public/img/business_wz.png" class="img"/></div>
 					<!--<h1 class="width left overflow">只为做更好的给你</h1>
 					<span class="width left overflow">
 						<p class="width left">品专互动致力于为医药企业的品牌与产品提供能量来源，为企业提供品牌营销方案。</p>
@@ -57,7 +59,7 @@
 				<div class="conwidth left overflow serve">
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -69,7 +71,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -81,7 +83,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -93,7 +95,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -105,7 +107,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -117,7 +119,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -129,7 +131,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -141,7 +143,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -153,7 +155,7 @@
 					</div>
 					<div class="serve_box left position">
 						<span class="left width">
-							<img src="img/business.png" alt="" class="img" />
+							<img src="__TMPL__/public/img/business.png" alt="" class="img" />
 						</span>
 						<div class="serve_con width">
 							<span class="left">
@@ -170,12 +172,12 @@
 			<footer class="left overflow">
 				<div class="left overflow footer_left">
 					<div class="left ewm">
-						<img src="img/ewm.png" />
+						<img src="__TMPL__/public/img/ewm.png" />
 					</div>
 					<div class="lx left">
 						<ul>
 							<li>
-								<p><img src="img/phone.png" /></p>
+								<p><img src="__TMPL__/public/img/phone.png" /></p>
 								<p>周一至五&nbsp;9:00-18:00</p>
 							</li>
 							<li>020-29828772</li>
@@ -241,10 +243,10 @@
 			</footer>
 		</div>
 	</body>
-	<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
 			var margins = $('.pz_box').offset().left;
@@ -292,7 +294,7 @@
 			var jsons;
 			$.ajax({
 				type:"get",
-				url:"js/business.txt",
+				url:"__TMPL__/public/js/business.txt",
 				dataType: 'text',
 				async:true,
 				success:function(data){
