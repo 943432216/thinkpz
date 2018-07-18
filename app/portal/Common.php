@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * [list_case description]
+ * [list_case 获取某个年份的案例数据]
  * @param  string $year  [年份，返回当年发布的案例]
  * @param  string $limit [条数，限制数据量]
  * @param  string $field [限制返回数据的字段]
@@ -27,4 +27,38 @@ function list_case($year='', $limit='', $field='')
 		});
 	}
 	return $data->toArray();
+}
+
+/**
+ * [fetch_data 获取特定的文章数据]
+ * @param  [int] 		$catagory [文章分类]
+ * @param  [string] 	$field    [字段]
+ * @param  [int] 		page      [页码]
+ * @param  [int] 		$number   [每页条数，固定]
+ * @return [collection] $data     [DB类返回数据集]
+ */
+function fetch_data($category, $field, $page, $number)
+{
+	$begin = $number*($page - 1);
+	$data = \think\DB::name('portal_post')->alias('a')
+								   ->join('portal_category_post b', 'a.id=b.post_id')
+							       ->where('b.category_id', $category)
+								   ->field($field)		
+								   ->limit($begin, $number)
+								   ->select();
+	return $data;
+}
+
+/**
+ * [handle_img_url 处理图片的url]
+ * @param  [type] $data [collection数据集]
+ * @return [type]       [json数据]
+ */
+function handle_img_url($data)
+{
+	$data = $data->toArray();
+	foreach ($data as $k => $v) {
+		$data[$k]['more'] = cmf_get_image_url(json_decode($v['more'], true)['thumbnail']);
+	}
+	return json_encode($data, JSON_UNESCAPED_UNICODE);
 }

@@ -17,6 +17,7 @@ class BusinessController extends HomeBaseController {
 	public function page()
 	{
 		$category = 5;
+		$field = 'a.id,a.post_keywords,a.post_excerpt,a.more';
 		$page = 1;
 		$number = 7;
 		$begin = $number*($page - 1);
@@ -24,7 +25,7 @@ class BusinessController extends HomeBaseController {
 		$data = DB::name('portal_post')->alias('a')
 									   ->join('portal_category_post b', 'a.id=b.post_id')
 								       ->where('b.category_id', $category)
-									   ->field('a.id,a.post_keywords,a.post_excerpt,a.more')		
+									   ->field($field)		
 									   ->limit($begin, $number)
 									   ->select();
 		if ($data->isEmpty()) {

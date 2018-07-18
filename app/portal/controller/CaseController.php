@@ -10,6 +10,11 @@ use cmf\controller\HomeBaseController;
 
 class CaseController extends HomeBaseController
 {
+	public function index()
+	{
+		return $this->fetch('/case');
+	}
+
 	public function list_case()
 	{
 		if (!input('?post.year')) {

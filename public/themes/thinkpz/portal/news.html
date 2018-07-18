@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>品专互动</title>
-		<link rel="stylesheet" type="text/css" href="css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="css/main_1366.css" />
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
 		<taglib name="app\portal\taglib\Portal"/>
 	</head>
 
@@ -33,15 +33,15 @@
 				<div class="nav_ss left position">
 					<div class="search_click">
 						<input type="text" name="search" id="search" value="" />
-						<span><img src="img/search.png"/></span>
+						<span><img src="__TMPL__/public/img/search.png"/></span>
 					</div>
-					<div class="click_one"><img src="img/search.png" /></div>
+					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
 				</div>
 			</div>
 			<header class="width left overflow">
 				<div class="swiper-container header_banner position news_tl">
-					<img src="img/news.png" alt="" class="img centre" />
-					<div class="banner_wz"><img src="img/news_wz.png" class="img"/></div>
+					<img src="__TMPL__/public/img/news.png" alt="" class="img centre" />
+					<div class="banner_wz"><img src="__TMPL__/public/img/news_wz.png" class="img"/></div>
 					<!--<h1 class="width left overflow">聚焦新闻，跟踪资讯</h1>
 					<span class="width left overflow">
 						<p class="width left">最新最快的新闻资讯</p>
@@ -56,7 +56,7 @@
 				</div>
 				<div class="conwidth left news_box news_xs">
 					<!--<div class="news_con left">
-						<span class="left display position overflow news_img"><img src="img/news_1.png"/></span>
+						<span class="left display position overflow news_img"><img src="__TMPL__/public/img/news_1.png"/></span>
 						<span class="left display position overflow news_wz">
 							<h1>品专互动赞助“千里侠”</h1>
 							<p>（为爱跨年的公益之旅）</p>
@@ -64,8 +64,8 @@
 							<p>2018年-04-11</p>
 						</span>
 						<span class="left display position overflow jt">
-							<img src="img/jt.png" class="jti"/>
-							<img src="img/jts.png" class="jts"/>
+							<img src="__TMPL__/public/img/jt.png" class="jti"/>
+							<img src="__TMPL__/public/img/jts.png" class="jts"/>
 						</span>
 					</div>-->
 				</div>	
@@ -79,12 +79,12 @@
 			<footer class="left overflow">
 				<div class="left overflow footer_left">
 					<div class="left ewm">
-						<img src="img/ewm.png" />
+						<img src="__TMPL__/public/img/ewm.png" />
 					</div>
 					<div class="lx left">
 						<ul>
 							<li>
-								<p><img src="img/phone.png" /></p>
+								<p><img src="__TMPL__/public/img/phone.png" /></p>
 								<p>周一至五&nbsp;9:00-18:00</p>
 							</li>
 							<li>020-29828772</li>
@@ -150,16 +150,16 @@
 			</footer>
 		</div>
 	</body>
-	<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
 			$("img").lazyload({
 				effect: "fadeIn",
 				threshold: 200,
-				 placeholder: "img/pz_sys.png"
+				 placeholder: "__TMPL__/public/img/pz_sys.png"
 			})
 			sharp()
 			//初始化导航
