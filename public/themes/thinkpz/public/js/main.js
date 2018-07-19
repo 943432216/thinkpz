@@ -335,30 +335,26 @@ function sharp() {
 //首页加载
 
 function toload() {
-	//	$('.one_title a').each(function() {
-	//		$(this).click(function() {
-	//			var al = $(this).html();
-	//			$.ajax({
-	//				type: 'post',
-	//				url: 'http://thinkpz.cn/index.php/Portal/Case/list_case',
-	//				data:{year:al},
-	//				success: function(data) {
-	//					console.log(data)
-	//				}
-	//			})
-	//		})
-	//	})
-	$.ajax({
-		type: 'post',
-		url: 'http://thinkpz.cn/index.php/Portal/Case/list_case',
-		data:{
-			year:'2018'
-		},
-		dataType:'json',
-		success: function(data) {
-//			var jsons=JSON.parse(data)
-			console.log(data)
-		}
-	})
+//	var years = $('.one_avt a').html();
+//	years = years.split('年')[0]
+//	$('.one_title li').click(function() {
+//		$(this).siblings().removeClass('one_avt');
+//		$(this).addClass('one_avt');
+//	});
+	//	console.log(years)
+	function _ajax() {
+		$.ajax({
+			type: 'post',
+			url: 'http://thinkpz.cn/portal/business/page',
+			data: {
+				year: years
+			},
+			dataType: 'json',
+			success: function(data) {
+				var jsons = JSON.parse(data)
+				console.log(jsons)
+			}
+		})
+	}
 
 }
