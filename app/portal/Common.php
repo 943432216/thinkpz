@@ -60,5 +60,5 @@ function handle_img_url($data)
 	foreach ($data as $k => $v) {
 		$data[$k]['more'] = cmf_get_image_url(json_decode($v['more'], true)['thumbnail']);
 	}
-	return json_encode($data, JSON_UNESCAPED_UNICODE);
+	return $data;
 }

@@ -23,6 +23,6 @@ class NewsController extends HomeBaseController {
 		$number = 7;
 		$data = fetch_data($category, $field, $page, $number);
 
-		return handle_img_url($data);
+		return json_encode(handle_img_url($data), JSON_UNESCAPED_UNICODE);
 	}
 }

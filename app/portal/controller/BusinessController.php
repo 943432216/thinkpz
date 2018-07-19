@@ -20,20 +20,14 @@ class BusinessController extends HomeBaseController {
 		$field = 'a.id,a.post_keywords,a.post_excerpt,a.more';
 		$page = 1;
 		$number = 7;
-		$begin = $number*($page - 1);
 
-		$data = DB::name('portal_post')->alias('a')
-									   ->join('portal_category_post b', 'a.id=b.post_id')
-								       ->where('b.category_id', $category)
-									   ->field($field)		
-									   ->limit($begin, $number)
-									   ->select();
+		$data = fetch_data($category, $field, $page, $number);
 		if ($data->isEmpty()) {
-			return json_encode(['error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
+			return json_encode(['errcode' => '1101','error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
 		}
-		$data = $data->toArray();
+		$data = handle_img_url($data);
 		foreach ($data as $k => $v) {
-			$data[$k]['more'] = cmf_get_image_url(json_decode($v['more'], true)['thumbnail']);
+			$data[$k]['link'] = url('portal/article/index', ['id' => $v['id']]);
 		}
 		return json_encode($data, JSON_UNESCAPED_UNICODE);
 	}
