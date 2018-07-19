@@ -220,7 +220,7 @@
 							<!--<li><a href="javascript:;">抖影传媒</a></li>-->
 						</ul>
 					</span>
-					<span class="left overflow display">
+					<span class="left overflow display" >
 						<ul>
 							<h3>DSP系统</h3>
 							<li><a href="DSPsystem.html">DSP系统</a></li>
@@ -303,7 +303,7 @@
 					jsons = JSON.parse(data);
 					console.log(jsons)
 					for(;i<jsons.length;i++){
-						var box='<div class="serve_box left position" onclick=""><span class="left width"><img src="'+jsons[i].more+'" /></span><div class="serve_con width"><span class="left"><h3 class="left">'+jsons[i].post_keywords+'</h3></span><p class="left">'+jsons[i].post_excerpt+'</p></div></div>'
+						var box='<div class="serve_box left position" onclick="document.location.href='+jsons[i].links+'"><span class="left width"><img src="'+jsons[i].more+'" /></span><div class="serve_con width"><span class="left"><h3 class="left">'+jsons[i].post_keywords+'</h3></span><p class="left">'+jsons[i].post_excerpt+'</p></div></div>'
 						$('.serve').append(box);
 					}
 //					$.each(jsons, function(a,b) {
