@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-		<taglib name="app\portal\taglib\Portal"/>
+		<taglib name="app\portal\taglib\Portal" />
 	</head>
 
 	<body>
@@ -43,7 +43,7 @@
 					<slides id="4">
 						<img src="{:cmf_get_image_url($vo.image)}" alt="" class="img centre" />
 					</slides>
-					<div class="banner_wz"><img src="__TMPL__/public/img/business_wz.png" class="img"/></div>
+					<div class="banner_wz"><img src="__TMPL__/public/img/business_wz.png" class="img" /></div>
 					<!--<h1 class="width left overflow">只为做更好的给你</h1>
 					<span class="width left overflow">
 						<p class="width left">品专互动致力于为医药企业的品牌与产品提供能量来源，为企业提供品牌营销方案。</p>
@@ -165,7 +165,7 @@
 							<p class="left">专业竞价优化师成为账户结构优化的新选择，品专互动根据每个推广计划和单元，量身定制账户推广方案 ...</p>
 						</div>
 					</div>-->
-					
+
 				</div>
 				<div class="left section_bn conwidth">查看更多</div>
 			</section>
@@ -220,7 +220,7 @@
 							<!--<li><a href="javascript:;">抖影传媒</a></li>-->
 						</ul>
 					</span>
-					<span class="left overflow display" >
+					<span class="left overflow display">
 						<ul>
 							<h3>DSP系统</h3>
 							<li><a href="DSPsystem.html">DSP系统</a></li>
@@ -250,7 +250,7 @@
 	<script type="text/javascript">
 		$(function() {
 			var margins = $('.pz_box').offset().left;
-			var widt=$('.pz_box').width();
+			var widt = $('.pz_box').width();
 			var navh = $('.nav_con').height();
 			$('.nav').css({
 				'display': 'block',
@@ -265,15 +265,15 @@
 					scrollTop: 0
 				}, 100);
 			})
-			$('.serve_box').each(function(){
-				var x=$(this).children('.serve_con').find('p').html()
-//				console.log(x.length);
-				if(x.length>42){
-					$(this).children('.serve_con').find('p').html(x.substring(0,40)+'...')
+			$('.serve_box').each(function() {
+				var x = $(this).children('.serve_con').find('p').html()
+				//				console.log(x.length);
+				if(x.length > 42) {
+					$(this).children('.serve_con').find('p').html(x.substring(0, 40) + '...')
 				}
 			})
 			//section_bn
-			$('.section_bn').click(function(){
+			$('.section_bn').click(function() {
 				businessajax(2)
 			})
 			//导航
@@ -284,34 +284,41 @@
 			searchs(2);
 			scrolls('.sections');
 			window.onscroll = function() {
-//				scrolls('.sections');
+				//				scrolls('.sections');
 				searchs(2);
 			}
 		})
-		
+
 		//跳转
-		function businessajax(num){
-			var i=0;
-			var jsons=null;
+		function businessajax(num) {
+			var i = 0;
+			var jsons = null;
 			$.ajax({
-				type:"post",
-				url:"http://thinkpz.cn/portal/business/page",
-				data:{page:num},
+				type: "post",
+				url: "http://thinkpz.cn/portal/business/page",
+				data: {
+					page: num
+				},
 				dataType: 'json',
-				async:true,
-				success:function(data){
+				async: true,
+				success: function(data) {
 					jsons = JSON.parse(data);
 					console.log(jsons)
-					for(;i<jsons.length;i++){
-						var box='<div class="serve_box left position" onclick="document.location.href='+jsons[i].links+'"><span class="left width"><img src="'+jsons[i].more+'" /></span><div class="serve_con width"><span class="left"><h3 class="left">'+jsons[i].post_keywords+'</h3></span><p class="left">'+jsons[i].post_excerpt+'</p></div></div>'
+					for(; i < jsons.length; i++) {
+						var box = '<div class="serve_box left position"><span class="left width"><img src="' + jsons[i].more + '" /></span><div class="serve_con width"><span class="left"><h3 class="left">' + jsons[i].post_keywords + '</h3></span><p class="left">' + jsons[i].post_excerpt + '</p></div></div>'
 						$('.serve').append(box);
 					}
-//					$.each(jsons, function(a,b) {
-//						$('.serve_box').eq(a).find('img').attr('src',b.busrc)
-//						$('.serve_box').eq(a).click(function(){
-//							document.location.href=b.buhrf;
-//						})
-//					});
+					$('.serve_box').each(function(a) {
+						$(this).click(function() {
+							document.location.href = '' + jsons[a].links;
+						})
+					})
+					if(jsons.errcode) {
+						if(jsons.errcode == '1101') {
+							alert('已经是最后一个服务');
+							$('.section_bn').hide();
+						}
+					}
 				}
 			});
 		}
