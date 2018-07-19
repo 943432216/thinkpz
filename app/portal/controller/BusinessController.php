@@ -18,8 +18,8 @@ class BusinessController extends HomeBaseController {
 	{
 		$category = 5;
 		$field = 'a.id,a.post_keywords,a.post_excerpt,a.more';
-		$page = 1;
-		$number = 7;
+		$page = input('?post.page')) ? input('post.page') : 1;
+		$number = 9;
 
 		$data = fetch_data($category, $field, $page, $number);
 		if ($data->isEmpty()) {
@@ -27,7 +27,7 @@ class BusinessController extends HomeBaseController {
 		}
 		$data = handle_img_url($data);
 		foreach ($data as $k => $v) {
-			$data[$k]['link'] = url('portal/article/index', ['id' => $v['id']]);
+			$data[$k]['links'] = url('portal/article/index', ['id' => $v['id']]);
 		}
 		return json_encode($data, JSON_UNESCAPED_UNICODE);
 	}
