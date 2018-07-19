@@ -274,13 +274,13 @@
 			})
 			//section_bn
 			$('.section_bn').click(function(){
-				alert('已经是最后一个')
+				businessajax(2)
 			})
 			//导航
 			$('.nav_logo').click(function() {
 				document.location.href = 'index.html';
 			})
-			businessajax();
+			businessajax(1);
 			searchs(2);
 			scrolls('.sections');
 			window.onscroll = function() {
@@ -290,13 +290,13 @@
 		})
 		
 		//跳转
-		function businessajax(){
+		function businessajax(num){
 			var i=0;
 			var jsons=null;
 			$.ajax({
 				type:"post",
 				url:"http://thinkpz.cn/portal/business/page",
-				data:{page:1},
+				data:{page:num},
 				dataType: 'json',
 				async:true,
 				success:function(data){
@@ -306,7 +306,6 @@
 						var box='<div class="serve_box left position" onclick=""><span class="left width"><img src="'+jsons[i].more+'" /></span><div class="serve_con width"><span class="left"><h3 class="left">'+jsons[i].post_keywords+'</h3></span><p class="left">'+jsons[i].post_excerpt+'</p></div></div>'
 						$('.serve').append(box);
 					}
-					
 //					$.each(jsons, function(a,b) {
 //						$('.serve_box').eq(a).find('img').attr('src',b.busrc)
 //						$('.serve_box').eq(a).click(function(){
