@@ -30,7 +30,7 @@ class BusinessController extends HomeBaseController {
 			$data[$k]['links'] = url('portal/article/index', ['id' => $v['id']]);
 		}
 		$json['status'] = '200';
-		$json['total'] = count($data);
+		$json['total'] = category_arts_sum($category, 1, true);
 		$json['page'] = $page;
 		$json['number'] = $number;
 		$json['data'] = $data;

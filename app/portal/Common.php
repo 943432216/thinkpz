@@ -43,6 +43,8 @@ function fetch_data($category, $field, $page, $number)
 	$data = \think\DB::name('portal_post')->alias('a')
 								   ->join('portal_category_post b', 'a.id=b.post_id')
 							       ->where('b.category_id', $category)
+							       ->where('a.post_status',1)
+							       ->where('a.delete_time',0)
 								   ->field($field)		
 								   ->limit($begin, $number)
 								   ->select();
@@ -61,4 +63,24 @@ function handle_img_url($data)
 		$data[$k]['more'] = cmf_get_image_url(json_decode($v['more'], true)['thumbnail']);
 	}
 	return $data;
+}
+
+function category_arts_sum($category, $post_status=false, $delete_time=false)
+{
+	$db = \think\DB::name('portal_post')->alias('a')
+	                                    ->join('portal_category_post b', 'a.id=b.post_id')
+	                                    ->where('b.category_id', $category);
+	if (false == $post_status) {
+		$db->where('post_status', '>=', 0);
+	} elseif(in_array($post_status, ['0','1'])) {
+		$db->where('post_status', $post_status);
+	}
+	                                    
+	if (false == $delete_time) {
+		$db->where('delete_time', '>=', 0);		
+	} else {
+		$db->where('delete_time', 0);
+	}
+	$data = $db->select();
+	return count($data);
 }
