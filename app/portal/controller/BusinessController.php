@@ -18,7 +18,7 @@ class BusinessController extends HomeBaseController {
 	{
 		$category = 5;
 		$field = 'a.id,a.post_keywords,a.post_excerpt,a.more';
-		$page = input('?post.page')) ? input('post.page') : 1;
+		$page = input('?post.page') ? input('post.page') : 1;
 		$number = 9;
 
 		$data = fetch_data($category, $field, $page, $number);
