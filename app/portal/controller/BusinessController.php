@@ -29,6 +29,11 @@ class BusinessController extends HomeBaseController {
 		foreach ($data as $k => $v) {
 			$data[$k]['links'] = url('portal/article/index', ['id' => $v['id']]);
 		}
-		return json_encode($data, JSON_UNESCAPED_UNICODE);
+		$json['status'] = '200';
+		$json['total'] = count($data);
+		$json['page'] = $page;
+		$json['number'] = $number;
+		$json['data'] = $data;
+		return json_encode($json, JSON_UNESCAPED_UNICODE);
 	}
 }
