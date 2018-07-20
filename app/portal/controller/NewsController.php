@@ -17,12 +17,27 @@ class NewsController extends HomeBaseController {
 
 	public function getnews()
 	{
-		$category = 2;
+		$category = input('?post.category') ? input('post.category') : 2;
 		$field = 'a.id,a.post_title,a.post_excerpt,a.more';
-		$page = 1;
-		$number = 7;
+		$page = input('?post.page') ? input('post.page') : 1;
+		$number = 6;
 		$data = fetch_data($category, $field, $page, $number);
 
-		return json_encode(handle_img_url($data), JSON_UNESCAPED_UNICODE);
+		if ($data->isEmpty()) {
+			return json_encode(['errcode' => '1101','error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
+		}
+
+		$data = handle_img_url($data);
+
+		foreach ($data as $k => $v) {
+			$data[$k]['links'] = url('portal/article/index', ['id' => $v['id']]);
+		}
+
+		$json['status'] = '200';
+		$json['total'] = category_arts_sum($category, 1, true);
+		$json['page'] = $page;
+		$json['number'] = $number;
+		$json['data'] = $data;
+		return json_encode($json, JSON_UNESCAPED_UNICODE);
 	}
 }
