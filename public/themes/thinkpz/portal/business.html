@@ -303,19 +303,21 @@
 				async: true,
 				success: function(data) {
 					jsons = JSON.parse(data);
-					console.log(jsons)
-					for(; i < jsons.length; i++) {
-						var box = '<div class="serve_box left position"><span class="left width"><img src="' + jsons[i].more + '" /></span><div class="serve_con width"><span class="left"><h3 class="left">' + jsons[i].post_keywords + '</h3></span><p class="left">' + jsons[i].post_excerpt + '</p></div></div>'
-						$('.serve').append(box);
-					}
-					$('.serve_box').each(function(a) {
-						$(this).click(function() {
-							document.location.href = '' + jsons[a].links;
+					console.log(jsons);
+					if(jsons.status == '200') {
+						for(; i < jsons.data.length; i++) {
+							var box = '<div class="serve_box left position"><span class="left width"><img src="' + jsons.data[i].more + '" /></span><div class="serve_con width"><span class="left"><h3 class="left">' + jsons.data[i].post_keywords + '</h3></span><p class="left">' + jsons.data[i].post_excerpt + '</p></div></div>'
+							$('.serve').append(box);
+						}
+						$('.serve_box').each(function(a) {
+							$(this).click(function() {
+								document.location.href = '' + jsons.data[a].links;
+							})
 						})
-					})
-					if(jsons.errcode) {
+
+					} else {
 						if(jsons.errcode == '1101') {
-							alert('已经是最后一个服务');
+							alert('已经是最后一条数据');
 							$('.section_bn').hide();
 						}
 					}
