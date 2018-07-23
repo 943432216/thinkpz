@@ -321,26 +321,32 @@ function about_move(el, n1, n2, n3, n4) {
 }
 
 function sharp() {
-	//	var inds=document.getElementById('ins');
-	//	var sens=window.screen.width;
-	//	if(sens==1366){
-	//		inds.setAttribute('href','css/main_1366.css');
-	//	}else if(sens==1920){
-	//		inds.setAttribute('href','css/main_1920.css');
-	//	}else if(sens>1920){
-	//		inds.setAttribute('href','css/main_1920.css');
-	//	}
+	var jsons = null;
+	$.ajax({
+		type: "post",
+		url: "http://thinkpz.cn/portal/news/getnews",
+		data: {
+			page: 1,
+			category: 3
+		},
+		dataType: 'json',
+		async: true,
+		success: function(data) {
+			jsons = JSON.parse(data);
+			console.log(jsons);
+		}
+	});
 }
 
 //首页加载
 
 function toload() {
-//	var years = $('.one_avt a').html();
-//	years = years.split('年')[0]
-//	$('.one_title li').click(function() {
-//		$(this).siblings().removeClass('one_avt');
-//		$(this).addClass('one_avt');
-//	});
+	//	var years = $('.one_avt a').html();
+	//	years = years.split('年')[0]
+	//	$('.one_title li').click(function() {
+	//		$(this).siblings().removeClass('one_avt');
+	//		$(this).addClass('one_avt');
+	//	});
 	//	console.log(years)
 	function _ajax() {
 		$.ajax({
@@ -358,3 +364,36 @@ function toload() {
 	}
 
 }
+
+var addNew = (function($) {
+	function addNew() {
+		this.page = 1;
+		this.category = 2;
+	}
+	addNew.prototype._init = function() {
+//		console.log(t)
+	};
+	addNew.prototype._ajax = function() {
+		var _this=this;
+//		$.ajax({
+//			type: 'post',
+//			url: 'http://thinkpz.cn/portal/news/getnews',
+//			data: {
+//				page:_this.page,
+//				category: _this.category
+//			},
+//			dataType: 'json',
+//			async: true,
+//			success: function(data) {
+//				jsons = JSON.parse(data);
+//				console.log(jsons);
+//			}
+//		})
+	};
+	addNew.prototype._sny = function() {
+
+	}
+	return addNew;
+})(jQuery);
+var nx=new addNew();
+console.log(nx)
