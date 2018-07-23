@@ -6,7 +6,8 @@
 namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
-use think\DB;
+use app\portal\logic\ArticleLogic;
+use think\Db;
 
 
 class NewsController extends HomeBaseController {
@@ -27,17 +28,6 @@ class NewsController extends HomeBaseController {
 			return json_encode(['errcode' => '1101','error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
 		}
 
-		$data = handle_img_url($data);
-
-		foreach ($data as $k => $v) {
-			$data[$k]['links'] = url('portal/article/index', ['id' => $v['id']]);
-		}
-
-		$json['status'] = '200';
-		$json['total'] = category_arts_sum($category, 1, true);
-		$json['page'] = $page;
-		$json['number'] = $number;
-		$json['data'] = $data;
-		return json_encode($json, JSON_UNESCAPED_UNICODE);
+		return ArticleLogic::handle_success_data($category, $page, $number, $data);
 	}
 }
