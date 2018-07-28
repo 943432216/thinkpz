@@ -19,7 +19,7 @@ class NewsController extends HomeBaseController {
 	public function getnews()
 	{
 		$category = input('?post.category') ? input('post.category') : 2;
-		$field = 'a.id,a.post_title,a.post_excerpt,a.more';
+		$field = 'a.id,a.post_title,a.post_excerpt,a.more,a.published_time';
 		$page = input('?post.page') ? input('post.page') : 1;
 		$number = 6;
 		$data = fetch_data($category, $field, $page, $number);
