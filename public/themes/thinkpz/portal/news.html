@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8" />
-		<title>品专互动</title>
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-		<taglib name="app\portal\taglib\Portal"/>
-	</head>
+<head>
+    <meta charset="utf-8" />
+    <title>品专互动</title>
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
+    <taglib name="app\portal\taglib\Portal" />
+</head>
 
-	<body>
-		<div class="pz_box overflow position">
-			<div class="pz_cb">
-				<ul>
-					<li>
-						<a href="javascript:;" class="top"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="kf"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="wx"></a>
-					</li>
-				</ul>
-			</div>
-			<div class="nav overflow left">
-				<div class="nav_logo left"></div>
-				<!-- 引入导航模板 -->
-				<include file="common/nav" />
-				<!-- 引入导航模板结束 -->
-				<div class="nav_ss left position">
-					<div class="search_click">
-						<input type="text" name="search" id="search" value="" />
-						<span><img src="__TMPL__/public/img/search.png"/></span>
-					</div>
-					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
-				</div>
-			</div>
-			<header class="width left overflow">
-				<div class="swiper-container header_banner position news_tl">
-					<img src="__TMPL__/public/img/news.png" alt="" class="img centre" />
-					<div class="banner_wz"><img src="__TMPL__/public/img/news_wz.png" class="img"/></div>
-					<!--<h1 class="width left overflow">聚焦新闻，跟踪资讯</h1>
+<body>
+    <div class="pz_box overflow position">
+        <div class="pz_cb">
+            <ul>
+                <li>
+                    <a href="javascript:;" class="top"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="kf"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="wx"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav overflow left">
+            <div class="nav_logo left"></div>
+            <!-- 引入导航模板 -->
+            <include file="common/nav" />
+            <!-- 引入导航模板结束 -->
+            <div class="nav_ss left position">
+                <div class="search_click">
+                    <input type="text" name="search" id="search" value="" />
+                    <span>
+                        <img src="__TMPL__/public/img/search.png" />
+                    </span>
+                </div>
+                <div class="click_one">
+                    <img src="__TMPL__/public/img/search.png" />
+                </div>
+            </div>
+        </div>
+        <header class="width left overflow">
+            <div class="swiper-container header_banner position news_tl">
+                <img src="__TMPL__/public/img/news.png" alt="" class="img centre" />
+                <div class="banner_wz">
+                    <img src="__TMPL__/public/img/news_wz.png" class="img" />
+                </div>
+                <!--<h1 class="width left overflow">聚焦新闻，跟踪资讯</h1>
 					<span class="width left overflow">
 						<p class="width left">最新最快的新闻资讯</p>
 						<p class="width left">THE LATEST THE FASTEST NEWS AND INFORMATION</p>
 					</span>-->
-				</div>
-			</header>
-			<section class="width left overflow sections">
-				<div class="news_bn conwidth left">
-					<a href="javascript:;" class="news_avt">公司新闻</a>
-					<a href="javascript:;">行业资讯</a>
-				</div>
-				<div class="conwidth left news_box news_xs">
-					<!--<div class="news_con left">
+            </div>
+        </header>
+        <section class="width left overflow sections">
+            <div class="news_bn conwidth left">
+                <a href="javascript:;" class="news_avt">公司新闻</a>
+                <a href="javascript:;">行业资讯</a>
+            </div>
+            <div class="conwidth left news_box news_xs">
+                <!--<div class="news_con left">
 						<span class="left display position overflow news_img"><img src="__TMPL__/public/img/news_1.png"/></span>
 						<span class="left display position overflow news_wz">
 							<h1>品专互动赞助“千里侠”</h1>
@@ -68,155 +74,190 @@
 							<img src="__TMPL__/public/img/jts.png" class="jts"/>
 						</span>
 					</div>-->
-				</div>	
-				<!--分界线-->
-				<div class="conwidth left news_box">
-					
-					
-				</div>
-				<div class="section_bn left conwidth">查看更多</div>
-			</section>
-			<footer class="left overflow">
-				<div class="left overflow footer_left">
-					<div class="left ewm">
-						<img src="__TMPL__/public/img/ewm.png" />
-					</div>
-					<div class="lx left">
-						<ul>
-							<li>
-								<p><img src="__TMPL__/public/img/phone.png" /></p>
-								<p>周一至五&nbsp;9:00-18:00</p>
-							</li>
-							<li>020-29828772</li>
-						</ul>
-					</div>
-					<div class="dz">地址：广州市海珠区新港东路1168号环汇广场北塔1004-1005</div>
-				</div>
-				<div class="left overflow footer_right">
-					<span class="left overflow display">
-						<ul>
-							<h3>品专集团</h3>
-							<li><a href="details/about.html">品专互动</a></li>
-							<li><a href="javascript:;">易哲网络</a></li>
-							<li><a href="javascript:;">正和药业</a></li>
-							<li><a href="javascript:;">抖影传媒</a></li>
-						</ul>
-					</span>
-					<span class="left overflow display">
-						<ul>
-							<h3>业务板块</h3>
-							<li><a href="details/business_SEM.html">SEM服务</a></li>
-							<li><a href="details/business_SEO.html">SEO服务</a></li>
-							<li><a href="details/business_Adver.html">信息流</a></li>
-							<li><a href="DSPsystem.html">DSP系统</a></li>
-						</ul>
-					</span>
-					<span class="left overflow display">
-						<ul>
-							<h3>新闻中心</h3>
-							<li><a href="news.html">公司新闻</a></li>
-							<li><a href="news.html">行业资讯</a></li>
-						</ul>
-					</span>
-					<span class="left overflow display">
-						<ul>
-							<h3>经典案例</h3>
-							<li><a href="successful_case.html">2016年</a></li>
-							<li><a href="successful_case.html">2017年</a></li>
-							<li><a href="successful_case.html">2018年</a></li>
-							<!--<li><a href="javascript:;">抖影传媒</a></li>-->
-						</ul>
-					</span>
-					<span class="left overflow display">
-						<ul>
-							<h3>DSP系统</h3>
-							<li><a href="DSPsystem.html">DSP系统</a></li>
-							<!--<li><a href="javascript:;">易哲网络</a></li>
+            </div>
+            <!--分界线-->
+            <div class="conwidth left news_box">
+
+
+            </div>
+            <div class="section_bn left conwidth">查看更多</div>
+        </section>
+        <footer class="left overflow">
+            <div class="left overflow footer_left">
+                <div class="left ewm">
+                    <img src="__TMPL__/public/img/ewm.png" />
+                </div>
+                <div class="lx left">
+                    <ul>
+                        <li>
+                            <p>
+                                <img src="__TMPL__/public/img/phone.png" />
+                            </p>
+                            <p>周一至五&nbsp;9:00-18:00</p>
+                        </li>
+                        <li>020-29828772</li>
+                    </ul>
+                </div>
+                <div class="dz">地址：广州市海珠区新港东路1168号环汇广场北塔1004-1005</div>
+            </div>
+            <div class="left overflow footer_right">
+                <span class="left overflow display">
+                    <ul>
+                        <h3>品专集团</h3>
+                        <li>
+                            <a href="details/about.html">品专互动</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">易哲网络</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">正和药业</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">抖影传媒</a>
+                        </li>
+                    </ul>
+                </span>
+                <span class="left overflow display">
+                    <ul>
+                        <h3>业务板块</h3>
+                        <li>
+                            <a href="details/business_SEM.html">SEM服务</a>
+                        </li>
+                        <li>
+                            <a href="details/business_SEO.html">SEO服务</a>
+                        </li>
+                        <li>
+                            <a href="details/business_Adver.html">信息流</a>
+                        </li>
+                        <li>
+                            <a href="DSPsystem.html">DSP系统</a>
+                        </li>
+                    </ul>
+                </span>
+                <span class="left overflow display">
+                    <ul>
+                        <h3>新闻中心</h3>
+                        <li>
+                            <a href="news.html">公司新闻</a>
+                        </li>
+                        <li>
+                            <a href="news.html">行业资讯</a>
+                        </li>
+                    </ul>
+                </span>
+                <span class="left overflow display">
+                    <ul>
+                        <h3>经典案例</h3>
+                        <li>
+                            <a href="successful_case.html">2016年</a>
+                        </li>
+                        <li>
+                            <a href="successful_case.html">2017年</a>
+                        </li>
+                        <li>
+                            <a href="successful_case.html">2018年</a>
+                        </li>
+                        <!--<li><a href="javascript:;">抖影传媒</a></li>-->
+                    </ul>
+                </span>
+                <span class="left overflow display">
+                    <ul>
+                        <h3>DSP系统</h3>
+                        <li>
+                            <a href="DSPsystem.html">DSP系统</a>
+                        </li>
+                        <!--<li><a href="javascript:;">易哲网络</a></li>
 							<li><a href="javascript:;">正和药业</a></li>
 							<li><a href="javascript:;">抖影传媒</a></li>-->
-						</ul>
-					</span>
-					<span class="left overflow display">
-						<ul>
-							<h3>加入我们</h3>
-							<li><a href="join_us.html">人才理念</a></li>
-							<li><a href="join_us.html">招聘信息</a></li>
-							<!--<li><a href="javascript:;">正和药业</a></li>
+                    </ul>
+                </span>
+                <span class="left overflow display">
+                    <ul>
+                        <h3>加入我们</h3>
+                        <li>
+                            <a href="join_us.html">人才理念</a>
+                        </li>
+                        <li>
+                            <a href="join_us.html">招聘信息</a>
+                        </li>
+                        <!--<li><a href="javascript:;">正和药业</a></li>
 							<li><a href="javascript:;">抖影传媒</a></li>-->
-						</ul>
-					</span>
-				</div>
-				<div class="left overflow width footer_bn">Copyright © 广州品专网络科技有限公司 | 备案号 粤ICP备16015739号-1</div>
-			</footer>
-		</div>
-	</body>
-	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$(function() {
-//			$("img").lazyload({
-//				effect: "fadeIn",
-//				threshold: 200,
-//				 placeholder: "__TMPL__/public/img/pz_sys.png"
-//			})
-			sharp()
-			//初始化导航
-			var margins = $('.pz_box').offset().left;
-			var widt=$('.pz_box').width();
-			var navh = $('.nav_con').height();
-			$('.nav').css({
-				'display': 'block',
-				'background': 'transparent',
-				'height': navh,
-				'width': widt,
-				'margin-left': margins
-			});
-			//返回顶部
-			$('.top').click(function() {
-				$("html,body").animate({
-					scrollTop: 0
-				}, 100);
-			})
-			//new_tl
-			$('.news_bn a').each(function(a,b){
-				$(this).click(function(){
-					$('.news_box').removeClass('news_xs');
-					$('.news_bn a').removeClass('news_avt')
-					$(this).addClass('news_avt');
-					$('.news_box').eq(a).addClass('news_xs');
-				})
-			})
-			//new_con
-			setTimeout(function(){
-				$('.news_con').mouseenter(function(){
-					$(this).css('background','#007ee9')
-					$(this).children('.news_wz').addClass('news_avts');
-					$(this).find('.jts').stop().animate({
-						left:'25%'
-					},500)
-				}).mouseleave(function(){
-					$('.news_con').css('background','#f7f7f7');
-					$('.news_con .news_wz').removeClass('news_avts');
-					$('.news_con').find('.jts').stop().animate({
-						left:'-23px'
-					},500)
-				});
-			},200)
-			//案例
-//			addnews();
-			//导航
-			$('.nav_logo').click(function() {
-				document.location.href = 'index.html';
-			})
-			searchs(3);
-			scrolls('.sections');
-			window.onscroll = function() {
-//				scrolls('.sections');
-				searchs(3);
-			}
-		})
-	</script>
+                    </ul>
+                </span>
+            </div>
+            <div class="left overflow width footer_bn">Copyright © 广州品专网络科技有限公司 | 备案号 粤ICP备16015739号-1</div>
+        </footer>
+    </div>
+</body>
+<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.serve').Toload({
+            sign: "news",
+            data: {
+                page: 1
+            },
+            urls: 'http://thinkpz.cn/portal/news/getnews'
+        });
+        //初始化导航
+        var margins = $('.pz_box').offset().left;
+        var widt = $('.pz_box').width();
+        var navh = $('.nav_con').height();
+        $('.nav').css({
+            'display': 'block',
+            'background': 'transparent',
+            'height': navh,
+            'width': widt,
+            'margin-left': margins
+        });
+        //返回顶部
+        $('.top').click(function () {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 100);
+        })
+        //new_tl
+        $('.news_bn a').each(function (a, b) {
+            $(this).click(function () {
+                $('.news_box').removeClass('news_xs');
+                $('.news_bn a').removeClass('news_avt')
+                $(this).addClass('news_avt');
+                $('.news_box').eq(a).addClass('news_xs');
+            })
+        })
+        //new_con
+        setTimeout(function () {
+            $('.news_con').mouseenter(function () {
+                $(this).css('background', '#007ee9')
+                $(this).children('.news_wz').addClass('news_avts');
+                $(this).find('.jts').stop().animate({
+                    left: '25%'
+                }, 500)
+            }).mouseleave(function () {
+                $('.news_con').css('background', '#f7f7f7');
+                $('.news_con .news_wz').removeClass('news_avts');
+                $('.news_con').find('.jts').stop().animate({
+                    left: '-23px'
+                }, 500)
+            });
+        }, 200)
+        //案例
+        //			addnews();
+        //导航
+        $('.nav_logo').click(function () {
+            document.location.href = 'index.html';
+        })
+        searchs(3);
+        scrolls('.sections');
+        window.onscroll = function () {
+            //				scrolls('.sections');
+            searchs(3);
+        }
+    })
+</script>
 
 </html>

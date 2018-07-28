@@ -245,10 +245,17 @@
 	</body>
 	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
+			 $('.serve').Toload({
+				sign: "buss",
+				data:{
+					page:1
+				},
+				urls:'http://thinkpz.cn/portal/business/page'
+			});
 			var margins = $('.pz_box').offset().left;
 			var widt = $('.pz_box').width();
 			var navh = $('.nav_con').height();
@@ -280,50 +287,14 @@
 			$('.nav_logo').click(function() {
 				document.location.href = 'index.html';
 			})
-			businessajax(1);
 			searchs(2);
 			scrolls('.sections');
 			window.onscroll = function() {
-				//				scrolls('.sections');
 				searchs(2);
 			}
 		})
 
 		//跳转
-		function businessajax(num) {
-			var i = 0;
-			var jsons = null;
-			$.ajax({
-				type: "post",
-				url: "http://thinkpz.cn/portal/business/page",
-				data: {
-					page: num
-				},
-				dataType: 'json',
-				async: true,
-				success: function(data) {
-					jsons = JSON.parse(data);
-//					console.log(jsons);
-					if(jsons.status == '200') {
-						for(; i < jsons.data.length; i++) {
-							var box = '<div class="serve_box left position"><span class="left width"><img src="' + jsons.data[i].more + '" /></span><div class="serve_con width"><span class="left"><h3 class="left">' + jsons.data[i].post_keywords + '</h3></span><p class="left">' + jsons.data[i].post_excerpt + '</p></div></div>'
-							$('.serve').append(box);
-						}
-						$('.serve_box').each(function(a) {
-							$(this).click(function() {
-								document.location.href = '' + jsons.data[a].links;
-							})
-						})
-
-					} else {
-						if(jsons.errcode == '1101') {
-							alert('已经是最后一条数据');
-							$('.section_bn').hide();
-						}
-					}
-				}
-			});
-		}
 	</script>
 
 </html>
