@@ -236,7 +236,7 @@ function addnews() {
 	var newsel = '<div class="news_con left"><span class="left display position overflow news_img"><img src="" class="img"/></span><span class="left display position overflow news_wz"><h1></h1><p class="s_t"></p><p class="s_c"></p><p class="s_s"></p></span><span class="left display position overflow jt"><img src="img/jt.png" class="jti"/><img src="img/jts.png" class="jts"/></span></div>';
 	$.ajax({
 		type: "get",
-		url: "js/news.txt",
+		url: "__TMPL__/public/js/news.txt",
 		async: true,
 		dataType: 'text',
 		success: function(data) {

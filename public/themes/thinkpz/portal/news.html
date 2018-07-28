@@ -75,11 +75,6 @@
 						</span>
 					</div>-->
             </div>
-            <!--分界线-->
-            <div class="conwidth left news_box">
-
-
-            </div>
             <div class="section_bn left conwidth">查看更多</div>
         </section>
         <footer class="left overflow">
@@ -196,10 +191,11 @@
 <script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function () {
-        $('.serve').Toload({
+        $('.news_box').Toload({
             sign: "news",
             data: {
-                page: 1
+                page: 1,
+				category: 2
             },
             urls: 'http://thinkpz.cn/portal/news/getnews'
         });
@@ -245,8 +241,6 @@
                 }, 500)
             });
         }, 200)
-        //案例
-        //			addnews();
         //导航
         $('.nav_logo').click(function () {
             document.location.href = 'index.html';
@@ -254,9 +248,9 @@
         searchs(3);
         scrolls('.sections');
         window.onscroll = function () {
-            //				scrolls('.sections');
             searchs(3);
         }
+		// addnews()
     })
 </script>
 
