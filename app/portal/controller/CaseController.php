@@ -7,6 +7,7 @@
 namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
+use app\portal\logic\ArticleLogic;
 
 class CaseController extends HomeBaseController
 {
@@ -15,18 +16,19 @@ class CaseController extends HomeBaseController
 		return $this->fetch('/case');
 	}
 
-	public function list_case()
+	public function listCase()
 	{
-		if (!input('?post.year')) {
-			$this->error('缺少年份参数...');
+		$category = 4;
+		$year = input('?post.year') ? input('post.year') : '';
+		$page = input('?post.page') ? input('post.page') : 1;
+		$number = 9;
+		$field = 'a.id,post_title,more,published_time';
+
+		$data = fetch_case_by_year($year, $page, $number, $field);
+		if ($data->isEmpty()) {
+			return json_encode(['errcode' => '1101','error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
 		}
-		$year = input('post.year');
-		$limit = 4;	
-		$case_arr = list_case('2016', $limit, 'post_title,post_excerpt,post_hits,more');
-		foreach ($case_arr as $k => $v) {
-			$case_arr[$k]['more'] =  cmf_get_image_url($case_arr[$k]['more']['thumbnail']);
-		}	
-	
-		return json_encode($case_arr, JSON_UNESCAPED_UNICODE);
+
+		return ArticleLogic::handle_success_data($category, $page, $number, $data);
 	}
 }

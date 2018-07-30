@@ -1,32 +1,39 @@
 <?php 
 
+
+
 /**
- * [list_case 获取某个年份的案例数据]
+ *  获取某个年份的案例数据
  * @param  string $year  [年份，返回当年发布的案例]
- * @param  string $limit [条数，限制数据量]
+ * @param  string $page [当前页码]
+ * @param  string $number [每页条数]
  * @param  string $field [限制返回数据的字段]
  * @return [array]       [合作案例数据]
  */
-function list_case($year='', $limit='', $field='')
+function fetch_case_by_year($year='', $page, $number, $field='')
 {
-	if (empty($year)) {
-		$data = \app\portal\model\PortalPostModel::all(function($query) use($field,$limit) {
-			$query->field($field)
-			      ->limit($limit)
-			      ->order('published_time desc');
-		});
-	} else {
+	$begin = $number*($page - 1);
+	$where = [
+		'a.post_status' => 1,
+		'a.delete_time' => 0,
+ 	];
+ 	$db = \think\Db::name('portal_post')->alias('a')
+								        ->join('portal_category_post b', 'a.id=b.post_id')
+							            ->where('b.category_id', 4)
+ 										->where($where);
+
+	if (!empty($year)) {
 		$begin = mktime(0,0,0,1,1,$year);
 		$end = mktime(0,0,0,1,1,++$year);
-		$data = \app\portal\model\PortalPostModel::all(function($query) use($field,$begin,$end,$limit) {
-			$query->field($field)
-			      ->where('published_time', '>=', $begin)
-				  ->where('published_time', '<', $end)
-				  ->order('published_time desc')
-			      ->limit($limit);
-		});
+		$db->where('published_time', '>=', $begin)
+		   ->where('published_time', '<', $end);	                           
 	}
-	return $data->toArray();
+	
+	$data = $db->order('published_time desc')
+	           ->limit($begin, $number)
+	           ->field($field)
+	           ->select();
+	return $data;
 }
 
 /**
