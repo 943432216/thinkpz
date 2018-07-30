@@ -196,7 +196,7 @@ function cases() {
 		dataType: 'text',
 		async: true,
 		success: function(data) {
-			jsons = JSON.parse(data);
+			// jsons = JSON.parse(data);
 			$.each(jsons, function(a, b) {
 				if(a == '2016') {
 					$.each(jsons[2016], function(n, x) {

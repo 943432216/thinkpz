@@ -1,4 +1,4 @@
-﻿
+
 .conwidth{width:calc(100% - 340px);width: -webkit-calc(100% - 340px);width: -moz-calc(100% - 340px);width: -ms-calc(100% - 340px)}
 .centre{-webkit-transition:all 1s;-moz-transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;}
 .centre:hover{-webkit-transform:scale(1.1,1.1);-moz-transform:scale(1.1,1.1);-o-transform:scale(1.1,1.1);-ms-transform:scale(1.1,1.1)}
@@ -234,7 +234,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .case_nav a{padding:15px 30px;font-size: 20px;color: #333;margin-right: 20px;display: block;float: left;border-radius: 5px;background: #f2f2f2;}
 .case_nav a:nth-last-of-type(1){margin-right: 0;}
 .nav_avt{background: #007ee9 !important;color: #fff !important;}
-.case_con{display:none;margin: 0 170px;}
+.case_con{margin: 0 170px;}
 .case_con:nth-of-type(1){display: block;}
 .section_bn{margin: 30px 170px 0 170px;background:url(../img/moresd.png) no-repeat 55% center #a0a0a0;background-size:18px 18px;color: #fff;font-size: 17px;height:48px;line-height: 48px;text-align: center;cursor: pointer;}
 .section_bn:hover{background:url(../img/moresd.png) no-repeat 55% center #007ee9;background-size:18px 18px;}

@@ -225,22 +225,6 @@
                 $('.news_box').eq(a).addClass('news_xs');
             })
         })
-        //new_con
-        setTimeout(function () {
-            $('.news_con').mouseenter(function () {
-                $(this).css('background', '#007ee9')
-                $(this).children('.news_wz').addClass('news_avts');
-                $(this).find('.jts').stop().animate({
-                    left: '25%'
-                }, 500)
-            }).mouseleave(function () {
-                $('.news_con').css('background', '#f7f7f7');
-                $('.news_con .news_wz').removeClass('news_avts');
-                $('.news_con').find('.jts').stop().animate({
-                    left: '-23px'
-                }, 500)
-            });
-        }, 200)
         //导航
         $('.nav_logo').click(function () {
             document.location.href = 'index.html';

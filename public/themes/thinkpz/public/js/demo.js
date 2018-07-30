@@ -27,16 +27,25 @@
                 alert('请输入正确的参数')
                 return false;
             } else {
-                this._successAjax(this.sign);
+                this._successAjax(this.sign); //初始化
+//                 if (this.sign) {
+// 
+//                 }
             }
         },
         _index: function (a) { //首页
             // console.log(data)
         },
-        _case: function (a) { //案例模块
+        //案例模块
+        _case: function (a) {
             // console.log(data)
         },
-        _news: function (a) { //新闻模块
+        /*
+         *	新闻板块
+         * 	1.子元素的动态效果
+         *	2.事件
+         */
+        _news: function (a) {
             var i = 0;
             if (a.status == '200') {
                 this._moreBn(a);
@@ -47,7 +56,8 @@
                         '" class="img"/></span><span class="left display position overflow news_wz"><h1>' +
                         a.data[i].post_title +
                         '</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_title +
-                        '</p><p class="s_s"></p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
+                        '</p><p class="s_s">' + a.data[i].published_time +
+                        '</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
                     );
                 }
                 this._newCon();
@@ -63,7 +73,29 @@
                 }
             }
         },
-        _buss: function (a) { //业务模块
+        //新闻板块动效
+        _newCon: function () {
+            this.ele.children('.news_con').mouseenter(function () {
+                $(this).css('background', '#007ee9')
+                $(this).children('.news_wz').addClass('news_avts');
+                $(this).find('.jts').stop().animate({
+                    left: '25%'
+                }, 500)
+            }).mouseleave(function () {
+                $(this).css('background', '#f7f7f7');
+                $(this).children('.news_wz').removeClass('news_avts');
+                $(this).find('.jts').stop().animate({
+                    left: '-25%'
+                }, 500)
+            });
+        },
+        /*
+         *	业务板块
+         * 	1.模块内子元素的动态效果
+         *	2.事件
+         */
+        _buss: function (a) {
+			console.log(a)
             var i = 0;
             if (a.status == '200') {
                 for (; i < a.data.length; i++) {
@@ -88,7 +120,13 @@
             }
 
         },
-        _ajaxSet: function () { //统一的ajax参数
+        /*
+         *	ajax
+         * 	1.设置全局参数
+         *	2.ajax执行
+		 *	3.部分加载
+         */
+        _ajaxSet: function () {//全局参数
             var set = {
                 type: 'post',
                 url: this.options.urls,
@@ -97,7 +135,7 @@
             };
             return set;
         },
-        _successAjax: function (sign) { //成功执行函数
+        _successAjax: function (sign) {//ajax执行
             var _this = this;
             $.ajax(this._ajaxSet()).done(function (data) {
                 var successData = data;
@@ -117,8 +155,8 @@
                         break;
                 }
             });
-        },
-        _moreBn: function (data) { //加载更多按钮
+        },        
+        _moreBn: function (data) {//部分加载
             console.log(data);
             var total = data.total, //总条数
                 page = data.page, //返回当前页数
@@ -139,21 +177,6 @@
                 });
 
             }
-        },
-        _newCon: function () {
-            this.ele.children('.news_con').mouseenter(function () {
-                $(this).css('background', '#007ee9')
-                $(this).children('.news_wz').addClass('news_avts');
-                $(this).find('.jts').stop().animate({
-                    left: '25%'
-                }, 500)
-            }).mouseleave(function () {
-                $(this).css('background', '#f7f7f7');
-                $(this).children('.news_wz').removeClass('news_avts');
-                $(this).find('.jts').stop().animate({
-                    left: '-25%'
-                }, 500)
-            });
         }
     };
     $.fn.Toload = function (options) {
