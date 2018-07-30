@@ -483,6 +483,8 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 /*end*/
 @media only screen and (max-width:1400px){
 	.pz_box{width: 1366px;max-width:1366px;}
+	.news_index_se p:nth-of-type(1){padding-left:7%;}
+	.news_index_se p:nth-of-type(2){padding-left:6%;}
 }
 @media only screen and (min-width: 1401px) and (max-width:1600px) {
 	.case_avt .ca_con_mod h3{font-size:16px;line-height: 3;}
