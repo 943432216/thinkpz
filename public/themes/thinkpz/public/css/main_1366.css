@@ -233,7 +233,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .case_nav{margin: 65px 170px 45px 170px;float: left;}
 .case_nav a{padding:15px 30px;font-size: 20px;color: #333;margin-right: 20px;display: block;float: left;border-radius: 5px;background: #f2f2f2;}
 .case_nav a:nth-last-of-type(1){margin-right: 0;}
-.case_avts{background: #007ee9 !important;color: #fff !important;}
+.cases_avt{background: #007ee9 !important;color: #fff !important;}
 .case_con{margin: 0 170px;}
 .case_con:nth-of-type(1){display: block;}
 .section_bn{margin: 30px 170px 0 170px;background:url(../img/moresd.png) no-repeat 55% center #a0a0a0;background-size:18px 18px;color: #fff;font-size: 17px;height:48px;line-height: 48px;text-align: center;cursor: pointer;}

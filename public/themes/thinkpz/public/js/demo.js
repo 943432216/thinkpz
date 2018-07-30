@@ -147,7 +147,7 @@
                     case 'news':
                         _this._news(successData)
                         break;
-                    case 'case':
+                    case 'cases':
                         _this._case(successData)
                         break;
                     case 'buss':
@@ -182,7 +182,8 @@
 			if(sign=='index'){
 				
 			}else{
-				this.prev.children()
+				// this.prev.children('.'+sign+'_avt')
+				// console.log(this.prev.children('.'+sign+'_avt'))
 			}
 		}
     };
