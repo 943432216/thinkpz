@@ -318,21 +318,21 @@ function about_move(el, n1, n2, n3, n4) {
 }
 
 function sharp() {
-	var jsons = null;
-	$.ajax({
-		type: "post",
-		url: "http://thinkpz.cn/portal/news/getnews",
-		data: {
-			page: 1,
-			category: 3
-		},
-		dataType: 'json',
-		async: true,
-		success: function(data) {
-			jsons = JSON.parse(data);
-			console.log(jsons);
-		}
-	});
+// 	var jsons = null;
+// 	$.ajax({
+// 		type: "post",
+// 		url: "http://thinkpz.cn/portal/news/getnews",
+// 		data: {
+// 			page: 1,
+// 			category: 3
+// 		},
+// 		dataType: 'json',
+// 		async: true,
+// 		success: function(data) {
+// 			jsons = JSON.parse(data);
+// 			console.log(jsons);
+// 		}
+// 	});
 }
 
 //首页加载

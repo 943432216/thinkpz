@@ -190,15 +190,13 @@
 </body>
 <script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function () {
-        $("img").lazyload({
-            effect: "fadeIn",
-            threshold: 200,
-            placeholder: "__TMPL__/public/img/pz_sys.png"
-        })
+        $('.case_con').Toload({
+			sign:
+		})
         sharp()
         //初始化导航
         var margins = $('.pz_box').offset().left;
@@ -263,13 +261,10 @@
         searchs(4);
         scrolls('.sections');
         window.onscroll = function () {
-            //				scrolls('.sections');
             searchs(4);
         }
 
     })
-
-    //----------------------------
 </script>
 
 </html>

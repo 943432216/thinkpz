@@ -23,14 +23,14 @@
             this.data = options.data;
             this.bn = $('.section_bn');
             this.prev = $('.prevbn') || null;
-            this.flag = 0;
+            this.flag = 0;//开关
             if (this.sign == null || this.data == null || this.urls == null) {
                 alert('请输入正确的参数')
                 return false;
             } else {
                 this._successAjax(); //初始化
 
-                this._prevBn();
+                // this._prevBn();
             }
         },
         _index: function (a) { //首页
@@ -139,10 +139,11 @@
 
         },
         /*
-         *	ajax
-         * 	1.设置全局参数
+         *	工具
+         * 	1.设置ajax全局参数
          *	2.ajax执行
          *	3.部分加载
+		 *	4.
          */
         _ajaxSet: function () { //全局参数
             var set = {
@@ -212,17 +213,14 @@
                             case '行业资讯':
                                 _this.data.category = 3
                                 break;
-                            case '全部案例':
-                                _this.data.year = 0
-                                break;
                             case '2016年':
-                                _this.data.year = 1
+                                _this.data.year = 2016
                                 break;
                             case '2017年':
-                                _this.data.year = 2
+                                _this.data.year = 2017
                                 break;
                             case '2018年':
-                                _this.data.year = 3
+                                _this.data.year = 2018
                                 break;
                         }
                         _this.flag = 1;
