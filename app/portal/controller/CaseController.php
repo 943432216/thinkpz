@@ -21,7 +21,7 @@ class CaseController extends HomeBaseController
 		$category = 4;
 		$year = input('?post.year') ? input('post.year') : '';
 		$page = input('?post.page') ? input('post.page') : 1;
-		$number = 9;
+		$number = 6;
 		$field = 'a.id,post_title,more,published_time';
 
 		$data = fetch_case_by_year($year, $page, $number, $field);
