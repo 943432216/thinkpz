@@ -230,50 +230,6 @@ function jois(nc, n, x, jots, el) {
 	})
 }
 
-//nwes
-function addnews() {
-	var jsons = null;
-	var newsel = '<div class="news_con left"><span class="left display position overflow news_img"><img src="" class="img"/></span><span class="left display position overflow news_wz"><h1></h1><p class="s_t"></p><p class="s_c"></p><p class="s_s"></p></span><span class="left display position overflow jt"><img src="img/jt.png" class="jti"/><img src="img/jts.png" class="jts"/></span></div>';
-	$.ajax({
-		type: "get",
-		url: "__TMPL__/public/js/news.txt",
-		async: true,
-		dataType: 'text',
-		success: function(data) {
-			jsons = JSON.parse(data);
-			$.each(jsons, function(a, b) {
-				if(a == 'company') {
-					$.each(jsons[a], function(n, x) {
-						$('.news_box').eq(0).append(newsel);
-						$('.news_box').eq(0).find('.news_img img').eq(n).attr('src', x.pic);
-						$('.news_box').eq(0).find('.news_wz h1').eq(n).html(x.titleB);
-						$('.news_box').eq(0).find('.news_wz .s_t').eq(n).html(x.titles);
-						$('.news_box').eq(0).find('.news_wz .s_c').eq(n).html(x.cons);
-						$('.news_box').eq(0).find('.news_wz .s_s').eq(n).html(x.timer);
-						$('.news_box').eq(0).children('.news_con').eq(n).click(function() {
-							document.location.href = x.urls;
-						})
-					});
-				} else if(a == 'trade') {
-					$.each(jsons[a], function(n, x) {
-						$('.news_box').eq(1).append(newsel);
-						$('.news_box').eq(1).find('.news_img img').eq(n).attr('src', x.pic);
-						$('.news_box').eq(1).find('.news_wz h1').eq(n).html(x.titleB);
-						$('.news_box').eq(1).find('.news_wz .s_t').eq(n).html(x.titles);
-						$('.news_box').eq(1).find('.news_wz .s_c').eq(n).html(x.cons);
-						$('.news_box').eq(1).find('.news_wz .s_s').eq(n).html(x.timer);
-						$('.news_box').eq(1).children('.news_con').eq(n).click(function() {
-							document.location.href = x.urls;
-						})
-					});
-				}
-			});
-			$('.section_bn').click(function() {
-				alert('已经是最后一条内容')
-			})
-		}
-	});
-}
 
 //移动
 function about_move(el, n1, n2, n3, n4) {
@@ -335,22 +291,3 @@ function sharp() {
 // 	});
 }
 
-//首页加载
-
-function toload() {
-	function _ajax() {
-		$.ajax({
-			type: 'post',
-			url: 'http://thinkpz.cn/portal/business/page',
-			data: {
-				year: years
-			},
-			dataType: 'json',
-			success: function(data) {
-				var jsons = JSON.parse(data)
-				console.log(jsons)
-			}
-		})
-	}
-
-}

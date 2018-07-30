@@ -12,7 +12,7 @@
         this._int(this.options);
     };
     Toload.defaults = {
-        sign: null,
+        sign: null, //index,cases,news,
         data: {} || null,
         urls: null
     };
@@ -23,22 +23,71 @@
             this.data = options.data;
             this.bn = $('.section_bn');
             this.prev = $('.prevbn') || null;
-            this.flag = 0;//开关
+            this.flag = 0; //开关
             if (this.sign == null || this.data == null || this.urls == null) {
                 alert('请输入正确的参数')
                 return false;
             } else {
                 this._successAjax(); //初始化
-
-                // this._prevBn();
+                this._prevBn();
             }
         },
         _index: function (a) { //首页
             // console.log(data)
         },
-        //案例模块
+        /*
+         *	案例板块
+         * 	1.子元素的动态效果
+         *	2.事件
+         */
         _case: function (a) {
-            // console.log(data)
+            var i = 0;
+            if (a.status == '200') {
+                if (this.flag == 1) {
+                    this.ele.html('');
+                }
+                for (; i < a.data.length; i++) {
+                    this.ele.append(
+                        '<div class="left items"><span class="position left width"><img src="' + a.data[
+                            i].more +
+                        '" class="img centre"/></span><h3 class="left">' + a.data[i].post_title +
+                        '</h3><p class="left">' + a.data[i].published_time +
+                        '</p><div class="case_hx left width position overflow"><b class="width"></b><s class="width"></s></div></div>'
+                    );
+                }
+                this.ele.children('.items').click(function () {
+                    for (i = 0; i < a.data.length; i++) {
+                        document.location.href = '' + a.data[i].links;
+                    }
+                });
+                this._caseHr();
+            } else {
+                if (a.errcode == '1101' && a.errcode) {
+                    alert('已经是最后一条数据')
+                    this.bn.hide();
+                }
+            }
+        },
+        _caseHr: function () {
+            var hxwidth = this.ele.children('.items').find('s').width();
+            this.ele.children('.items').find('s').css('left', -hxwidth - 1);
+            this.ele.children('.items').each(function (a, b) {
+                $(this).mouseenter(function () {
+                    $(this).find('s').stop().animate({
+                        left: '0'
+                    }, 500, function () {
+                        $(this).parent('.case_hx').siblings('h3').css('color',
+                            '#007ee9');
+                    });
+                }).mouseleave(function () {
+                    $(this).find('s').stop().animate({
+                        left: -hxwidth - 1
+                    }, 500, function () {
+                        $(this).parent('.case_hx').siblings('h3').css('color',
+                            '#1a1a1a');
+                    });
+                });
+            });
         },
         /*
          *	新闻板块
@@ -50,41 +99,23 @@
             if (a.status == '200') {
                 if (this.flag == 1) {
                     this.ele.html('');
-
-                    for (; i < a.data.length; i++) {
-                        this.ele.append(
-                            '<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
-                            a.data[i].more +
-                            '" class="img"/></span><span class="left display position overflow news_wz"><h1>' +
-                            a.data[i].post_title +
-                            '</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_title +
-                            '</p><p class="s_s">' + a.data[i].published_time +
-                            '</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
-                        );
-                    }
-                    this.ele.children('.news_con').click(function () {
-                        for (i = 0; i < a.data.length; i++) {
-                            document.location.href = '' + a.data[i].links;
-                        }
-                    });
-                } else {
-                    for (; i < a.data.length; i++) {
-                        this.ele.append(
-                            '<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
-                            a.data[i].more +
-                            '" class="img"/></span><span class="left display position overflow news_wz"><h1>' +
-                            a.data[i].post_title +
-                            '</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_title +
-                            '</p><p class="s_s">' + a.data[i].published_time +
-                            '</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
-                        );
-                    }
-                    this.ele.children('.news_con').click(function () {
-                        for (i = 0; i < a.data.length; i++) {
-                            document.location.href = '' + a.data[i].links;
-                        }
-                    });
                 }
+                for (; i < a.data.length; i++) {
+                    this.ele.append(
+                        '<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
+                        a.data[i].more +
+                        '" class="img"/></span><span class="left display position overflow news_wz"><h1>' +
+                        a.data[i].post_title +
+                        '</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_title +
+                        '</p><p class="s_s">' + a.data[i].published_time +
+                        '</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
+                    );
+                }
+                this.ele.children('.news_con').click(function () {
+                    for (i = 0; i < a.data.length; i++) {
+                        document.location.href = '' + a.data[i].links;
+                    }
+                });
                 this._newCon();
             } else {
                 if (a.errcode == '1101' && a.errcode) {
@@ -143,7 +174,7 @@
          * 	1.设置ajax全局参数
          *	2.ajax执行
          *	3.部分加载
-		 *	4.
+         *	4.
          */
         _ajaxSet: function () { //全局参数
             var set = {
@@ -158,7 +189,9 @@
             var _this = this;
             $.ajax(_this._ajaxSet()).done(function (data) {
                 var successData = data;
+
                 successData = JSON.parse(successData);
+                console.log(successData);
                 switch (_this.sign) {
                     case 'index':
                         _this._index(successData)
@@ -213,8 +246,12 @@
                             case '行业资讯':
                                 _this.data.category = 3
                                 break;
+                            case '全部案例':
+                                _this.data.year = 0
+                                break;
                             case '2016年':
                                 _this.data.year = 2016
+                                console.log(_this.data)
                                 break;
                             case '2017年':
                                 _this.data.year = 2017

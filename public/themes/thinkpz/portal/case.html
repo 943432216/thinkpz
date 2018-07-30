@@ -195,7 +195,12 @@
 <script type="text/javascript">
     $(function () {
         $('.case_con').Toload({
-			sign:
+			sign:'cases',
+			data:{
+				page:1,
+				year:0
+			},
+			urls:'http://thinkpz.cn/portal/case/listCase'
 		})
         sharp()
         //初始化导航
@@ -230,30 +235,7 @@
         allwidth = allwidth / 2
         var marL = navwidth - allwidth;
         $('.case_nav a').eq(0).css('margin-left', marL);
-        //案例
-        setTimeout(function () {
-            var hxwidth = $('.case_hx s').width();
-            //				console.log(hxwidth)
-            $('.case_hx s').css('left', -hxwidth - 1);
-            $('.items').each(function (a, b) {
-                $(this).mouseenter(function () {
-                    $(this).find('s').stop().animate({
-                        left: '0'
-                    }, 500, function () {
-                        $(this).parent('.case_hx').siblings('h3').css('color',
-                            '#007ee9');
-                    });
-                }).mouseleave(function () {
-                    $(this).find('s').stop().animate({
-                        left: -hxwidth - 1
-                    }, 500, function () {
-                        $(this).parent('.case_hx').siblings('h3').css('color',
-                            '#1a1a1a');
-                    });
-                });
-            });
-        }, 200)
-        cases();
+
         //导航
         $('.nav_logo').click(function () {
             document.location.href = 'index.html';
