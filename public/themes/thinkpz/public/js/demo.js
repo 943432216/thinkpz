@@ -9,7 +9,7 @@
     function Toload(element, options) {
         this.ele = $(element);
         this.options = $.extend({}, this.defaults, options);
-        this._int(this.options);
+        // this._int(this.options);
     };
     Toload.defaults = {
         sign: null, //index,cases,news,
@@ -270,6 +270,8 @@
     $.fn.Toload = function (options) {
         this.each(function () {
             var es = new Toload(this, options);
+			// console.log(es.options)
+			es._int(options)
         });
         return this;
     }
