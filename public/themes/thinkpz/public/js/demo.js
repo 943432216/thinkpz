@@ -22,7 +22,7 @@
             this.urls = options.urls;
             this.data = options.data;
             this.bn = $('.section_bn');
-            // this.setData = null;
+			this.prev=$('.prevbn')||null;
             if (this.sign == null || this.data == null || this.urls == null) {
                 alert('请输入正确的参数')
                 return false;
@@ -177,7 +177,14 @@
                 });
 
             }
-        }
+        },
+		_prevBn:function(sign){
+			if(sign=='index'){
+				
+			}else{
+				this.prev.children()
+			}
+		}
     };
     $.fn.Toload = function (options) {
         this.each(function () {

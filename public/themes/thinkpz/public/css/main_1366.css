@@ -147,9 +147,9 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .news_index_se{width:calc(100% - 20px);-moz-width:calc(100% - 20px);-webkit-width:calc(100% - 20px);padding:15px 10px;}
 .news_index_se a{color: #9a9a9a;font-size: 12px;overflow: hidden;display: block;position: absolute;right: 10px;height: 15px;line-height: 15px;}
 .news_index_se a:hover{color: #ff0000;}
-.news_index_se p{width:15%;float: left;height: 15px;font-size: 12px;color:#999;padding-left:8%;line-height: 15px;}
-.news_index_se p:nth-of-type(1){background: url(../img/news_see.png) no-repeat 8% center;}
-.news_index_se p:nth-of-type(2){background: url(../img/news_fx.png) no-repeat 8% center;}
+.news_index_se p{width:20%;float: left;height: 15px;font-size: 12px;color:#999;padding-left:5%;line-height: 15px;box-sizing: border-box;}
+.news_index_se p:nth-of-type(1){background: url(../img/news_see.png) no-repeat 8% center;margin-left: 2%;}
+.news_index_se p:nth-of-type(2){background: url(../img/news_fx.png) no-repeat 8% center;padding-left:4.5%;}
 
 
 
@@ -233,7 +233,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .case_nav{margin: 65px 170px 45px 170px;float: left;}
 .case_nav a{padding:15px 30px;font-size: 20px;color: #333;margin-right: 20px;display: block;float: left;border-radius: 5px;background: #f2f2f2;}
 .case_nav a:nth-last-of-type(1){margin-right: 0;}
-.nav_avt{background: #007ee9 !important;color: #fff !important;}
+.case_avts{background: #007ee9 !important;color: #fff !important;}
 .case_con{margin: 0 170px;}
 .case_con:nth-of-type(1){display: block;}
 .section_bn{margin: 30px 170px 0 170px;background:url(../img/moresd.png) no-repeat 55% center #a0a0a0;background-size:18px 18px;color: #fff;font-size: 17px;height:48px;line-height: 48px;text-align: center;cursor: pointer;}
@@ -555,8 +555,9 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.news_index_bn li:nth-of-type(1) p{font-size: 14px;}
 	.news_index_bn li:nth-of-type(2) h3{font-size:20px;height: 24px;line-height: 24px;}
 	.news_index_bn li:nth-of-type(2) p{font-size:14px;line-height:calc(30px / 2);line-height:-moz-calc(30px / 2);line-height:-webkit-calc(30px / 2);}
-	.news_index_se p:nth-of-type(1){background-size:17px 11px;}
 	.news_index_se p{font-size: 14px;height: 20px;line-height: 20px;}
+	.news_index_se p:nth-of-type(1){padding-left:7%;}
+	.news_index_se p:nth-of-type(2){padding-left:5.5%;}
 	.news_index_se a{height: 20px;line-height: 20px;font-size: 14px;}
 	.us_idea h1{font-size:44px;}
 	.us_idea b{font-size: 18px;}
@@ -850,7 +851,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.news_index_se{width:calc(100% - 20px);-moz-width:calc(100% - 20px);-webkit-width:calc(100% - 20px);padding:15px 10px;}
 	.news_index_se a{color: #9a9a9a;font-size: 16px;overflow: hidden;display: block;position: absolute;right: 10px;height: 20px;line-height: 20px;}
 	.news_index_se a:hover{color: #ff0000;}
-	.news_index_se p{width:15%;float: left;height: 20px;font-size: 16px;color:#999;padding-left:8%;line-height: 20px;}
+	.news_index_se p{width:20%;float: left;height: 20px;font-size: 16px;color:#999;line-height: 20px;}
 	.news_index_se p:nth-of-type(1){background: url(../img/news_see.png) no-repeat 8% center;}
 	.news_index_se p:nth-of-type(2){background: url(../img/news_fx.png) no-repeat 8% center;}
 	/*footer*/
@@ -1195,7 +1196,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.news_index_se{width:calc(100% - 20px);-moz-width:calc(100% - 20px);-webkit-width:calc(100% - 20px);padding:15px 10px;}
 	.news_index_se a{color: #9a9a9a;font-size: 16px;overflow: hidden;display: block;position: absolute;right: 10px;height: 20px;line-height: 20px;}
 	.news_index_se a:hover{color: #ff0000;}
-	.news_index_se p{width:15%;float: left;height: 20px;font-size: 16px;color:#999;padding-left:8%;line-height: 20px;}
+	.news_index_se p{width:20%;float: left;height: 20px;font-size: 16px;color:#999;line-height: 20px;}
 	.news_index_se p:nth-of-type(1){background: url(../img/news_see.png) no-repeat 8% center;}
 	.news_index_se p:nth-of-type(2){background: url(../img/news_fx.png) no-repeat 8% center;}
 	/*footer*/
