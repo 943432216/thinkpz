@@ -211,15 +211,6 @@
                 scrollTop: 0
             }, 100);
         })
-        //new_tl
-        $('.news_bn a').each(function (a, b) {
-            $(this).click(function () {
-                $('.news_box').removeClass('news_xs');
-                $('.news_bn a').removeClass('news_avt')
-                $(this).addClass('news_avt');
-                $('.news_box').eq(a).addClass('news_xs');
-            })
-        })
         //导航
         $('.nav_logo').click(function () {
             document.location.href = 'index.html';
