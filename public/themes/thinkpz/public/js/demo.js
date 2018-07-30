@@ -42,6 +42,7 @@
          */
         _case: function (a) {
             var i = 0;
+			var xtime=null;
             if (a.status == '200') {
                 if (this.flag == 1) {
                     this.ele.html('');
@@ -51,7 +52,7 @@
                         '<div class="left items"><span class="position left width"><img src="' + a.data[
                             i].more +
                         '" class="img centre"/></span><h3 class="left">' + a.data[i].post_title +
-                        '</h3><p class="left">' + a.data[i].published_time +
+                        '</h3><p class="left">' + a.data[i].published_time.substring(0,7) +
                         '</p><div class="case_hx left width position overflow"><b class="width"></b><s class="width"></s></div></div>'
                     );
                 }
@@ -251,7 +252,6 @@
                                 break;
                             case '2016年':
                                 _this.data.year = 2016
-                                console.log(_this.data)
                                 break;
                             case '2017年':
                                 _this.data.year = 2017
