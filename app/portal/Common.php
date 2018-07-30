@@ -23,10 +23,10 @@ function fetch_case_by_year($year='', $page, $number, $field='')
  										->where($where);
 
 	if (!empty($year)) {
-		$begin = mktime(0,0,0,1,1,$year);
-		$end = mktime(0,0,0,1,1,++$year);
-		$db->where('published_time', '>=', $begin)
-		   ->where('published_time', '<', $end);	                           
+		$time_begin = mktime(0,0,0,1,1,$year);
+		$time_end = mktime(0,0,0,1,1,++$year);
+		$db->where('published_time', '>=', $time_begin)
+		   ->where('published_time', '<', $time_end);	                           
 	}
 	
 	$data = $db->order('published_time desc')

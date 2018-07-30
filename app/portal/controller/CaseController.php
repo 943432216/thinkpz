@@ -25,6 +25,7 @@ class CaseController extends HomeBaseController
 		$field = 'a.id,post_title,more,published_time';
 
 		$data = fetch_case_by_year($year, $page, $number, $field);
+
 		if ($data->isEmpty()) {
 			return json_encode(['errcode' => '1101','error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
 		}
