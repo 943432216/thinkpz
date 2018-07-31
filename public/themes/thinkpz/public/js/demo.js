@@ -4,8 +4,14 @@
  * urls 必填
  * 
  */
-
-(function ($, win) {
+(function($){
+	
+})
+ 
+ 
+ 
+ 
+;(function ($, win) {
     function Toload(element, options) {
         this.ele = $(element);
         this.options = $.extend({}, this.defaults, options);
@@ -25,11 +31,12 @@
             this.prev = $('.prevbn') || null;
             this.flag = 0; //开关
             if (this.sign == null || this.data == null || this.urls == null) {
-                alert('请输入正确的参数')
+                alert('请输入正确的参数');
                 return false;
             } else {
                 this._successAjax(); //初始化
                 this._prevBn();
+				console.log()
             }
         },
         _index: function (a) { //首页
@@ -42,7 +49,7 @@
          */
         _case: function (a) {
             var i = 0;
-			var xtime=null;
+            var xtime = null;
             if (a.status == '200') {
                 if (this.flag == 1) {
                     this.ele.html('');
@@ -52,7 +59,7 @@
                         '<div class="left items"><span class="position left width"><img src="' + a.data[
                             i].more +
                         '" class="img centre"/></span><h3 class="left">' + a.data[i].post_title +
-                        '</h3><p class="left">' + a.data[i].published_time.substring(0,7) +
+                        '</h3><p class="left">' + a.data[i].published_time.substring(0, 7) +
                         '</p><div class="case_hx left width position overflow"><b class="width"></b><s class="width"></s></div></div>'
                     );
                 }
@@ -190,23 +197,14 @@
             var _this = this;
             $.ajax(_this._ajaxSet()).done(function (data) {
                 var successData = data;
-
                 successData = JSON.parse(successData);
-                console.log(successData);
-                switch (_this.sign) {
-                    case 'index':
-                        _this._index(successData)
-                        break;
-                    case 'news':
-                        _this._news(successData)
-                        break;
-                    case 'cases':
-                        _this._case(successData)
-                        break;
-                    case 'buss':
-                        _this._buss(successData)
-                        break;
+                var successCfg = {
+                    index: "_index",
+                    news: "_news",
+                    cases: "_case",
+                    buss: "_buss"
                 }
+                _this[successCfg[_this.sign]](successData);
                 _this._moreBn(successData);
             });
         },
@@ -240,26 +238,30 @@
                     $(this).click(function () {
                         $(this).siblings('a').removeClass(_this.sign + '_avt');
                         $(this).addClass(_this.sign + '_avt');
-                        switch ($(this).html()) {
-                            case '公司新闻':
-                                _this.data.category = 2
-                                break;
-                            case '行业资讯':
-                                _this.data.category = 3
-                                break;
-                            case '全部案例':
-                                _this.data.year = 0
-                                break;
-                            case '2016年':
-                                _this.data.year = 2016
-                                break;
-                            case '2017年':
-                                _this.data.year = 2017
-                                break;
-                            case '2018年':
-                                _this.data.year = 2018
-                                break;
+                        var cfg = {
+                            "公司新闻": {
+                                key: 'category',
+                                value: 2
+                            },
+                            "行业资讯": {
+                                key: 'category',
+                                value: 3
+                            },
+                            "2016年": {
+                                key: 'year',
+                                value: 2016
+                            },
+                            "2017年": {
+                                key: 'year',
+                                value: 2017
+                            },
+                            "2018年": {
+                                key: 'year',
+                                value: 2018
+                            }
                         }
+                        var data = cfg[$(this).html()];
+                        _this.data[data.key] = data.value;
                         _this.flag = 1;
                         _this._successAjax();
                     })
@@ -269,9 +271,8 @@
     };
     $.fn.Toload = function (options) {
         this.each(function () {
-			
             var es = new Toload(this, options);
-			es._int(options);
+            es._int(options);
         });
         return this;
     }
