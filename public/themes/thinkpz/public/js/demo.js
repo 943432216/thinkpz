@@ -269,9 +269,9 @@
     };
     $.fn.Toload = function (options) {
         this.each(function () {
+			
             var es = new Toload(this, options);
-			// console.log(es.options)
-			es._int(options)
+			es._int(options);
         });
         return this;
     }
