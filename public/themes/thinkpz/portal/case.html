@@ -92,14 +92,32 @@
 <script type="text/javascript">
     $(function () {
         $('.case_con').Toload({
-			sign:'cases',
-			data:{
-				page:1,
-				year:0
-			},
-			urls:'http://thinkpz.cn/portal/case/listCase'
-		})
-        sharp()
+            sign: 'cases',
+            data: {
+                page: 1,
+                year: 0
+            },
+            urls: 'http://thinkpz.cn/portal/case/listCase',
+            fn: function () {
+                var hxwidth =  $('.case_con').children('.items').find('s').width();
+                $('.case_con').children('.items').find('s').css('left', -hxwidth - 1);
+                $('.case_con').children('.items').each(function (a, b) {
+                    $(this).mouseenter(function () {
+                        $(this).find('s').stop().animate({
+                            left: '0'
+                        }, 500, function () {
+                            $(this).parent('.case_hx').siblings('h3').css('color','#007ee9');
+                        });
+                    }).mouseleave(function () {
+                        $(this).find('s').stop().animate({
+                            left: -hxwidth - 1
+                        }, 500, function () {
+                            $(this).parent('.case_hx').siblings('h3').css('color','#1a1a1a');
+                        });
+                    });
+                });
+            }
+        });
         //初始化导航
         var margins = $('.pz_box').offset().left;
         var widt = $('.pz_box').width();
@@ -121,12 +139,12 @@
         var navwidth = $('.case_nav').width();
         $('.case_nav a').each(function (a, b) {
             allwidth += $(this).outerWidth(true);
-//             $(this).click(function () {
-//                 $('.case_con').css('display', 'none')
-//                 $('.case_nav a').removeClass('case_avts');
-//                 $(this).addClass('case_avts');
-//                 $('.case_con').eq(a).css('display', 'block')
-//             })
+            //             $(this).click(function () {
+            //                 $('.case_con').css('display', 'none')
+            //                 $('.case_nav a').removeClass('case_avts');
+            //                 $(this).addClass('case_avts');
+            //                 $('.case_con').eq(a).css('display', 'block')
+            //             })
         })
         navwidth = navwidth / 2;
         allwidth = allwidth / 2

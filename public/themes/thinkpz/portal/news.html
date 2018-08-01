@@ -87,9 +87,25 @@
             sign: "news",
             data: {
                 page: 1,
-				category: 2
+                category: 2
             },
-            urls: 'http://thinkpz.cn/portal/news/getnews'
+            urls: 'http://thinkpz.cn/portal/news/getnews',
+            fn: function () {
+                $('.news_box').children('.news_con').mouseenter(function () {
+                    $(this).css('background', '#007ee9');
+                    $(this).children('.news_wz').addClass('news_avts');
+                    $(this).find('.jts').stop().animate({
+                        left: '25%'
+                    }, 500)
+                }).mouseleave(function () {
+                    $(this).css('background', '#f7f7f7');
+                    $(this).children('.news_wz').removeClass('news_avts');
+                    $(this).find('.jts').stop().animate({
+                        left: '-25%'
+                    }, 500)
+                });
+
+            }
         });
         //初始化导航
         var margins = $('.pz_box').offset().left;
@@ -117,7 +133,7 @@
         window.onscroll = function () {
             searchs(3);
         }
-		// addnews()
+        // addnews()
     })
 </script>
 

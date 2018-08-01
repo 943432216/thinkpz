@@ -4,23 +4,18 @@
  * urls 必填
  * 
  */
-(function($){
-	
-})
- 
- 
- 
- 
+
 ;(function ($, win) {
     function Toload(element, options) {
         this.ele = $(element);
         this.options = $.extend({}, this.defaults, options);
-        // this._int(this.options);
+        this._int(this.options);
     };
     Toload.defaults = {
         sign: null, //index,cases,news,
         data: {} || null,
-        urls: null
+        urls: null,
+		fn:null
     };
     Toload.prototype = {
         _int: function (options) { //最终调用的函数
@@ -28,19 +23,16 @@
             this.urls = options.urls;
             this.data = options.data;
             this.bn = $('.section_bn');
-            this.prev = $('.prevbn') || null;
             this.flag = 0; //开关
             if (this.sign == null || this.data == null || this.urls == null) {
                 alert('请输入正确的参数');
                 return false;
             } else {
                 this._successAjax(); //初始化
-                this._prevBn();
-				console.log()
             }
         },
         _index: function (a) { //首页
-            // console.log(data)
+            console.log(a)
         },
         /*
          *	案例板块
@@ -49,11 +41,8 @@
          */
         _case: function (a) {
             var i = 0;
-            var xtime = null;
+			console.log(a)
             if (a.status == '200') {
-                if (this.flag == 1) {
-                    this.ele.html('');
-                }
                 for (; i < a.data.length; i++) {
                     this.ele.append(
                         '<div class="left items"><span class="position left width"><img src="' + a.data[
@@ -68,7 +57,7 @@
                         document.location.href = '' + a.data[i].links;
                     }
                 });
-                this._caseHr();
+				this.options.fn();
             } else {
                 if (a.errcode == '1101' && a.errcode) {
                     alert('已经是最后一条数据')
@@ -76,38 +65,12 @@
                 }
             }
         },
-        _caseHr: function () {
-            var hxwidth = this.ele.children('.items').find('s').width();
-            this.ele.children('.items').find('s').css('left', -hxwidth - 1);
-            this.ele.children('.items').each(function (a, b) {
-                $(this).mouseenter(function () {
-                    $(this).find('s').stop().animate({
-                        left: '0'
-                    }, 500, function () {
-                        $(this).parent('.case_hx').siblings('h3').css('color',
-                            '#007ee9');
-                    });
-                }).mouseleave(function () {
-                    $(this).find('s').stop().animate({
-                        left: -hxwidth - 1
-                    }, 500, function () {
-                        $(this).parent('.case_hx').siblings('h3').css('color',
-                            '#1a1a1a');
-                    });
-                });
-            });
-        },
         /*
          *	新闻板块
-         * 	1.子元素的动态效果
-         *	2.事件
          */
         _news: function (a) {
             var i = 0;
             if (a.status == '200') {
-                if (this.flag == 1) {
-                    this.ele.html('');
-                }
                 for (; i < a.data.length; i++) {
                     this.ele.append(
                         '<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
@@ -124,7 +87,12 @@
                         document.location.href = '' + a.data[i].links;
                     }
                 });
-                this._newCon();
+				if(this.options.fn==null||this.options.fn==undefined){
+					
+				}else{
+					this.options.fn();
+				}
+				
             } else {
                 if (a.errcode == '1101' && a.errcode) {
                     alert('已经是最后一条数据')
@@ -132,26 +100,8 @@
                 }
             }
         },
-        //新闻板块动效
-        _newCon: function () {
-            this.ele.children('.news_con').mouseenter(function () {
-                $(this).css('background', '#007ee9')
-                $(this).children('.news_wz').addClass('news_avts');
-                $(this).find('.jts').stop().animate({
-                    left: '25%'
-                }, 500)
-            }).mouseleave(function () {
-                $(this).css('background', '#f7f7f7');
-                $(this).children('.news_wz').removeClass('news_avts');
-                $(this).find('.jts').stop().animate({
-                    left: '-25%'
-                }, 500)
-            });
-        },
         /*
          *	业务板块
-         * 	1.模块内子元素的动态效果
-         *	2.事件
          */
         _buss: function (a) {
             var i = 0;
@@ -182,7 +132,6 @@
          * 	1.设置ajax全局参数
          *	2.ajax执行
          *	3.部分加载
-         *	4.
          */
         _ajaxSet: function () { //全局参数
             var set = {
@@ -211,7 +160,8 @@
         _moreBn: function (data) { //部分加载    
             var total = data.total, //总条数
                 page = data.page, //返回当前页数
-                num = data.number, //当前页面新闻条数
+                num = data.number,//当前页面新闻条数
+				_this=this;
                 allpage = null; //总页数
             if (total <= num) {
                 this.bn.hide();
@@ -224,55 +174,58 @@
                     this.bn.hide();
                 }
                 this.bn.click(function () {
-                    this._successAjax()
+                    _this._successAjax()
                 });
 
             }
-        },
-        _prevBn: function () {
-            var _this = this
-            if (this.sign == 'index') {
-
-            } else {
-                this.prev.children('a').each(function () {
-                    $(this).click(function () {
-                        $(this).siblings('a').removeClass(_this.sign + '_avt');
-                        $(this).addClass(_this.sign + '_avt');
-                        var cfg = {
-                            "公司新闻": {
-                                key: 'category',
-                                value: 2
-                            },
-                            "行业资讯": {
-                                key: 'category',
-                                value: 3
-                            },
-                            "2016年": {
-                                key: 'year',
-                                value: 2016
-                            },
-                            "2017年": {
-                                key: 'year',
-                                value: 2017
-                            },
-                            "2018年": {
-                                key: 'year',
-                                value: 2018
-                            }
-                        }
-                        var data = cfg[$(this).html()];
-                        _this.data[data.key] = data.value;
-                        _this.flag = 1;
-                        _this._successAjax();
-                    })
-                })
-            }
         }
+//         _prevBn: function () {
+//             var _this = this
+//             if (this.sign == 'index') {
+// 
+//             } else {
+//                 this.prev.children('a').each(function () {
+//                     $(this).click(function () {
+//                         $(this).siblings('a').removeClass(_this.sign + '_avt');
+//                         $(this).addClass(_this.sign + '_avt');
+//                         var cfg = {
+//                             "公司新闻": {
+//                                 key: 'category',
+//                                 value: 2
+//                             },
+//                             "行业资讯": {
+//                                 key: 'category',
+//                                 value: 3
+//                             },
+//                             "2016年": {
+//                                 key: 'year',
+//                                 value: 2016
+//                             },
+//                             "2017年": {
+//                                 key: 'year',
+//                                 value: 2017
+//                             },
+//                             "2018年": {
+//                                 key: 'year',
+//                                 value: 2018
+//                             }
+//                         }
+//                         var data = cfg[$(this).html()];
+//                         _this.data[data.key] = data.value;
+//                         _this.flag = 1;
+//                         _this._successAjax();
+//                     })
+//                 })
+//             }
+//         },
     };
     $.fn.Toload = function (options) {
         this.each(function () {
+			var keys=$(this).data(this,options);
+			// console.log(keys)
             var es = new Toload(this, options);
-            es._int(options);
+			// options.fn();
+			
         });
         return this;
     }

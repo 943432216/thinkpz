@@ -392,7 +392,18 @@
 	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
-			 // toload();
+			 $('.case_one_con').Toload({
+				 sign:'index',
+				 data:{
+					 page:1,
+					 year:2016,
+					 number:4
+				 },
+				 urls:'http://thinkpz.cn/portal/case/listCase',
+				 fn:function(){
+					 console.log(1);
+				 }
+			 })
 			//页面-banner
 			var swiper = new Swiper('.swiper-container', {
 				autoplay: { 
