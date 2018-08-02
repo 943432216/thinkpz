@@ -5,7 +5,20 @@
  * 
  */
 
-;(function ($, win) {
+
+ 
+ function prevbn(str) {
+     $('.prevbn').children('a').each(function () {
+         $(this).click(function () {
+             $(this).siblings('a').removeClass(str + '_avt');
+             $(this).addClass(str + '_avt');
+         })
+     })
+ };
+ 
+
+ 
+(function ($, win) {
     function Toload(element, options) {
         this.ele = $(element);
         this.options = $.extend({}, this.defaults, options);
@@ -15,7 +28,7 @@
         sign: null, //index,cases,news,
         data: {} || null,
         urls: null,
-		fn:null
+        fn: null
     };
     Toload.prototype = {
         _int: function (options) { //最终调用的函数
@@ -41,7 +54,7 @@
          */
         _case: function (a) {
             var i = 0;
-			console.log(a)
+            console.log(a)
             if (a.status == '200') {
                 for (; i < a.data.length; i++) {
                     this.ele.append(
@@ -57,12 +70,17 @@
                         document.location.href = '' + a.data[i].links;
                     }
                 });
-				this.options.fn();
+
             } else {
                 if (a.errcode == '1101' && a.errcode) {
                     alert('已经是最后一条数据')
                     this.bn.hide();
                 }
+            }
+            if (this.options.fn == null || this.options.fn == undefined) {
+
+            } else {
+                this.options.fn();
             }
         },
         /*
@@ -87,17 +105,16 @@
                         document.location.href = '' + a.data[i].links;
                     }
                 });
-				if(this.options.fn==null||this.options.fn==undefined){
-					
-				}else{
-					this.options.fn();
-				}
-				
             } else {
                 if (a.errcode == '1101' && a.errcode) {
                     alert('已经是最后一条数据')
                     this.bn.hide();
                 }
+            }
+            if (this.options.fn == null || this.options.fn == undefined) {
+
+            } else {
+                this.options.fn();
             }
         },
         /*
@@ -125,7 +142,6 @@
                     this.bn.hide();
                 }
             }
-
         },
         /*
          *	工具
@@ -160,9 +176,9 @@
         _moreBn: function (data) { //部分加载    
             var total = data.total, //总条数
                 page = data.page, //返回当前页数
-                num = data.number,//当前页面新闻条数
-				_this=this;
-                allpage = null; //总页数
+                num = data.number, //当前页面新闻条数
+                _this = this;
+            allpage = null; //总页数
             if (total <= num) {
                 this.bn.hide();
             } else {
@@ -179,53 +195,47 @@
 
             }
         }
-//         _prevBn: function () {
-//             var _this = this
-//             if (this.sign == 'index') {
-// 
-//             } else {
-//                 this.prev.children('a').each(function () {
-//                     $(this).click(function () {
-//                         $(this).siblings('a').removeClass(_this.sign + '_avt');
-//                         $(this).addClass(_this.sign + '_avt');
-//                         var cfg = {
-//                             "公司新闻": {
-//                                 key: 'category',
-//                                 value: 2
-//                             },
-//                             "行业资讯": {
-//                                 key: 'category',
-//                                 value: 3
-//                             },
-//                             "2016年": {
-//                                 key: 'year',
-//                                 value: 2016
-//                             },
-//                             "2017年": {
-//                                 key: 'year',
-//                                 value: 2017
-//                             },
-//                             "2018年": {
-//                                 key: 'year',
-//                                 value: 2018
-//                             }
-//                         }
-//                         var data = cfg[$(this).html()];
-//                         _this.data[data.key] = data.value;
-//                         _this.flag = 1;
-//                         _this._successAjax();
-//                     })
-//                 })
-//             }
-//         },
     };
     $.fn.Toload = function (options) {
+		var _this=this;
         this.each(function () {
-			var keys=$(this).data(this,options);
-			// console.log(keys)
             var es = new Toload(this, options);
-			// options.fn();
-			
+            prevbn(options.sign);
+            $('.prevbn').children('a').each(function () {
+                $(this).click(function () {
+					var cfg = {
+						"0": {
+							key: 'category',
+							value: 2
+						},
+						"1": {
+							key: 'category',
+							value: 3
+						},
+						"2": {
+							key: 'year',
+							value: 0
+						},
+						"2016": {
+							key: 'year',
+							value: 2016
+						},
+						"2017": {
+							key: 'year',
+							value: 2017
+						},
+						"2018": {
+							key: 'year',
+							value: 2018
+						}
+					}
+					
+					var data = cfg[$(this).attr('value')];
+					options.data[data.key]= data.value;
+					es.ele.html('');
+					es._successAjax();
+                })
+            });
         });
         return this;
     }
