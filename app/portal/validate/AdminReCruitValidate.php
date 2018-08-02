@@ -12,7 +12,7 @@ class AdminRecruitValidate extends Validate
 		'salary' => 'require',
 		'work_place' => 'require',
 		'post_time' => 'require',
-		'empiry_time' => 'require',
+		'expiry_time' => 'require',
 	];
 
 	protected $message = [
@@ -21,7 +21,7 @@ class AdminRecruitValidate extends Validate
 		'salary.require' => '薪资不能为空',
 		'work_place.require' => '工作地点不能为空',
 		'post_time.require' => '发布时间不能为空',
-		'empiry_time.require' => '有效时间不能为空',
+		'expiry_time.require' => '有效时间不能为空',
 	];
 
 }

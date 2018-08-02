@@ -21,25 +21,13 @@
 				  <button class="layui-btn" data-type="isAll">验证是否全选</button>
 				</div>
 				 
-				<table class="layui-table" lay-data="{url:'http://thinkpz.cn/portal/admin_recruit/postdata', page:true, id:'idTest'}" lay-filter="demo">
-				  <thead>
-				    <tr>
-				      <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-				      <th lay-data="{field:'id', width:60, sort: true, fixed: true}">ID</th>
-				      <th lay-data="{field:'job_name', width:120}">职位名称</th>
-				      <th lay-data="{field:'department', width:100}">职位部门</th>
-				      <th lay-data="{field:'recruit_numbers', width:100}">招聘人数</th>
-				      <th lay-data="{field:'salary', width:80}">薪资</th>
-				      <th lay-data="{field:'work_place', width:100}">工作地点</th>				      
-				      <th lay-data="{field:'work_experience', width:120}">工作年限</th>
-				      <th lay-data="{field:'post_time', width:110, sort: true}">发布日期</th>
-				      <th lay-data="{field:'expiry_time', width:110, sort: true}">有效期</th>
-				      <th lay-data="{fixed: 'right', width:130, align:'center', toolbar: '#barDemo'}"></th>
-				    </tr>
-				  </thead>
-				</table>
+				 <table class="layui-table" id="test"/>
+
+
+				
 				 
 				<script type="text/html" id="barDemo">
+				  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
 				  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 				  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 				</script>
@@ -139,12 +127,33 @@
     </div> 
 	<script src="__TMPL__/public/thinkpz/layui/layui.js" charset="utf-8"></script>
 	<script>
-		layui.use('table', function(){
-		  var table = layui.table;
+		layui.use(['table','element'], function(){
+		  var  $=layui.$, table = layui.table, element= layui.element;
 		  //监听表格复选框选择
 		  table.on('checkbox(demo)', function(obj){
 		    console.log(obj)
 		  });
+           var head = [{type:'checkbox', fixed: 'left'},
+				      {field:'id', width:80, sort: true, fixed: true},
+				      {field:'job_name',title:'对方的', width:100},
+				      ];
+
+
+ $.post('http://thinkpz.cn/portal/admin_recruit/postdata',{},function(res){
+ res = 	JSON.parse(res);
+ 	console.log(res.data);
+
+ 	 table.render({
+    elem: '#test',
+    data:res.data
+    ,cols: [head]
+
+  });
+
+ },'json');
+
+
+
 		  //监听工具条
 		  table.on('tool(demo)', function(obj){
 		    var data = obj.data;
@@ -184,72 +193,6 @@
 		});
 	</script>
 
-	<script>
-		layui.use('element', function(){
-		  var $ = layui.jquery
-		  ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
-		});
-	</script>
-
-	<script>
-		layui.use(['form', 'layedit', 'laydate'], function(){
-		  var form = layui.form
-		  ,layer = layui.layer
-		  ,layedit = layui.layedit
-		  ,laydate = layui.laydate;
-		  
-		  //日期
-		  laydate.render({
-		    elem: '#date'
-		  });
-		  laydate.render({
-		    elem: '#date1'
-		  });
-		  
-		  //创建一个编辑器
-		  var editIndex = layedit.build('LAY_demo_editor');
-		 
-		  //自定义验证规则
-		  form.verify({
-		    title: function(value){
-		      if(value.length < 5){
-		        return '标题至少得5个字符啊';
-		      }
-		    }
-		    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
-		    ,content: function(value){
-		      layedit.sync(editIndex);
-		    }
-		  });
-		  
-		  //监听指定开关
-		  form.on('switch(switchTest)', function(data){
-		    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
-		      offset: '6px'
-		    });
-		    layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
-		  });
-		  
-		  //监听提交
-		  // form.on('submit(demo1)', function(data){
-		  //   layer.alert(JSON.stringify(data.field), {
-		  //     title: '最终的提交信息'
-		  //   })
-		  //   return false;
-		  // });
-		 
-		  //表单初始赋值
-		  form.val('example', {
-		    "username": "贤心" // "name": "value"
-		    ,"password": "123456"
-		    ,"interest": 1
-		    ,"like[write]": true //复选框选中状态
-		    ,"close": true //开关状态
-		    ,"sex": "女"
-		    ,"desc": "我爱 layui"
-		  })	  
-		  
-		});
-	</script>
+	
 </body>
 </html>
