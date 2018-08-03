@@ -61,11 +61,22 @@ class AdminRecruitController extends AdminBaseController {
 	public function del()
 	{
 		$id = input('post.id');
-		$db = Db::table('pz_recruit')->where(['id' => $id+100])->delete();
-		return $db;
+		//$db = Db::table('pz_recruit')->where(['id' => $id])->delete();
+		$db = 1;
 		if ($db) {
-			# code...
+			return ['code' => 200, 'msg' => '删除成功'];
+		} else {
+			return ['code' => 404, 'msg' => '删除失败，请重试'];
 		}
+	}
+
+	public function edit()
+	{
+		$id = input('id');
+		$field = 'job_name,department,recruit_numbers,salary,work_place,work_experience,post_time,expiry_time,job_duty,job_require';
+		$data = Db::table('pz_recruit')->where('id', $id)->field($field)->find();
+		$this->assign('job_data', $data);
+		return $this->fetch();
 	}
 
 	public function postData()

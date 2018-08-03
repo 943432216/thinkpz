@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>品专互动</title>
-		<link rel="stylesheet" type="text/css" href="css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="css/main_1366.css" />
-		<!--<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />-->
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+		<!--<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />-->
 		<taglib name="app\portal\taglib\Portal"/>
 	</head>
 
@@ -33,15 +33,15 @@
 				<div class="nav_ss left position">
 					<div class="search_click">
 						<input type="text" name="search" id="search" value="" />
-						<span><img src="img/search.png"/></span>
+						<span><img src="__TMPL__/public/img/search.png"/></span>
 					</div>
-					<div class="click_one"><img src="img/search.png" /></div>
+					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
 				</div>
 			</div>
 			<header class="width left overflow">
 				<div class="swiper-container header_banner position join_us">
-					<img src="img/join_us.png" alt="" class="img centre" />
-					<div class="banner_wz"><img src="img/join_wz.png" class="img"/></div>
+					<img src="__TMPL__/public/img/join_us.png" alt="" class="img centre" />
+					<div class="banner_wz"><img src="__TMPL__/public/img/join_wz.png" class="img"/></div>
 					<!--<h1 class="width left overflow">加入我们</h1>
 					<h3 class="width">JOIN US</h3>
 					<span class="width left overflow">
@@ -53,11 +53,11 @@
 			
 			<section class="width left overflow sections">
 				<div class="conwidth left overflow join_top position">
-					<div class="left width join_title"><img src="img/join_title.png"/></div>
+					<div class="left width join_title"><img src="__TMPL__/public/img/join_title.png"/></div>
 					<div class="left width join_zz">
 						<div class="left overflow zz_box">
 							<span class="left width overflow">
-								<img src="img/join_1.png" class="img centre"/>
+								<img src="__TMPL__/public/img/join_1.png" class="img centre"/>
 							</span>
 							<span class="left overflow zbox_con">
 								<h1 class="width left">基本人才观</h1>
@@ -68,7 +68,7 @@
 						</div>
 						<div class="left overflow zz_box">
 							<span class="left width overflow">
-								<img src="img/join_2.png" class="img centre"/>
+								<img src="__TMPL__/public/img/join_2.png" class="img centre"/>
 							</span>
 							<span class="left overflow zbox_con">
 								<h1 class="width left">人员任用原则</h1>
@@ -79,7 +79,7 @@
 						</div>
 						<div class="left overflow zz_box">
 							<span class="left width overflow">
-								<img src="img/join_3.png" class="img centre"/>
+								<img src="__TMPL__/public/img/join_3.png" class="img centre"/>
 							</span>
 							<span class="left overflow zbox_con">
 								<h1 class="width left">人才发展</h1>
@@ -368,15 +368,15 @@
 			<!-- 引入页脚结束 -->
 		</div>
 	</body>
-	<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
 			$("img").lazyload({
 				effect: "fadeIn",
 				threshold: 200,
-				 placeholder: "img/pz_sys.png"
+				 placeholder: "__TMPL__/public/img/pz_sys.png"
 			})
 			sharp()
 			//初始化导航
@@ -418,23 +418,23 @@
 					$(this).parents('.job_box').siblings().find('a').css('color','#525252');
 					$(this).css('color','#007EE9');
 					$(this).css({
-						'background':'url(img/up.png) no-repeat right center',
+						'background':'url(__TMPL__/public/img/up.png) no-repeat right center',
 						'background-size':nd
 					});
 					$(this).parents('.job_box').siblings().find('a').css({
-						'background':'url(img/down.png) no-repeat right center',
+						'background':'url(__TMPL__/public/img/down.png) no-repeat right center',
 						'background-size':nd
 					});
 					$(this).parents('.job_box').find('.job_xx').slideToggle(function(){
 						if($(this).is(':hidden')){
 							$(this).parents('.job_box').find('a').css({
-								'background':'url(img/down.png) no-repeat right center',
+								'background':'url(__TMPL__/public/img/down.png) no-repeat right center',
 								'background-size':nd,
 								'color':'#525252'
 							});
 						}else{
 							$(this).parents('.job_box').find('a').css({
-								'background':'url(img/up.png) no-repeat right center',
+								'background':'url(__TMPL__/public/img/up.png) no-repeat right center',
 								'background-size':nd,
 								'color':'#007EE9'
 							});

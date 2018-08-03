@@ -139,8 +139,9 @@
     </div> 
 	<script src="__TMPL__/public/thinkpz/layui/layui.js" charset="utf-8"></script>
 	<script>
-		layui.use('table', function(){
+		layui.use(['table','layer'], function(){
 		  var table = layui.table;
+		  var layer = layui.layer;
 		  //监听表格复选框选择
 		  table.on('checkbox(demo)', function(obj){
 		    console.log(obj)
@@ -153,13 +154,17 @@
 		    } else if(obj.event === 'del'){
 		      layer.confirm('真的删除行么', function(index){
 		      	$.post('{:url("portal/admin_recruit/del")}',{'id':data.id}, function(rel){
-		      		console.log(rel);
+		      		if (rel.code == 200) {
+		      			obj.del();
+		      			layer.msg(rel.msg);
+		      		} else if (rel.code == 404) {
+		      			layer.msg(rel.msg);
+		      		}
 		      	}, 'json');
-		        obj.del();
 		        layer.close(index);
 		      });
 		    } else if(obj.event === 'edit'){
-		      layer.alert('编辑行：<br>'+ JSON.stringify(data))
+		      window.location= '{:url("portal/admin_recruit/edit","","")}' + '/id/' + data.id;
 		    }
 		  });
 		  
