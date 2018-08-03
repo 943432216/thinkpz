@@ -20,6 +20,30 @@ class AdminRecruitController extends AdminBaseController {
 	{
 		$data = input('post.');
 
+		switch ($data['department']) {
+			case 0:
+				$data['department'] = '品牌部';
+				break;
+			case 1:
+				$data['department'] = '风控部';
+				break;
+			case 2:
+				$data['department'] = '业支部';
+				break;
+			case 3:
+				$data['department'] = '媒介部';
+				break;
+			case 4:
+				$data['department'] = '销售部';
+				break;
+			case 5:
+				$data['department'] = '运营部';
+				break;			
+			default:
+				$data['department'] = '品专集团';
+				break;
+		}
+
 		$validate = Loader::validate('AdminRecruit');
 		if ($validate->check($data)) {
 			$data['admin_id'] = cmf_get_current_admin_id();
@@ -32,6 +56,16 @@ class AdminRecruitController extends AdminBaseController {
 		} else {
 			return $this->error($validate->getError(), 'portal/AdminRecruit/index');
 		}	
+	}
+
+	public function del()
+	{
+		$id = input('post.id');
+		$db = Db::table('pz_recruit')->where(['id' => $id+100])->delete();
+		return $db;
+		if ($db) {
+			# code...
+		}
 	}
 
 	public function postData()
