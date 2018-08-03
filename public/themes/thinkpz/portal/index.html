@@ -173,74 +173,19 @@
                     <div class="one_title overflow width prevbn">
                         <ul>
                             <li class="one_avt">
-                                <a href="javascript:;">2016年</a>
+                                <a href="javascript:;" value="2016">2016年</a>
                             </li>
                             <li>
-                                <a href="javascript:;">2017年</a>
+                                <a href="javascript:;" value="2017">2017年</a>
                             </li>
                             <li>
-                                <a href="javascript:;">2018年</a>
+                                <a href="javascript:;" value="2018">2018年</a>
                             </li>
                         </ul>
                     </div>
                     <!--1-->
                     <div class="one_con overflow width position">
-                        <div class="left case_con_box">
-                            <span class="width left">
-                                <img src="details___TMPL__/public/img/case_zh.png" class="img centre" />
-                            </span>
-                            <div class="left ca_con_mod">
-                                <h3 class="width left">广州正和药业连锁有限公司</h3>
-                                <p class="width left">互联网作为企业扩展业务的一种工具，不仅仅是一个做广告的媒体。企业建站在互联网上宣传自己公司的产品与公司文化理念的同时...</p>
-                                <b class="left">READ MORE</b>
-                            </div>
-                            <div class="left ca_con_bn">
-                                <p>5743</p>
-                                <b>4596</b>
-                            </div>
-                        </div>
-                        <div class="left case_con_box" onclick="caseck('details/case_zh.html')">
-                            <span class="width left">
-                                <img src="details___TMPL__/public/img/case_zh.png" class="img centre" />
-                            </span>
-                            <div class="left ca_con_mod">
-                                <h3 class="width left">广州正和药业连锁有限公司</h3>
-                                <p class="width left">互联网作为企业扩展业务的一种工具，不仅仅是一个做广告的媒体。企业建站在互联网上宣传自己公司的产品与公司文化理念的同时...</p>
-                                <b class="left">READ MORE</b>
-                            </div>
-                            <div class="left ca_con_bn">
-                                <p>5743</p>
-                                <b>4596</b>
-                            </div>
-                        </div>
-                        <div class="left case_con_box" onclick="caseck('details/case_dfh.html')">
-                            <span class="width left">
-                                <img src="details___TMPL__/public/img/case_dfh.png" class="img centre" />
-                            </span>
-                            <div class="left ca_con_mod">
-                                <h3 class="width left">广州市东方红药业有限公司</h3>
-                                <p class="width left">品专互动在与东方红药业的合作中，除了利用搜索引擎来进行网络营销外,更将剩余资源运用的更为彻底,品专互动搭建强有力的DSP...</p>
-                                <b class="left">READ MORE</b>
-                            </div>
-                            <div class="left ca_con_bn">
-                                <p>5743</p>
-                                <b>4596</b>
-                            </div>
-                        </div>
-                        <div class="left case_con_box" onclick="caseck('details/case_ty.html')">
-                            <span class="width left">
-                                <img src="details___TMPL__/public/img/case_ty.png" class="img centre" />
-                            </span>
-                            <div class="left ca_con_mod">
-                                <h3 class="width left">特一药业集团股份有限公司</h3>
-                                <p class="width left">品专互动针对特一药业旗下品牌“止咳宝片”进行了完善的分析与策划，全面而有效的利用搜索引擎来进行网络品牌营销推广，在百度...</p>
-                                <b class="left">READ MORE</b>
-                            </div>
-                            <div class="left ca_con_bn">
-                                <p>5743</p>
-                                <b>4596</b>
-                            </div>
-                        </div>
+                        
                     </div>
 
                 </div>
@@ -315,7 +260,7 @@
 <script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function () {
-        $('.case_one_con').Toload({
+        $('.one_con').Toload({
             sign: 'index',
             data: {
                 page: 1,
@@ -324,7 +269,7 @@
             },
             urls: 'http://thinkpz.cn/portal/case/listCase',
             fn: function () {
-                console.log(1);
+                cased()
             }
         })
         //页面-banner
@@ -420,17 +365,6 @@
                 $(this).siblings('a').css('border-color', '#fff')
             });
         });
-        //success_case
-        //			$('.one_title li').each(function(a, b) {
-        //				$(this).click(function() {
-        //					$(this).siblings().removeClass('one_avt');
-        //					$(this).addClass('one_avt');
-        //					$('.one_con').eq(a).siblings('.one_con').css('display', 'none');
-        //					$('.one_con').eq(a).css('display', 'block');
-        //				});
-        //			});
-        cased()
-
         //深入了解
         var bnleft = $('.banner_button span').innerWidth();
         $('.banner_button div').css('left', -bnleft - 5)
