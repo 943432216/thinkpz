@@ -18,7 +18,7 @@ function prevbn(str) {
 			})
 		})
 	} else {
-		alert(1)
+		// alert(1)
 		$('.prevbn').children('a').each(function () {
 			$(this).click(function () {
 				$(this).siblings('a').removeClass(str + '_avt');
@@ -59,14 +59,15 @@ function prevbn(str) {
 		},
 		_index: function (a) { //首页
 			var i = 0
-			console.log(a)
+			// console.log(a)
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
-					this.ele.append('<div class="left case_con_box"><span class="width left"><img src="' + a.data[
+					this.ele.append('<div class="left case_con_box"><span class="width left"><img class="img centre" src="' + a.data[
 							i].more +
 						'" /></span><div class="left ca_con_mod"> <h3 class="width left">' + a.data[i].post_title +
 						'</h3> <p class="width left">' + a.data[i].post_excerpt +
-						'</p> <b class="left">READ MORE</b> </div> <div class="left ca_con_bn"><p>'+a.data[i].post_hits+'</p><b>'+a.data[i].post_share+'</b></div></div>')
+						'</p> <b class="left">READ MORE</b> </div> <div class="left ca_con_bn"><p>' + a.data[i].post_hits + '</p><b>' +
+						a.data[i].post_share + '</b></div></div>')
 				}
 				this.ele.children('div').click(function () {
 					for (i = 0; i < a.data.length; i++) {
