@@ -1,512 +1,538 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>品专互动</title>
-		
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css"  id="ins"/>
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-		<taglib name="app\portal\taglib\Portal"/>
-	</head>
-	<body>
-		<div class="pz_box overflow position">
-			<div class="pz_cb">
-				<ul>
-					<li>
-						<a href="javascript:;" class="top"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="kf"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="wx"></a>
-					</li>
-				</ul>
-			</div>
-			<div class="nav overflow left">
-				<div class="nav_logo left"></div>
-				<!-- 引入导航模板 -->
-				<include file="common/nav" />
-				<!-- 引入导航模板结束 -->
-				<div class="nav_ss left position">
-					<div class="search_click">
-						<input type="text" name="search" id="search" value="" />
-						<span><img src="__TMPL__/public/img/search.png"/></span>
-					</div>
-					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
-				</div>
-			</div>
-			<header class="width left overflow">
-				<div class="swiper-container">
-					<ul class="swiper-wrapper">
-						<slides id="1">
-							<!-- <php>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>品专互动</title>
+
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" id="ins" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
+    <taglib name="app\portal\taglib\Portal" />
+</head>
+
+<body>
+    <div class="pz_box overflow position">
+        <div class="pz_cb">
+            <ul>
+                <li>
+                    <a href="javascript:;" class="top"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="kf"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="wx"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav overflow left">
+            <div class="nav_logo left"></div>
+            <!-- 引入导航模板 -->
+            <include file="common/nav" />
+            <!-- 引入导航模板结束 -->
+            <div class="nav_ss left position">
+                <div class="search_click">
+                    <input type="text" name="search" id="search" value="" />
+                    <span>
+                        <img src="__TMPL__/public/img/search.png" />
+                    </span>
+                </div>
+                <div class="click_one">
+                    <img src="__TMPL__/public/img/search.png" />
+                </div>
+            </div>
+        </div>
+        <header class="width left overflow">
+            <div class="swiper-container">
+                <ul class="swiper-wrapper">
+                    <slides id="1">
+                        <!-- <php>
 								var_dump($vo);
 							</php> -->
-							<if condition="$vo.list_order == 1">
-								<li class="swiper-slide">
-									<img src="{:cmf_get_image_url($vo.image)}" alt="" class="img swiper-lazy" />
-									<div class="banner_button" onclick="caseck('details/about_detalis.html')">
-										<span>深入了解&ensp;></span>
-										<div></div>
-									</div>
-								</li>
-							<else/>
-								<li class="swiper-slide"><img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" /></li>
-							</if>
-						</slides>
-					</ul>
-					<div class="next"></div>
-					<div class="prev"></div>
-					<div class="swiper-pagination"></div>
-				</div>
-				<div class="header_bn left width">
-					<p>查看更多</p>
-					<p>向下滑动</p>
-				</div>
-				<div class="heaeder_company left overflow">
-					<span class="left display overflow span_01 avct">
-						<div class="left_pic"><img src="__TMPL__/public/img/intro.png" class="img"/></div>
-						<div class="left_con">
-							<ul>
-								<li>About Us</li>
-								<h3>集团简介</h3>
-								<li>{$theme_widgets.about.vars.introduction}</li>
-							</ul>
-						</div>
-					</span>
-					<span class="left display overflow span_02">
-						<div class="left_pic"><img src="__TMPL__/public/img/introb.png" class="img"/></div>
-						<div class="left_con">
-							<ul>
-								<li>Qualification</li>
-								<h3>企业资质</h3>
-								<li>{$theme_widgets.about.vars.qualification}</li>
-							</ul>
-						</div>
-					</span>
-				</div>
-				<div class="company_zy">
-					<div class="zyleft">
-						<p>1</p>
-						<p class="lefts">
-							<</p>
-					</div>
-					<div class="zyright">
-						<p>/2</p>
-						<p class="rights">></p>
-					</div>
-				</div>
-			</header>
-			<section class="width left overflow sections">
-				<div class="left width overflow business">
-					<div class="titles left width">
-						<h1 class="width left">主营业务</h1>
-						<p class="width left">MAIN&nbsp;BUSINESS</p>
-					</div>
-					<div class="left business_con">
-						<span class="left overflow bus_box">
-							<img src="__TMPL__/public/img/qiepian_03.jpg" class="img"/>
-							<div class="zhezhao"></div>
-							<div class="detail">							
-								<h3>SEM服务</h3>
-								<p>{$theme_widgets.business.vars.sem}</p>
-							</div>
-							<span class="bus_btn">SEM服务</span>
-						</span>
-						<span class="left overflow bus_box">
-							<img src="__TMPL__/public/img/qiepian_05.jpg" class="img"/>
-							<div class="zhezhao"></div>
-							<div class="detail">
-								<h3>SE0服务</h3>
-								<p>{$theme_widgets.business.vars.seo}</p>
-							</div>
-							<span class="bus_btn">SE0服务</span>
-						</span>
-						<span class="left overflow bus_box">
-							<img src="__TMPL__/public/img/qiepian_07.jpg" class="img"/>
-							<div class="zhezhao"></div>
-							<div class="detail">
-								<h3>信息流</h3>
-								<p>{$theme_widgets.business.vars.flow}</p>
-							</div>
-							<span class="bus_btn">信息流</span>
-						</span>
-						<span class="left overflow bus_box">
-							<img src="__TMPL__/public/img/qiepian_09.jpg" class="img"/>
-							<div class="zhezhao"></div>
-							<div class="detail">
-								<h3>DSP系统</h3>
-								<p>{$theme_widgets.business.vars.dsp}</p>
-							</div>
-							<span class="bus_btn">DSP系统</span>
-						</span>
-					</div>
-					<div class="left width more_box">
-						<div class="more position">
-							<a href="business.html">更多业务&nbsp;&nbsp;→</a>
-							<span></span>
-						</div>
-					</div>
-				</div>
-				<!--success_case-->
-				<div class="left width overflow succ_case">
-					<div class="titles left width">
-						<h1 class="width left">经典案例</h1>
-						<p class="width left">CLASSIC CASE</p>
-					</div>
-					<div class="case_one_con width left">
-						<div class="one_title overflow width prevbn">
-							<ul>
-								<li class="one_avt">
-									<a href="javascript:;">2016年</a>
-								</li>
-								<li>
-									<a href="javascript:;">2017年</a>
-								</li>
-								<li>
-									<a href="javascript:;">2018年</a>
-								</li>
-							</ul>
-						</div>
-						<!--1-->
-						<div class="one_con overflow width position" style="display: block;">
-							<div class="left case_con_box">
-								<span class="width left"><img src="" class="img centre"/></span>
-								<div class="left ca_con_mod">
-									<h3 class="width left"></h3>
-									<p class="width left"></p>
-									<b class="left">READ MORE</b>
-								</div>
-								<div class="left ca_con_bn">
-									<p></p>
-									<b></b>
-								</div>
-							</div>
-							<div class="left case_con_box" onclick="caseck('details/case_zh.html')">
-								<span class="width left"><img src="details___TMPL__/public/img/case_zh.png" class="img centre"/></span>
-								<div class="left ca_con_mod">
-									<h3 class="width left">广州正和药业连锁有限公司</h3>
-									<p class="width left">互联网作为企业扩展业务的一种工具，不仅仅是一个做广告的媒体。企业建站在互联网上宣传自己公司的产品与公司文化理念的同时...</p>
-									<b class="left">READ MORE</b>
-								</div>
-								<div class="left ca_con_bn">
-									<p>5743</p>
-									<b>4596</b>
-								</div>
-							</div>
-							<div class="left case_con_box" onclick="caseck('details/case_dfh.html')">
-								<span class="width left"><img src="details___TMPL__/public/img/case_dfh.png" class="img centre"/></span>
-								<div class="left ca_con_mod">
-									<h3 class="width left">广州市东方红药业有限公司</h3>
-									<p class="width left">品专互动在与东方红药业的合作中，除了利用搜索引擎来进行网络营销外,更将剩余资源运用的更为彻底,品专互动搭建强有力的DSP...</p>
-									<b class="left">READ MORE</b>
-								</div>
-								<div class="left ca_con_bn">
-									<p>5743</p>
-									<b>4596</b>
-								</div>
-							</div>
-							<div class="left case_con_box" onclick="caseck('details/case_ty.html')">
-								<span class="width left"><img src="details___TMPL__/public/img/case_ty.png" class="img centre"/></span>
-								<div class="left ca_con_mod">
-									<h3 class="width left">特一药业集团股份有限公司</h3>
-									<p class="width left">品专互动针对特一药业旗下品牌“止咳宝片”进行了完善的分析与策划，全面而有效的利用搜索引擎来进行网络品牌营销推广，在百度...</p>
-									<b class="left">READ MORE</b>
-								</div>
-								<div class="left ca_con_bn">
-									<p>5743</p>
-									<b>4596</b>
-								</div>
-							</div>
-						</div>
-					<!--2-->
-					<div class="left width more_box">
-						<div class="moret position">
-							<a href="successful_case.html">更多业务&nbsp;&nbsp;→</a>
-							<span></span>
-						</div>
-					</div>
-				</div>
-				<!--news-->
-				<div class="left width overflow news">
-					<div class="titles left width">
-						<h1 class="width left">新闻中心</h1>
-						<p class="width left">NEWS CENTER</p>
-					</div>
-					<div class="conwidth left overflow news_index">						
-						<php>
-							$category_ids=2;
-						</php>
-						<portal:articles limit="3" order="post.published_time DESC" categoryIds="$category_ids">
-							<div class="left news_index_box overflow" onclick="caseck('details/news_company_1.html')">
-								<span class="left width overflow"><img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img centre"/></span>
-								<div class="news_index_bn width overflow left">
-									<ul>
-										<li>
-											<b>{$vo.published_time|date='d',###}</b>
-											<p>{$vo.published_time|date='Y.m',###}</p>
-										</li>
-										<li>
-											<h3>{$vo.post_title}</h3>
-											<p>{$vo.post_excerpt|mb_substr=###,0,33,'utf-8'}
-											<if condition="mb_strlen($vo['post_excerpt'],'utf-8') gt 33">...</if>
-											</p>
-										</li>
-									</ul>
-								</div>
-								<div class="left width news_index_se position">
-									<p>{$vo.post_hits}</p>
-									<p>分享</p>
-									<a href="details/news_company_1.html">进入查看</a>
-								</div>
-							</div>
-						</portal:articles>
-					</div>
-					<div class="left width more_box">
-						<div class="more position">
-							<a href="news.html">更多业务&nbsp;&nbsp;→</a>
-							<span></span>
-						</div>
-					</div>
-				</div>
-				<!--us-->
-				<div class="left width overflow us_idea position">
-					<img src="__TMPL__/public/img/us.png" class="img" />
-					<h1 class="width left overflow">您给我们信任  我们给您惊喜!</h1>
-					<b class="width left overflow">本着为客户持续创造价值的理念，帮助企业利用网络创造财富实现价值是我们的理想。</b>
-					<p class="width left overflow">品专互动专注媒体营销服务，以媒体营销体验带动企业价值增长，实现您的商业目标。</p>
-				</div>
-			</section>
-			<!-- 引入页脚 -->
-			<include file="common/footer" />
-			<!-- 引入页脚结束 -->
-		</div>
-	</body>
-	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$(function() {
-			 $('.case_one_con').Toload({
-				 sign:'index',
-				 data:{
-					 page:1,
-					 year:2016,
-					 number:4
-				 },
-				 urls:'http://thinkpz.cn/portal/case/listCase',
-				 fn:function(){
-					 console.log(1);
-				 }
-			 })
-			//页面-banner
-			var swiper = new Swiper('.swiper-container', {
-				autoplay: { 
-					delay:4000,
-					disableOnInteraction : false
-				},
-				resistanceRatio: 0,
-				loop: true,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true
-				},
-				navigation: {
-					nextEl: '.next',
-					prevEl: '.prev',
-				},
-  			preloadImages:true
-			});
-			//首页-关于品专
-			$('.lefts').click(function() {
-				//相应页面
-				$('.zyleft').children('p').eq(0).html(1)
-				$('.heaeder_company span').removeClass('avct');
-				$('.span_01').addClass('avct');
-				$('.span_01 .left_pic img').attr('src', '__TMPL__/public/img/intro.png');
-				$('.span_02 .left_pic img').attr('src', '__TMPL__/public/img/introb.png');
-			}), $('.rights').click(function() {
-				//相应页面
-				$('.zyleft').children('p').eq(0).html(2)
-				$('.heaeder_company span').removeClass('avct');
-				$('.span_02').addClass('avct');
-				$('.span_01 .left_pic img').attr('src', '__TMPL__/public/img/intros.png');
-				$('.span_02 .left_pic img').attr('src', '__TMPL__/public/img/introw.png');
-			})
-			$('.span_01').click(function() {
-				window.location.href = 'details/about_detalis.html';
-				//相应页面				
-			}), $('.span_02').click(function() {
-				window.location.href = 'details/aptitude.html'
-				//相应页面				
-			})
-			//首页-主营业务
-			$('.bus_box').each(function() {
-				var x=$(this).children('.detail').find('p').html()
-				if(x.lastIndexOf('。')<130){
-					
-				}else{
-					$(this).children('.detail').find('p').html(x.substring(0,130)+'...')
-				}
-				
-				$(this).mouseenter(function() {
-					$(this).children('.detail').stop().animate({
-						top: '0'
-					}, 500)
-				}), $(this).mouseleave(function() {
-					$(this).children('.detail').stop().animate({
-						top: '-90%'
-					}, 500)
-				})
-			})
-			
-			//首页-更多按钮
-			$('.more').each(function() {
-				$(this).mouseenter(function() {
-					$(this).children('span').stop().animate({
-						left: '0',
-					}, 500, 'linear', function() {
-						$(this).prev('a').css('color', '#FFFFFF');
-					});
+                        <if condition="$vo.list_order == 1">
+                            <li class="swiper-slide">
+                                <img src="{:cmf_get_image_url($vo.image)}" alt="" class="img swiper-lazy" />
+                                <div class="banner_button" onclick="caseck('details/about_detalis.html')">
+                                    <span>深入了解&ensp;></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <else/>
+                            <li class="swiper-slide">
+                                <img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" />
+                            </li>
+                        </if>
+                    </slides>
+                </ul>
+                <div class="next"></div>
+                <div class="prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="header_bn left width">
+                <p>查看更多</p>
+                <p>向下滑动</p>
+            </div>
+            <div class="heaeder_company left overflow">
+                <span class="left display overflow span_01 avct">
+                    <div class="left_pic">
+                        <img src="__TMPL__/public/img/intro.png" class="img" />
+                    </div>
+                    <div class="left_con">
+                        <ul>
+                            <li>About Us</li>
+                            <h3>集团简介</h3>
+                            <li>{$theme_widgets.about.vars.introduction}</li>
+                        </ul>
+                    </div>
+                </span>
+                <span class="left display overflow span_02">
+                    <div class="left_pic">
+                        <img src="__TMPL__/public/img/introb.png" class="img" />
+                    </div>
+                    <div class="left_con">
+                        <ul>
+                            <li>Qualification</li>
+                            <h3>企业资质</h3>
+                            <li>{$theme_widgets.about.vars.qualification}</li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+            <div class="company_zy">
+                <div class="zyleft">
+                    <p>1</p>
+                    <p class="lefts">
+                        <</p>
+                </div>
+                <div class="zyright">
+                    <p>/2</p>
+                    <p class="rights">></p>
+                </div>
+            </div>
+        </header>
+        <section class="width left overflow sections">
+            <div class="left width overflow business">
+                <div class="titles left width">
+                    <h1 class="width left">主营业务</h1>
+                    <p class="width left">MAIN&nbsp;BUSINESS</p>
+                </div>
+                <div class="left business_con">
+                    <span class="left overflow bus_box">
+                        <img src="__TMPL__/public/img/qiepian_03.jpg" class="img" />
+                        <div class="zhezhao"></div>
+                        <div class="detail">
+                            <h3>SEM服务</h3>
+                            <p>{$theme_widgets.business.vars.sem}</p>
+                        </div>
+                        <span class="bus_btn">SEM服务</span>
+                    </span>
+                    <span class="left overflow bus_box">
+                        <img src="__TMPL__/public/img/qiepian_05.jpg" class="img" />
+                        <div class="zhezhao"></div>
+                        <div class="detail">
+                            <h3>SE0服务</h3>
+                            <p>{$theme_widgets.business.vars.seo}</p>
+                        </div>
+                        <span class="bus_btn">SE0服务</span>
+                    </span>
+                    <span class="left overflow bus_box">
+                        <img src="__TMPL__/public/img/qiepian_07.jpg" class="img" />
+                        <div class="zhezhao"></div>
+                        <div class="detail">
+                            <h3>信息流</h3>
+                            <p>{$theme_widgets.business.vars.flow}</p>
+                        </div>
+                        <span class="bus_btn">信息流</span>
+                    </span>
+                    <span class="left overflow bus_box">
+                        <img src="__TMPL__/public/img/qiepian_09.jpg" class="img" />
+                        <div class="zhezhao"></div>
+                        <div class="detail">
+                            <h3>DSP系统</h3>
+                            <p>{$theme_widgets.business.vars.dsp}</p>
+                        </div>
+                        <span class="bus_btn">DSP系统</span>
+                    </span>
+                </div>
+                <div class="left width more_box">
+                    <div class="more position">
+                        <a href="business.html">更多业务&nbsp;&nbsp;→</a>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <!--success_case-->
+            <div class="left width overflow succ_case">
+                <div class="titles left width">
+                    <h1 class="width left">经典案例</h1>
+                    <p class="width left">CLASSIC CASE</p>
+                </div>
+                <div class="case_one_con width left">
+                    <div class="one_title overflow width prevbn">
+                        <ul>
+                            <li class="one_avt">
+                                <a href="javascript:;">2016年</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">2017年</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">2018年</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--1-->
+                    <div class="one_con overflow width position">
+                        <div class="left case_con_box">
+                            <span class="width left">
+                                <img src="details___TMPL__/public/img/case_zh.png" class="img centre" />
+                            </span>
+                            <div class="left ca_con_mod">
+                                <h3 class="width left">广州正和药业连锁有限公司</h3>
+                                <p class="width left">互联网作为企业扩展业务的一种工具，不仅仅是一个做广告的媒体。企业建站在互联网上宣传自己公司的产品与公司文化理念的同时...</p>
+                                <b class="left">READ MORE</b>
+                            </div>
+                            <div class="left ca_con_bn">
+                                <p>5743</p>
+                                <b>4596</b>
+                            </div>
+                        </div>
+                        <div class="left case_con_box" onclick="caseck('details/case_zh.html')">
+                            <span class="width left">
+                                <img src="details___TMPL__/public/img/case_zh.png" class="img centre" />
+                            </span>
+                            <div class="left ca_con_mod">
+                                <h3 class="width left">广州正和药业连锁有限公司</h3>
+                                <p class="width left">互联网作为企业扩展业务的一种工具，不仅仅是一个做广告的媒体。企业建站在互联网上宣传自己公司的产品与公司文化理念的同时...</p>
+                                <b class="left">READ MORE</b>
+                            </div>
+                            <div class="left ca_con_bn">
+                                <p>5743</p>
+                                <b>4596</b>
+                            </div>
+                        </div>
+                        <div class="left case_con_box" onclick="caseck('details/case_dfh.html')">
+                            <span class="width left">
+                                <img src="details___TMPL__/public/img/case_dfh.png" class="img centre" />
+                            </span>
+                            <div class="left ca_con_mod">
+                                <h3 class="width left">广州市东方红药业有限公司</h3>
+                                <p class="width left">品专互动在与东方红药业的合作中，除了利用搜索引擎来进行网络营销外,更将剩余资源运用的更为彻底,品专互动搭建强有力的DSP...</p>
+                                <b class="left">READ MORE</b>
+                            </div>
+                            <div class="left ca_con_bn">
+                                <p>5743</p>
+                                <b>4596</b>
+                            </div>
+                        </div>
+                        <div class="left case_con_box" onclick="caseck('details/case_ty.html')">
+                            <span class="width left">
+                                <img src="details___TMPL__/public/img/case_ty.png" class="img centre" />
+                            </span>
+                            <div class="left ca_con_mod">
+                                <h3 class="width left">特一药业集团股份有限公司</h3>
+                                <p class="width left">品专互动针对特一药业旗下品牌“止咳宝片”进行了完善的分析与策划，全面而有效的利用搜索引擎来进行网络品牌营销推广，在百度...</p>
+                                <b class="left">READ MORE</b>
+                            </div>
+                            <div class="left ca_con_bn">
+                                <p>5743</p>
+                                <b>4596</b>
+                            </div>
+                        </div>
+                    </div>
 
-				}), $(this).mouseleave(function() {
-					$(this).children('span').stop().animate({
-						left: '-100%'
-					}, 500, 'linear', function() {
-						$(this).prev('a').css('color', '#007ee9');
-					});
-				})
-			})
-			$('.moret').mouseenter(function() {
-				$(this).children('span').stop().animate({
-					left: '0'
-				}, 500, 'linear', function() {
-					$(this).siblings('a').css('color', '#FFFFFF');
-					$(this).siblings('a').css('border-color', '#007ee9')
-				});
-			}).mouseleave(function() {
-				$(this).children('span').stop().animate({
-					left: '-100%'
-				}, 500, 'linear', function() {
-					$(this).siblings('a').css('color', '#fff');
-					$(this).siblings('a').css('border-color', '#fff')
-				});
-			});
-			//success_case
-//			$('.one_title li').each(function(a, b) {
-//				$(this).click(function() {
-//					$(this).siblings().removeClass('one_avt');
-//					$(this).addClass('one_avt');
-//					$('.one_con').eq(a).siblings('.one_con').css('display', 'none');
-//					$('.one_con').eq(a).css('display', 'block');
-//				});
-//			});
-			cased()
-			
-			//深入了解
-			var bnleft=$('.banner_button span').innerWidth();
-			$('.banner_button div').css('left',-bnleft-5)
-			$('.banner_button').mouseenter(function(){
-				$(this).find('div').stop().animate({
-					'left':'0'
-				},500,function(){
-					$(this).siblings('span').css('border-color','#007AFF');
-				});
-			}).mouseleave(function(){
-				$(this).find('div').stop().animate({
-					'left':-bnleft-5
-				},500,function(){
-					$(this).siblings('span').css('border-color','rgba(255,255,255,0.8)');
-				});
-			})
-			//导航初始化
-			var margins = $('.pz_box').offset().left;
-			var widt=$('.pz_box').width();
-			var navh = $('.nav_con').height();
-			$('.nav').css({
-				'display': 'block',
-				'background': 'transparent',
-				'height': navh,
-				'width': widt,
-				'margin-left': margins
-			});
-			//返回顶部
-			$('.top').click(function() {
-				$("html,body").animate({
-					scrollTop: 0
-				}, 100);
-			})
-			//导航
-			$('.nav_logo').click(function() {
-				document.location.href = 'index.html';
-			})
-			searchs(0);
-			scrolls('.sections');
-			window.onscroll = function() {
-				searchs(0);
-			}
-		})
-		function caseck(urls){
-			document.location.href=urls;
-		}
-		function cased(){
-			var w1=$('.case_con_box').width()//初始宽度
-			var w2=w1*1.05;//选中后宽度
-			var w3=w1*0.1;//间隔
-			var h1=$('.case_con_box').height();//初始高度
-			var h2=h1*1.06;//选中后高度
-			var ws=(w2-w1)/2;
-			var hs=(h2-h1)/2;
-			var c=null;
-			if(window.screen.width>=1920){
-				c=350;
-			}else if(window.screen.width==1366){
-				c=250;
-			}else if(window.screen.width==1600){
-				c=295;
-			}
-			var d=$('.case_con_box').css('top');
-			var e=parseFloat(d)-hs
-//			console.log(c-ws)
-			$('.one_con').each(function() {
-				$(this).children('.case_con_box').each(function(a, b) {
-					$(this).css('left', ((w1 + w3) * a + c))
-					$(this).mouseenter(function() {
-						$(this).css({
-							width: w2,
-							height: h2,
-							background: '#007ee9',
-							top: e
-						});
-						$(this).css('left', ((w1 + w3) * a + c-ws));
-						$(this).children('div').eq(0).find('p').css('color', '#c0daf0');
-						$(this).children('div').eq(0).find('b').css('color', '#e5e5e5');
-						$(this).find('h3').css('color', '#ffffff');
-						$(this).children('div').eq(1).find('p').css('color', '#77bcf6');
-						$(this).children('div').eq(1).find('b').css('color', '#77bcf6')
-						$(this).addClass('case_avt');
-					}).mouseleave(function() {
-						$(this).css({
-							width: w1,
-							height: h1,
-							background: '#fff',
-							top: d
-						});
-						$(this).css('left', ((w1 + w3) * a + c));
-						$(this).children('div').eq(0).find('p').css('color', '#737373');
-						$(this).children('div').eq(0).find('b').css('color', '#7F7F7F');
-						$(this).find('h3').css('color', '#000');
-						$(this).children('div').eq(1).find('p').css('color', '#999');
-						$(this).children('div').eq(1).find('b').css('color', '#999');
-						$(this).removeClass('case_avt')
-					})
-				})
-			});
-		}
-	</script>
+                </div>
+                <!--2-->
+                <div class="left width more_box">
+                    <div class="moret position">
+                        <a href="successful_case.html">更多业务&nbsp;&nbsp;→</a>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <!--news-->
+            <div class="left width overflow news">
+                <div class="titles left width">
+                    <h1 class="width left">新闻中心</h1>
+                    <p class="width left">NEWS CENTER</p>
+                </div>
+                <div class="conwidth left overflow news_index">
+                    <php>
+                        $category_ids=2;
+                    </php>
+                    <portal:articles limit="3" order="post.published_time DESC" categoryIds="$category_ids">
+                        <div class="left news_index_box overflow" onclick="caseck('details/news_company_1.html')">
+                            <span class="left width overflow">
+                                <img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img centre" />
+                            </span>
+                            <div class="news_index_bn width overflow left">
+                                <ul>
+                                    <li>
+                                        <b>{$vo.published_time|date='d',###}</b>
+                                        <p>{$vo.published_time|date='Y.m',###}</p>
+                                    </li>
+                                    <li>
+                                        <h3>{$vo.post_title}</h3>
+                                        <p>{$vo.post_excerpt|mb_substr=###,0,33,'utf-8'}
+                                            <if condition="mb_strlen($vo['post_excerpt'],'utf-8') gt 33">...</if>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="left width news_index_se position">
+                                <p>{$vo.post_hits}</p>
+                                <p>2018</p>
+                                <a href="details/news_company_1.html">进入查看</a>
+                            </div>
+                        </div>
+                    </portal:articles>
+                </div>
+                <div class="left width more_box">
+                    <div class="more position">
+                        <a href="news.html">更多业务&nbsp;&nbsp;→</a>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <!--us-->
+            <div class="left width overflow us_idea position">
+                <img src="__TMPL__/public/img/us.png" class="img" />
+                <h1 class="width left overflow">您给我们信任 我们给您惊喜!</h1>
+                <b class="width left overflow">本着为客户持续创造价值的理念，帮助企业利用网络创造财富实现价值是我们的理想。</b>
+                <p class="width left overflow">品专互动专注媒体营销服务，以媒体营销体验带动企业价值增长，实现您的商业目标。</p>
+            </div>
+        </section>
+        <!-- 引入页脚 -->
+        <include file="common/footer" />
+        <!-- 引入页脚结束 -->
+    </div>
+</body>
+<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.case_one_con').Toload({
+            sign: 'index',
+            data: {
+                page: 1,
+                year: 2016,
+                number: 4
+            },
+            urls: 'http://thinkpz.cn/portal/case/listCase',
+            fn: function () {
+                console.log(1);
+            }
+        })
+        //页面-banner
+        var swiper = new Swiper('.swiper-container', {
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false
+            },
+            resistanceRatio: 0,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.next',
+                prevEl: '.prev',
+            },
+            preloadImages: true
+        });
+        //首页-关于品专
+        $('.lefts').click(function () {
+            //相应页面
+            $('.zyleft').children('p').eq(0).html(1)
+            $('.heaeder_company span').removeClass('avct');
+            $('.span_01').addClass('avct');
+            $('.span_01 .left_pic img').attr('src', '__TMPL__/public/img/intro.png');
+            $('.span_02 .left_pic img').attr('src', '__TMPL__/public/img/introb.png');
+        }), $('.rights').click(function () {
+            //相应页面
+            $('.zyleft').children('p').eq(0).html(2)
+            $('.heaeder_company span').removeClass('avct');
+            $('.span_02').addClass('avct');
+            $('.span_01 .left_pic img').attr('src', '__TMPL__/public/img/intros.png');
+            $('.span_02 .left_pic img').attr('src', '__TMPL__/public/img/introw.png');
+        })
+        $('.span_01').click(function () {
+            window.location.href = 'details/about_detalis.html';
+            //相应页面				
+        }), $('.span_02').click(function () {
+            window.location.href = 'details/aptitude.html'
+            //相应页面				
+        })
+        //首页-主营业务
+        $('.bus_box').each(function () {
+            var x = $(this).children('.detail').find('p').html()
+            if (x.lastIndexOf('。') < 130) {
+
+            } else {
+                $(this).children('.detail').find('p').html(x.substring(0, 130) + '...')
+            }
+
+            $(this).mouseenter(function () {
+                $(this).children('.detail').stop().animate({
+                    top: '0'
+                }, 500)
+            }), $(this).mouseleave(function () {
+                $(this).children('.detail').stop().animate({
+                    top: '-90%'
+                }, 500)
+            })
+        })
+
+        //首页-更多按钮
+        $('.more').each(function () {
+            $(this).mouseenter(function () {
+                $(this).children('span').stop().animate({
+                    left: '0',
+                }, 500, 'linear', function () {
+                    $(this).prev('a').css('color', '#FFFFFF');
+                });
+
+            }), $(this).mouseleave(function () {
+                $(this).children('span').stop().animate({
+                    left: '-100%'
+                }, 500, 'linear', function () {
+                    $(this).prev('a').css('color', '#007ee9');
+                });
+            })
+        })
+        $('.moret').mouseenter(function () {
+            $(this).children('span').stop().animate({
+                left: '0'
+            }, 500, 'linear', function () {
+                $(this).siblings('a').css('color', '#FFFFFF');
+                $(this).siblings('a').css('border-color', '#007ee9')
+            });
+        }).mouseleave(function () {
+            $(this).children('span').stop().animate({
+                left: '-100%'
+            }, 500, 'linear', function () {
+                $(this).siblings('a').css('color', '#fff');
+                $(this).siblings('a').css('border-color', '#fff')
+            });
+        });
+        //success_case
+        //			$('.one_title li').each(function(a, b) {
+        //				$(this).click(function() {
+        //					$(this).siblings().removeClass('one_avt');
+        //					$(this).addClass('one_avt');
+        //					$('.one_con').eq(a).siblings('.one_con').css('display', 'none');
+        //					$('.one_con').eq(a).css('display', 'block');
+        //				});
+        //			});
+        cased()
+
+        //深入了解
+        var bnleft = $('.banner_button span').innerWidth();
+        $('.banner_button div').css('left', -bnleft - 5)
+        $('.banner_button').mouseenter(function () {
+            $(this).find('div').stop().animate({
+                'left': '0'
+            }, 500, function () {
+                $(this).siblings('span').css('border-color', '#007AFF');
+            });
+        }).mouseleave(function () {
+            $(this).find('div').stop().animate({
+                'left': -bnleft - 5
+            }, 500, function () {
+                $(this).siblings('span').css('border-color', 'rgba(255,255,255,0.8)');
+            });
+        })
+        //导航初始化
+        var margins = $('.pz_box').offset().left;
+        var widt = $('.pz_box').width();
+        var navh = $('.nav_con').height();
+        $('.nav').css({
+            'display': 'block',
+            'background': 'transparent',
+            'height': navh,
+            'width': widt,
+            'margin-left': margins
+        });
+        //返回顶部
+        $('.top').click(function () {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 100);
+        })
+        //导航
+        $('.nav_logo').click(function () {
+            document.location.href = 'index.html';
+        })
+        searchs(0);
+        scrolls('.sections');
+        window.onscroll = function () {
+            searchs(0);
+        }
+    })
+
+    function caseck(urls) {
+        document.location.href = urls;
+    }
+
+    function cased() {
+        var w1 = $('.case_con_box').width() //初始宽度
+        var w2 = w1 * 1.05; //选中后宽度
+        var w3 = w1 * 0.1; //间隔
+        var h1 = $('.case_con_box').height(); //初始高度
+        var h2 = h1 * 1.06; //选中后高度
+        var ws = (w2 - w1) / 2;
+        var hs = (h2 - h1) / 2;
+        var c = null;
+        if (window.screen.width >= 1920) {
+            c = 350;
+        } else if (window.screen.width == 1366) {
+            c = 250;
+        } else if (window.screen.width == 1600) {
+            c = 295;
+        }
+        var d = $('.case_con_box').css('top');
+        var e = parseFloat(d) - hs
+        //			console.log(c-ws)
+        $('.one_con').each(function () {
+            $(this).children('.case_con_box').each(function (a, b) {
+                $(this).css('left', ((w1 + w3) * a + c))
+                $(this).mouseenter(function () {
+                    $(this).css({
+                        width: w2,
+                        height: h2,
+                        background: '#007ee9',
+                        top: e
+                    });
+                    $(this).css('left', ((w1 + w3) * a + c - ws));
+                    $(this).children('div').eq(0).find('p').css('color', '#c0daf0');
+                    $(this).children('div').eq(0).find('b').css('color', '#e5e5e5');
+                    $(this).find('h3').css('color', '#ffffff');
+                    $(this).children('div').eq(1).find('p').css('color', '#77bcf6');
+                    $(this).children('div').eq(1).find('b').css('color', '#77bcf6')
+                    $(this).addClass('case_avt');
+                }).mouseleave(function () {
+                    $(this).css({
+                        width: w1,
+                        height: h1,
+                        background: '#fff',
+                        top: d
+                    });
+                    $(this).css('left', ((w1 + w3) * a + c));
+                    $(this).children('div').eq(0).find('p').css('color', '#737373');
+                    $(this).children('div').eq(0).find('b').css('color', '#7F7F7F');
+                    $(this).find('h3').css('color', '#000');
+                    $(this).children('div').eq(1).find('p').css('color', '#999');
+                    $(this).children('div').eq(1).find('b').css('color', '#999');
+                    $(this).removeClass('case_avt')
+                })
+            })
+        });
+    }
+</script>
 
 </html>

@@ -45,7 +45,17 @@
             }
         },
         _index: function (a) { //首页
-            console.log(a)
+            var i=0
+			console.log(a)
+			if(a.status=='200'){
+				for(;i<a.data.length;i++){
+					this.ele.append('<div class="left case_con_box"><span class="width left"><img src="' + a.data[
+                            i].more +
+                        '" /></span><div class="left ca_con_mod"> <h3 class="width left">' + a.data[i].post_title +
+                        '</h3> <p class="width left">' + a.data[i].post_excerpt +
+                        '</p> <b class="left">READ MORE</b> </div> <div class="left ca_con_bn"><p></p><b></b> </div></div>')
+				}
+			}
         },
         /*
          *	案例板块
@@ -54,7 +64,6 @@
          */
         _case: function (a) {
             var i = 0;
-            console.log(a)
             if (a.status == '200') {
                 for (; i < a.data.length; i++) {
                     this.ele.append(
