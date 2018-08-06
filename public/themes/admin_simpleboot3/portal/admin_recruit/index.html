@@ -45,7 +45,7 @@
 				</script>
 	        </div>
 	        <div class="layui-tab-item">
-				<form class="layui-form" action="{:url('portal/AdminRecruit/add')}" method="POST">
+				<form class="layui-form" action="{:url('portal/AdminRecruit/add')}" method="POST" lay-filter="recruit">
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">职位名称</label>
 				    <div class="layui-input-block">
@@ -92,9 +92,25 @@
 				  </div>
 				  <div class="layui-form-item">
 				  	<div class="layui-inline">
-					    <label class="layui-form-label">年限</label>
+					    <label class="layui-form-label">工作经验</label>
 					    <div class="layui-input-block">
 					      <input type="text" name="work_experience" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+					    </div>
+					</div>
+				  </div>
+				  <div class="layui-form-item">
+				  	<div class="layui-inline">
+					    <label class="layui-form-label">投递邮箱</label>
+					    <div class="layui-input-block">
+					      <input type="text" name="resume_email" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+					    </div>
+					</div>
+				  </div> 
+				  <div class="layui-form-item">
+				  	<div class="layui-inline">
+					    <label class="layui-form-label">咨询专线</label>
+					    <div class="layui-input-block">
+					      <input type="text" name="guidance_line" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
 					    </div>
 					</div>
 				  </div>  
@@ -227,7 +243,22 @@
 		    }
 		  });
 		
-		  
+		  //表单初始赋值
+		  form.val('recruit', {
+		    "job_name" : '',
+            'department' : '',
+            'recruit_numbers' : '',
+            'salary' : '',
+            'work_place' : '',
+            'work_experience' : '',
+            'resume_email' : '943432216@qq.com',
+            'guidance_line' : '020-89052455',
+            'post_time' : '',
+            'expiry_time' : '',
+            'job_duty' : '',
+            'job_require' : '',
+		  })
+
 		});
 	</script>
 </body>

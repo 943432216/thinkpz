@@ -63,6 +63,22 @@
 		</div>
 	  </div>  
 	  <div class="layui-form-item">
+	  	<div class="layui-inline">
+		    <label class="layui-form-label">投递邮箱</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="resume_email" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div>
+		</div>
+	  </div> 
+	  <div class="layui-form-item">
+	  	<div class="layui-inline">
+		    <label class="layui-form-label">咨询专线</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="guidance_line" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div>
+		</div>
+	  </div> 
+	  <div class="layui-form-item">
 	    <div class="layui-inline">
 	      <label class="layui-form-label">发布日期</label>
 	      <div class="layui-input-inline">
@@ -115,16 +131,18 @@
 		 
 		  //表单初始赋值
 		  form.val('recruit', {
-		    "job_name" : <?=$job_data.job_name?>,
-            'department' : job_name,
-            'recruit_numbers' : job_name,
-            'salary' : job_name,
-            'work_place' : job_name,
-            'work_experience' : job_name,
-            'post_time' : job_name,
-            'expiry_time' : job_name,
-            'job_duty' : job_name,
-            'job_require' : job_name,
+		    "job_name" : {$job_data.job_name},
+            'department' : {$job_data.department},
+            'recruit_numbers' : {$job_data.recruit_numbers},
+            'salary' : {$job_data.salary},
+            'work_place' : {$job_data.work_place},
+            'work_experience' : {$job_data.work_experience},
+            'resume_email' : {$job_data.resume_email},
+            'guidance_line' : {$job_data.guidance_line},
+            'post_time' : {$job_data.post_time},
+            'expiry_time' : {$job_data.expiry_time},
+            'job_duty' : {$job_data.job_duty},
+            'job_require' : {$job_data.job_require},
 		  })		  
 		  
 		});
