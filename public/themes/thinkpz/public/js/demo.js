@@ -11,14 +11,12 @@ function prevbn(str) {
 	if (str == 'index') {
 		$('.prevbn li').each(function () {
 			$(this).click(function () {
-				// alert(1);
 				$(this).siblings('li').removeClass('one_avt');
 				$(this).addClass('one_avt');
 
 			})
 		})
 	} else {
-		// alert(1)
 		$('.prevbn').children('a').each(function () {
 			$(this).click(function () {
 				$(this).siblings('a').removeClass(str + '_avt');
@@ -59,7 +57,6 @@ function prevbn(str) {
 		},
 		_index: function (a) { //首页
 			var i = 0
-			// console.log(a)
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
 					this.ele.append('<div class="left case_con_box"><span class="width left"><img class="img centre" src="' + a.data[
@@ -180,6 +177,19 @@ function prevbn(str) {
 				}
 			}
 		},
+		_join: function (a) {
+			console.log(a)
+			var i=0;
+			if(a.status == '200'){
+				for(;i<a.data.length;i++){
+					
+				}
+			}else{
+				if (data.errcode == '1101' && data.errcode) {
+					alert('已经是最后一条数据')
+				}
+			}
+		},
 		/*
 		 *	工具
 		 * 	1.设置ajax全局参数
@@ -204,7 +214,8 @@ function prevbn(str) {
 					index: "_index",
 					news: "_news",
 					cases: "_case",
-					buss: "_buss"
+					buss: "_buss",
+					join: "_join"
 				}
 				_this[successCfg[_this.sign]](successData);
 				_this._moreBn(successData);
@@ -237,42 +248,46 @@ function prevbn(str) {
 		var _this = this;
 		this.each(function () {
 			var es = new Toload(this, options);
-			prevbn(options.sign);
-			$('.prevbn').find('a').each(function () {
-				$(this).click(function () {
-					var cfg = {
-						"0": {
-							key: 'category',
-							value: 2
-						},
-						"1": {
-							key: 'category',
-							value: 3
-						},
-						"2": {
-							key: 'year',
-							value: 0
-						},
-						"2016": {
-							key: 'year',
-							value: 2016
-						},
-						"2017": {
-							key: 'year',
-							value: 2017
-						},
-						"2018": {
-							key: 'year',
-							value: 2018
+			if (options.sign == 'join') {
+				//不做任何操作
+			} else {
+				prevbn(options.sign);
+				$('.prevbn').find('a').each(function () {
+					$(this).click(function () {
+						var cfg = {
+							"0": {
+								key: 'category',
+								value: 2
+							},
+							"1": {
+								key: 'category',
+								value: 3
+							},
+							"2": {
+								key: 'year',
+								value: 0
+							},
+							"2016": {
+								key: 'year',
+								value: 2016
+							},
+							"2017": {
+								key: 'year',
+								value: 2017
+							},
+							"2018": {
+								key: 'year',
+								value: 2018
+							}
 						}
-					}
 
-					var data = cfg[$(this).attr('value')];
-					options.data[data.key] = data.value;
-					es.ele.html('');
-					es._successAjax();
-				})
-			});
+						var data = cfg[$(this).attr('value')];
+						options.data[data.key] = data.value;
+						es.ele.html('');
+						es._successAjax();
+					})
+				});
+			}
 		});
 		return this;
 	}

@@ -369,16 +369,18 @@
 		</div>
 	</body>
 	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
-			$("img").lazyload({
-				effect: "fadeIn",
-				threshold: 200,
-				 placeholder: "__TMPL__/public/img/pz_sys.png"
-			})
-			sharp()
+			$('.join_job').Toload({
+				sign:'join',
+				data:{},
+				urls:'http://thinkpz.cn/portal/Recruit/fetchPosition',
+				fn:function(){
+					
+				}
+			});
 			//初始化导航
 			var margins = $('.pz_box').offset().left;
 			var widt=$('.pz_box').width();
