@@ -73,11 +73,54 @@ class AdminRecruitController extends AdminBaseController {
 	public function edit()
 	{
 		$id = input('id');
-		$field = 'job_name,department,recruit_numbers,salary,work_place,work_experience,resume_email,guidance_line,post_time,expiry_time,job_duty,job_require';
+		$field = 'id,job_name,department,recruit_numbers,salary,work_place,work_experience,resume_email,guidance_line,post_time,expiry_time,job_duty,job_require';
 		$data = Db::table('pz_recruit')->where('id', $id)->field($field)->find();
 		// halt($data);
 		$this->assign('job_data', $data);
 		return $this->fetch();
+	}
+
+	public function editPost()
+	{
+		// halt($_POST);
+		$post = input('post.');
+
+		if (empty($post['id'])) {
+			return $this->error('缺少文章id', 'portal/AdminRecruit/index');
+		}
+
+		switch ($post['department']) {
+			case 0:
+				$post['department'] = '品牌部';
+				break;
+			case 1:
+				$post['department'] = '风控部';
+				break;
+			case 2:
+				$post['department'] = '业支部';
+				break;
+			case 3:
+				$post['department'] = '媒介部';
+				break;
+			case 4:
+				$post['department'] = '销售部';
+				break;
+			case 5:
+				$post['department'] = '运营部';
+				break;			
+			default:
+				$post['department'] = '品专集团';
+				break;
+		}
+
+		$update = Db::table('pz_recruit')->strict(false)->update($post);
+
+		if (false === $update) {
+			return $this->error("数据更新失败", 'portal/AdminRecruit/index');		
+		} else {
+			return $this->success("成功更新".$update."条数据", 'portal/AdminRecruit/index');
+		}
+		
 	}
 
 	public function postData()

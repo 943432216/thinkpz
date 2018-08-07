@@ -10,7 +10,8 @@
 </head>
 <body>
 	<!-- <php>var_dump($job_data);</php> -->
-	<form class="layui-form" action="{:url('portal/AdminRecruit/add')}" method="POST" lay-filter="recruit">
+	<form class="layui-form" action="{:url('portal/AdminRecruit/editPost')}" method="POST" lay-filter="recruit">
+	  <input type="hidden" name="id" value="{$job_data['id']}">
 	  <div class="layui-form-item">
 	    <label class="layui-form-label">职位名称</label>
 	    <div class="layui-input-block">
@@ -22,12 +23,12 @@
 	    <div class="layui-input-block">
 	      <select name="department" lay-filter="aihao">
 	        <option value=""></option>
-	        <option value="0" selected="">品牌部</option>
-	        <option value="1">风控部</option>
-	        <option value="2">业支部</option>
-	        <option value="3">媒介部</option>
-	        <option value="4">销售部</option>
-	        <option value="5">运营部</option>
+	        <option value="0" <if condition="$job_data['department']=='品牌部'">selected=""</if>>品牌部</option>
+	        <option value="1" <if condition="$job_data['department']=='风控部'">selected=""</if>>风控部</option>
+	        <option value="2" <if condition="$job_data['department']=='业支部'">selected=""</if>>业支部</option>
+	        <option value="3" <if condition="$job_data['department']=='媒介部'">selected=""</if>>媒介部</option>
+	        <option value="4" <if condition="$job_data['department']=='销售部'">selected=""</if>>销售部</option>
+	        <option value="5" <if condition="$job_data['department']=='运营部'">selected=""</if>>运营部</option>
 	      </select>
 	    </div>
 	  </div>
@@ -98,16 +99,17 @@
 	  <div class="layui-form-item layui-form-text">
 	    <label class="layui-form-label">岗位职责</label>
 	    <div class="layui-input-block">
-	      <textarea name="job_duty" placeholder="请输入内容" class="layui-textarea"></textarea>
-	    </div>
-	  </div>
-	  <div class="layui-form-item layui-form-text">
-	    <label class="layui-form-label">任职要求</label>
-	    <div class="layui-input-block">
-	      <textarea name="job_require" placeholder="请输入内容" class="layui-textarea"></textarea>
+	      <textarea class="layui-textarea layui-hide" name="job_duty" lay-verify="content" id="editor">{$job_data['job_duty']}</textarea>
 	    </div>
 	  </div>
 	  
+	  <div class="layui-form-item layui-form-text">
+	    <label class="layui-form-label">任职要求</label>
+	    <div class="layui-input-block">
+	      <textarea class="layui-textarea layui-hide" name="job_require" lay-verify="content" id="editor02">{$job_data['job_require']}</textarea>
+	    </div>
+	  </div>
+
 	  <div class="layui-form-item">
 	    <div class="layui-input-block">
 	      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
@@ -117,8 +119,10 @@
 	</form>
 
 	<script>
-		layui.use(['form', 'laydate'], function(){
+		layui.use(['form', 'laydate', 'layedit', 'jquery'], function(){
 		  var form = layui.form
+		  ,$ = layui.$
+		  ,layedit = layui.layedit
 		  ,layer = layui.layer
 		  ,laydate = layui.laydate;
 		  
@@ -129,6 +133,10 @@
 		  laydate.render({
 		    elem: '#date1'
 		  });
+
+		  //创建一个编辑器
+  		  var editIndex = layedit.build('editor');
+  		  var editIndex02 = layedit.build('editor02');
 		 
 		  //表单初始赋值
 		  form.val('recruit', {
@@ -140,10 +148,10 @@
             'resume_email' : "{$job_data['resume_email']}",
             'guidance_line' : "{$job_data['guidance_line']}",
             'post_time' : "{$job_data['post_time']}",
-            'expiry_time' : "{$job_data['expiry_time']}",
-            'job_duty' : '',
-            'job_require' : '',
-		  })
+            'expiry_time' : "{$job_data['expiry_time']}"
+		  });
+
+
 		  
 		});
 
