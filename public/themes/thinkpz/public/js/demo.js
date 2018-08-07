@@ -27,7 +27,33 @@ function prevbn(str) {
 
 };
 
+function filterHTMLTag(msg) {
+	var arrEntities = {
+		'lt': '<',
+		'gt': '>',
+		'nbsp': ' ',
+		'amp': '&',
+		'quot': '"'
+	};
+	msg = msg.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
+		return arrEntities[t];
+	});
+	var msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
+	msg = msg.replace(/[|]*\n/, '') //去除行尾空格
+	msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
+	return msg;
+}
 
+function trimSpace(array) {
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] == "" || typeof (array[i]) == "undefined") {
+			array.splice(i, 1);
+			i = i - 1;
+
+		}
+	}
+	return array;
+}
 
 (function ($, win) {
 	function Toload(element, options) {
@@ -176,6 +202,7 @@ function prevbn(str) {
 			}
 		},
 		_join: function (a) {
+			var _this=this
 			console.log(a)
 			var i = 0;
 			var rz = [],
@@ -183,8 +210,12 @@ function prevbn(str) {
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
 					this.ele.children('.job_header').after('<div class="job_box overflow"></div>');
+					rz[i] = filterHTMLTag(a.data[i].job_duty);
+					gw[i] = filterHTMLTag(a.data[i].job_require);
+					gw[i] = trimSpace(gw[i].split('。'));
+					rz[i]=trimSpace(rz[i].split('。'))
+					
 				}
-				// console.log(rz);
 				for (i = 0; i < a.data.length; i++) {
 					this.ele.children('.job_box').eq(i).append('<p class="left overflow">' + a.data[i].job_name +
 						'</p><p class="left overflow">' + a.data[i].work_place + '</p><p class="left overflow">' + a.data[i].recruit_numbers +
@@ -196,15 +227,19 @@ function prevbn(str) {
 						'</b></li><li><p>薪资范围：</p><b>' + a.data[i].salary + '</b></li><li><p>工作地点：</p><b>' + a.data[i].work_place +
 						'</b></li><li><p>工作年限：</p><b>' + a.data[i].work_experience + '</b></li><li><p>发布日期：</p><b>' + a.data[i].post_time +
 						'</b></li><li><p>职位有效期：</p><b>' + a.data[i].expiry_time + '</b></li></ul></div>');
-					this.ele.children('.job_box').eq(i).find('.job_xx').append(
-						'<div class="width left xx_con"><span class="left overflow"><ul><h3>岗位职责</h3><li>' + a.data[i].job_duty +
-						'</li></ul></span><span class="left overflow"><ul><h3>任职要求</h3><li>' + a.data[i].job_require +
-						'</li></ul></span></div>');
+					this.ele.children('.job_box').eq(i).find('.job_xx').append('<div class="width left xx_con"><span class="left overflow"><ul><h3>岗位职责</h3></ul></span><span class="left overflow"><ul><h3>任职要求</h3></ul></span></div>');
 					this.ele.children('.job_box').eq(i).find('.job_xx').append(
 						'<div class="xx_bn left overflow width"><span class="left overflow"><ul><li>简历投递接收邮箱</li><li>' + a.data[i].resume_email +
 						'</li></ul></span><span class="left overflow"><ul><li>招聘咨询专线</li><li>' + a.data[i].guidance_line +
 						'</li></ul></span><span class="left overflow"><ul><li>期待您的简历</li><li>品专互动等你来</li></ul></span></div>');
+						$.each(rz[i],function(a,b){
+							_this.ele.children('.job_box').eq(i).find('.job_xx .xx_con span').eq(0).find('ul').append('<li>'+rz[i][a]+'</li>');
+						})
+						$.each(gw[i],function(a,b){
+							_this.ele.children('.job_box').eq(i).find('.job_xx .xx_con span').eq(1).find('ul').append('<li>'+gw[i][a]+'</li>');
+						})
 				}
+
 
 			} else {
 				if (data.errcode == '1101' && data.errcode) {

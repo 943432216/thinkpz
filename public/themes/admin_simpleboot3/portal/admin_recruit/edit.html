@@ -98,13 +98,14 @@
 	  <div class="layui-form-item layui-form-text">
 	    <label class="layui-form-label">岗位职责</label>
 	    <div class="layui-input-block">
-	      <textarea name="job_duty" placeholder="请输入内容" class="layui-textarea"></textarea>
+	      <textarea class="layui-textarea layui-hide" name="job_duty" lay-verify="content" id="LAY_demo_editor"></textarea>
 	    </div>
 	  </div>
+	  
 	  <div class="layui-form-item layui-form-text">
 	    <label class="layui-form-label">任职要求</label>
 	    <div class="layui-input-block">
-	      <textarea name="job_require" placeholder="请输入内容" class="layui-textarea"></textarea>
+	      <textarea class="layui-textarea layui-hide" name="job_require" lay-verify="content" id="LAY_demo_editor02"></textarea>
 	    </div>
 	  </div>
 	  
@@ -129,6 +130,10 @@
 		  laydate.render({
 		    elem: '#date1'
 		  });
+
+		  //创建一个编辑器
+  		  var editIndex = layedit.build('LAY_demo_editor');
+  		  var editIndex02 = layedit.build('LAY_demo_editor02');
 		 
 		  //表单初始赋值
 		  form.val('recruit', {
