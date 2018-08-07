@@ -9,6 +9,7 @@
 	<script src="__TMPL__/public/thinkpz/layui/layui.js" charset="utf-8"></script>
 </head>
 <body>
+	<!-- <php>var_dump($job_data);</php> -->
 	<form class="layui-form" action="{:url('portal/AdminRecruit/add')}" method="POST" lay-filter="recruit">
 	  <div class="layui-form-item">
 	    <label class="layui-form-label">职位名称</label>
@@ -131,19 +132,18 @@
 		 
 		  //表单初始赋值
 		  form.val('recruit', {
-		    "job_name" : {$job_data.job_name},
-            'department' : {$job_data.department},
-            'recruit_numbers' : {$job_data.recruit_numbers},
-            'salary' : {$job_data.salary},
-            'work_place' : {$job_data.work_place},
-            'work_experience' : {$job_data.work_experience},
-            'resume_email' : {$job_data.resume_email},
-            'guidance_line' : {$job_data.guidance_line},
-            'post_time' : {$job_data.post_time},
-            'expiry_time' : {$job_data.expiry_time},
-            'job_duty' : {$job_data.job_duty},
-            'job_require' : {$job_data.job_require},
-		  })		  
+		    "job_name" : "{$job_data['job_name']}",
+            'recruit_numbers' : "{$job_data['recruit_numbers']}",
+            'salary' : "{$job_data['salary']}",
+            'work_place' : "{$job_data['work_place']}",
+            'work_experience' : "{$job_data['work_experience']}",
+            'resume_email' : "{$job_data['resume_email']}",
+            'guidance_line' : "{$job_data['guidance_line']}",
+            'post_time' : "{$job_data['post_time']}",
+            'expiry_time' : "{$job_data['expiry_time']}",
+            'job_duty' : '',
+            'job_require' : '',
+		  })
 		  
 		});
 
