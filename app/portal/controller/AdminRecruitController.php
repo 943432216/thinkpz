@@ -47,7 +47,7 @@ class AdminRecruitController extends AdminBaseController {
 		$validate = Loader::validate('AdminRecruit');
 		if ($validate->check($data)) {
 			$data['admin_id'] = cmf_get_current_admin_id();
-			$db_insert = Db::table('pz_recruit')->insert($data);
+			$db_insert = Db::table('pz_recruit')->strict(false)->insert($data);
 			if ($db_insert) {
 				return $this->success('职位添加成功！', 'portal/AdminRecruit/index');
 			} else {
