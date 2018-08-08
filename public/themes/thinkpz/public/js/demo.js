@@ -203,7 +203,7 @@ function trimSpace(array) {
 		},
 		_join: function (a) {
 			var _this=this
-			console.log(a)
+			// console.log(a)
 			var i = 0;
 			var rz = [],
 				gw = [];
