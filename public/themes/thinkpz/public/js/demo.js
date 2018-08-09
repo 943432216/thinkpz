@@ -25,7 +25,38 @@ function prevbn(str) {
 		})
 	}
 
-};
+}
+
+function setData(values) {
+	var cfg = {
+		"0": {
+			key: 'category',
+			value: 2
+		},
+		"1": {
+			key: 'category',
+			value: 3
+		},
+		"2": {
+			key: 'year',
+			value: 0
+		},
+		"2016": {
+			key: 'year',
+			value: 2016
+		},
+		"2017": {
+			key: 'year',
+			value: 2017
+		},
+		"2018": {
+			key: 'year',
+			value: 2018
+		}
+	}
+	return cfg[values];
+
+}
 
 function filterHTMLTag(msg) {
 	var arrEntities = {
@@ -55,11 +86,12 @@ function trimSpace(array) {
 	return array;
 }
 
+;
 (function ($, win) {
 	function Toload(element, options) {
 		this.ele = $(element);
 		this.options = $.extend({}, this.defaults, options);
-		this._int(this.options);
+		this._int(this.options)
 	};
 	Toload.defaults = {
 		sign: null, //index,cases,news,
@@ -79,6 +111,18 @@ function trimSpace(array) {
 				return false;
 			} else {
 				this._successAjax(); //初始化
+// 				var i,x=null;
+// 				i=document.location.href;
+// 				x=i.split('=')[1];
+// 				if(x==''||x==undefined){
+// 					
+// 				}else{
+// 					var data=setData(x);
+// 					this.data[data.key] = data.value;
+// 					console.log(this.data)
+// 					console.log(this.ele.children().length)
+// 					this.ele.empty();
+// 				}
 			}
 		},
 		_index: function (a) { //首页
@@ -202,7 +246,7 @@ function trimSpace(array) {
 			}
 		},
 		_join: function (a) {
-			var _this=this
+			var _this = this
 			// console.log(a)
 			var i = 0;
 			var rz = [],
@@ -213,8 +257,8 @@ function trimSpace(array) {
 					rz[i] = filterHTMLTag(a.data[i].job_duty);
 					gw[i] = filterHTMLTag(a.data[i].job_require);
 					gw[i] = trimSpace(gw[i].split('。'));
-					rz[i]=trimSpace(rz[i].split('。'))
-					
+					rz[i] = trimSpace(rz[i].split('。'))
+
 				}
 				for (i = 0; i < a.data.length; i++) {
 					this.ele.children('.job_box').eq(i).append('<p class="left overflow">' + a.data[i].job_name +
@@ -227,17 +271,21 @@ function trimSpace(array) {
 						'</b></li><li><p>薪资范围：</p><b>' + a.data[i].salary + '</b></li><li><p>工作地点：</p><b>' + a.data[i].work_place +
 						'</b></li><li><p>工作年限：</p><b>' + a.data[i].work_experience + '</b></li><li><p>发布日期：</p><b>' + a.data[i].post_time +
 						'</b></li><li><p>职位有效期：</p><b>' + a.data[i].expiry_time + '</b></li></ul></div>');
-					this.ele.children('.job_box').eq(i).find('.job_xx').append('<div class="width left xx_con"><span class="left overflow"><ul><h3>岗位职责</h3></ul></span><span class="left overflow"><ul><h3>任职要求</h3></ul></span></div>');
+					this.ele.children('.job_box').eq(i).find('.job_xx').append(
+						'<div class="width left xx_con"><span class="left overflow"><ul><h3>岗位职责</h3></ul></span><span class="left overflow"><ul><h3>任职要求</h3></ul></span></div>'
+					);
 					this.ele.children('.job_box').eq(i).find('.job_xx').append(
 						'<div class="xx_bn left overflow width"><span class="left overflow"><ul><li>简历投递接收邮箱</li><li>' + a.data[i].resume_email +
 						'</li></ul></span><span class="left overflow"><ul><li>招聘咨询专线</li><li>' + a.data[i].guidance_line +
 						'</li></ul></span><span class="left overflow"><ul><li>期待您的简历</li><li>品专互动等你来</li></ul></span></div>');
-						$.each(rz[i],function(a,b){
-							_this.ele.children('.job_box').eq(i).find('.job_xx .xx_con span').eq(0).find('ul').append('<li>'+rz[i][a]+'</li>');
-						})
-						$.each(gw[i],function(a,b){
-							_this.ele.children('.job_box').eq(i).find('.job_xx .xx_con span').eq(1).find('ul').append('<li>'+gw[i][a]+'</li>');
-						})
+					$.each(rz[i], function (a, b) {
+						_this.ele.children('.job_box').eq(i).find('.job_xx .xx_con span').eq(0).find('ul').append('<li>' + rz[i][a] +
+							'</li>');
+					})
+					$.each(gw[i], function (a, b) {
+						_this.ele.children('.job_box').eq(i).find('.job_xx .xx_con span').eq(1).find('ul').append('<li>' + gw[i][a] +
+							'</li>');
+					})
 				}
 
 
@@ -307,51 +355,27 @@ function trimSpace(array) {
 		}
 	};
 	$.fn.Toload = function (options) {
-		var _this = this;
+		// var _this = this;
 		this.each(function () {
 			var es = new Toload(this, options);
 			if (options.sign == 'join') {
 				//不做任何操作
 			} else {
+				//点击按钮
 				prevbn(options.sign);
 				$('.prevbn').find('a').each(function () {
 					$(this).click(function () {
-						var cfg = {
-							"0": {
-								key: 'category',
-								value: 2
-							},
-							"1": {
-								key: 'category',
-								value: 3
-							},
-							"2": {
-								key: 'year',
-								value: 0
-							},
-							"2016": {
-								key: 'year',
-								value: 2016
-							},
-							"2017": {
-								key: 'year',
-								value: 2017
-							},
-							"2018": {
-								key: 'year',
-								value: 2018
-							}
-						}
-
-						var data = cfg[$(this).attr('value')];
+						dx = $(this).attr('value');
+						data=setData(dx);
 						options.data[data.key] = data.value;
-						es.ele.html('');
+						es.ele.empty();
 						es._successAjax();
 					})
 				});
 			}
+			// return es;
 		});
+		// console.log(es)
 		return this;
 	}
-
 })(jQuery, window);
