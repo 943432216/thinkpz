@@ -208,7 +208,7 @@
                         $category_ids=2;
                     </php>
                     <portal:articles limit="3" order="post.published_time DESC" categoryIds="$category_ids">
-                        <div class="left news_index_box overflow" onclick="caseck('details/news_company_1.html')">
+                        <div class="left news_index_box overflow" onclick="caseck(details/news_company_1.html)">
                             <span class="left width overflow">
                                 <img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img centre" />
                             </span>
@@ -410,7 +410,7 @@
     })
 
     function caseck(urls) {
-        document.location.href = urls;
+        document.location.href = ''+urls;
     }
 
     function cased() {
