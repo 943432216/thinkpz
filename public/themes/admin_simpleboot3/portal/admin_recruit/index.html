@@ -16,12 +16,10 @@
 	    <div class="layui-tab-content" style="height: 100px;">
 	        <div class="layui-tab-item layui-show">
 				<div class="layui-btn-group demoTable">
-				  <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
-				  <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
-				  <button class="layui-btn" data-type="isAll">验证是否全选</button>
+				  <button class="layui-btn" data-type="getCheckData">删除选中</button>
 				</div>
 				 
-				<table class="layui-table" lay-data="{url:'http://thinkpz.cn/portal/admin_recruit/postdata', page:true, id:'idTest'}" lay-filter="demo">
+				<table class="layui-table" lay-data="{url:'http://thinkpz.cn/portal/admin_recruit/postdata', page:true, limit:10, id:'idTest'}" lay-filter="demo">
 				  <thead>
 				    <tr>
 				      <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
@@ -167,7 +165,7 @@
     </div> 
 	<script src="__TMPL__/public/thinkpz/layui/layui.js" charset="utf-8"></script>
 	<script>
-		layui.use(['table','layer'], function(){
+		layui.use(['table','layer', 'jquery'], function(){
 		  var table = layui.table;
 		  var layer = layui.layer;
 		  //监听表格复选框选择
@@ -199,17 +197,24 @@
 		  var $ = layui.$, active = {
 		    getCheckData: function(){ //获取选中数据
 		      var checkStatus = table.checkStatus('idTest')
-		      ,data = checkStatus.data;
-		      layer.alert(JSON.stringify(data));
-		    }
-		    ,getCheckLength: function(){ //获取选中数目
-		      var checkStatus = table.checkStatus('idTest')
-		      ,data = checkStatus.data;
-		      layer.msg('选中了：'+ data.length + ' 个');
-		    }
-		    ,isAll: function(){ //验证是否全选
-		      var checkStatus = table.checkStatus('idTest');
-		      layer.msg(checkStatus.isAll ? '全选': '未全选')
+		      ,data = checkStatus.data,post_data = '';
+		    
+		      $.each(data, function(index,value){
+		      	if (index == data.length-1) {
+		      		post_data  = post_data+value.id;
+		      	} else {
+		      		post_data  = post_data+value.id+',';
+		      	}
+		      });
+		      $.post("{:url('portal/AdminRecruit/delAll', '', '',true)}", {'ids' : post_data}, function(result){
+		      	console.log(result);
+		      	if (1 == result.code) {
+		      		location.reload();
+		      		layer.msg('删除成功');
+		      	} else {
+		      		layer.msg('删除失败');
+		      	}
+		      },'json');
 		    }
 		  };
 		  

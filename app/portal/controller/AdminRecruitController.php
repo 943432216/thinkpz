@@ -70,6 +70,19 @@ class AdminRecruitController extends AdminBaseController {
 		}
 	}
 
+	public function delAll()
+	{
+		
+		$post = input('post.ids');
+		$del_result = Db::table('pz_recruit')->delete($post);
+
+		if ($del_result) {
+			$this->result('', 1, '删除成功');
+		} else {
+			$this->result('', 0, '删除失败');
+		}
+	}
+
 	public function edit()
 	{
 		$id = input('id');
@@ -125,13 +138,17 @@ class AdminRecruitController extends AdminBaseController {
 
 	public function postData()
 	{
-		// halt($_POST);
-		$db_data = Db::table('pz_recruit')->field('')->select();
+
+		$page = input('page', 1, 'intval');
+		$limit = input('limit', 10, 'intval');
+
+		$db_data = Db::table('pz_recruit')->limit($limit*($page - 1),$limit)->field('')->select();
+		$count = Db::table('pz_recruit')->count();
 
 		$array = [
 			'code' => 0,
 			'msg' => 'success',
-			'count' => count($db_data),
+			'count' => $count,
 			'data' => $db_data,
 		];
 
