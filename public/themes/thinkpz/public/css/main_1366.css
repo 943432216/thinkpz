@@ -308,7 +308,13 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .form span{margin: 30px auto;width:50%;}
 .form span p{font-size: 15px;color: #343434;letter-spacing: 2px;width:20%;height: 30px;line-height: 30px;text-align:justify;padding-left:5%;font-weight:400;}
 .form span input[type='text']{background:#fff;border: 1px solid #cbcbcb;border-radius: 3px;height: 28px;line-height: 28px;padding: 0 5px;width:70%;}
+.form span input[type='text']::-moz-input-placeholder{color:rgba(0,0,0,0.3);}
+.form span input[type='text']::-ms-input-placeholder{color:rgba(0,0,0,0.3);}
+.form span input[type='text']::-webkit-input-placeholder{color:rgba(0,0,0,0.3);}
 .form span input[type='password']{background:#fff;border: 1px solid #cbcbcb;border-radius: 3px;height: 28px;line-height: 28px;padding: 0 5px;width:70%;}
+.form span input[type='password']::-webkit-input-placeholder{color:rgba(0,0,0,0.3);}
+.form span input[type='password']::-ms-input-placeholder{color:rgba(0,0,0,0.3);}
+.form span input[type='password']::-moz-input-placeholder{color:rgba(0,0,0,0.3);}
 .form span:nth-of-type(1){margin-top:50px auto 30px auto;}
 .form span:nth-last-of-type(1){margin: 0 auto 50px auto;}
 #btn{background:#007fe9;border-radius:3px;border: 1px solid #007EE9;color:#ffffff;font-size: 13px;height: 30px;width: 98%;cursor: pointer;}
@@ -375,7 +381,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .detailwd{width: calc(100% - 648px);width:-moz-calc(100% - 648px);width:-webkit-calc(100% - 648px);margin:40px 214px;background:#f8f8f8;padding:60px 110px;}
 .particulars h1{color: #262626;width: 100%;text-align: center;font-size: 34px;padding-bottom:50px;float: left;line-height:140%;}
 .particulars b{color: #808080;font-size: 13px;width: 100%;float: left;width: 100%;text-align: center;margin-bottom: 30px;}
-.particulars p{text-indent: 2em;font-size: 14px;color: #4c4c4c;float: left;width: 100%;margin:15px 0;line-height:150%;}
+.particulars p{text-indent: 2em;font-size: 14px;color: #4c4c4c;float: left;width:90%;margin:15px 5%;line-height:160%;}
 .particulars img{width:70%;margin: 30px 15%;}
 .particulars h3{color: #333;font-size:16px;float: left;width: 100%;font-weight:600;text-align: center;margin:40px 0 20px 0;}
 .particulars h5{color: #333;font-size:16px;float: left;width: 100%;font-weight:600;text-align: center;margin:40px 0 20px 0;}
@@ -416,9 +422,15 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .msg span h3{color: #808080;font-size: 12px;text-align: center;}
 .msg p{color: #999;font-size: 14px;text-align: center;float: left;width: 100%;line-height:140%;margin-top:25px;}
 .msg input[type='text']{background:#fff;border:1px solid #a3a3a3;float: left;padding:0 5px;font-size: 14px;width:29%;height:36px;color:#808080;}
+.msg input[type='text']::-moz-input-placeholder{color:rgba(0,0,0,0.3);}
+.msg input[type='text']::-ms-input-placeholder{color:rgba(0,0,0,0.3);}
+.msg input[type='text']::-webkit-input-placeholder{color:rgba(0,0,0,0.3);}
 .msg input[type='text']:nth-of-type(2n){margin: 0 40px;}
 .msgc{margin-top:80px;}
-.msg textarea{width:96%;border: 1px solid #a3a3a3;float: left;margin-top:25px;padding:10px;color:#808080;}
+.msg textarea{width:96%;border: 1px solid #a3a3a3;float: left;margin-top:25px;padding:10px;color:#808080;font-size: 14px;}
+.msg textarea::-moz-input-placeholder{color:rgba(0,0,0,0.3);}
+.msg textarea::-ms-input-placeholder{color:rgba(0,0,0,0.3);}
+.msg textarea::-webkit-input-placeholder{color:rgba(0,0,0,0.3);}
 .msg input[type="button"]{cursor: pointer;height: 38px;width: 240px;background:#007fe9;font-size: 15px;color: #fff;border-radius:3px;border: 0;margin: 80px calc(50% - 120px) 0 calc(50% - 120px);margin: 80px -moz-calc(50% - 120px) 0 -moz-calc(50% - 120px);margin: 80px -ms-calc(50% - 120px) 0 -ms-calc(50% - 120px);margin:80px  -webkit-calc(50% - 120px) 0 -webkit-calc(50% - 120px);}
 /*group*/
 #PZ{margin-top:40px;}
@@ -663,8 +675,8 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.msg span h1,.map span h1{font-size: 36px;}
 	.msg span h3,.map span h3{font-size: 16px;}
 	.msg p{font-size: 18px;}
-	.msg input[type='text']{height: 42px;line-height: 42px;font-size: 16px;}
-	.msg textarea{height:333px;font-family: "微软雅黑";font-size:16px;}
+	.msg input[type='text']{height: 42px;line-height: 42px;font-size: 14px;}
+	.msg textarea{height:333px;font-family: "微软雅黑";font-size:14px;}
 	.msg input[type="button"]{height: 42px;font-size: 18px;}
 	.map{margin: 0 250px;}
 	/*about_details*/
@@ -720,7 +732,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	/*新闻-details*/
 	.detailwd{width: calc(100% - 720px);width:-moz-calc(100% - 720px);width:-webkit-calc(100% - 720px);padding:60px 110px;margin:50px 250px;}
 	.particulars h1{font-size:36px;}
-	.particulars p{font-size:16px;}
+	.particulars p{font-size:14px;}
 	.particulars h3{font-size: 18px;}
 	
 }
@@ -983,7 +995,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	/*details-'about case business company'*/
 	.detailwd{width: -moz-calc(100% - 850px);width: -webkit-calc(100% - 850px);width: calc(100% - 850px);margin:60px 300px;padding:65px 125px;}
 	.particulars h1{font-size: 48px;}
-	.particulars p{font-size: 18px;line-height: 150%;}
+	.particulars p{font-size: 16px;line-height: 160%;}
 	.about_details{margin:0 300px;}
 	.company_logo{height: 105px;top: -105px;background-size:264px 62px;}
 	.ab_de_right{height:460px;}
@@ -1009,8 +1021,8 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.msg span h3{font-size: 20px;}
 	.msg p{font-size: 20px;}
 	.msgc{margin-top: 120px;}
-	.msg input[type='text']{height: 50px;line-height: 50px;font-size: 20px;padding:0 10px;}
-	.msg textarea{width:96.5%;height: 400px;font-size: 20px;font-family: "微软雅黑";}
+	.msg input[type='text']{height: 50px;line-height: 50px;font-size: 16px;padding:0 10px;}
+	.msg textarea{width:96.5%;height: 400px;font-size: 16px;font-family: "微软雅黑";}
 	.msg input[type="button"]{width: 340px;height: 54px;font-size: 22px;margin: 80px calc(50% - 170px) 0 calc(50% - 170px);margin: 80px -moz-calc(50% - 170px) 0 -moz-calc(50% - 170px);margin: 80px -ms-calc(50% - 170px) 0 -ms-calc(50% - 170px);margin:80px  -webkit-calc(50% - 170px) 0 -webkit-calc(50% - 170px);}
 	.map{margin: 0 300px;}
 	.map span{background-size: 40px 6px;}
@@ -1330,7 +1342,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	/*details-'about case business company'*/
 	.detailwd{width: -moz-calc(100% - 850px);width: -webkit-calc(100% - 850px);width: calc(100% - 850px);margin:60px 300px;padding:65px 125px;}
 	.particulars h1{font-size: 48px;}
-	.particulars p{font-size: 18px;line-height: 150%;}
+	.particulars p{font-size: 16px;line-height: 160%;}
 	.about_details{margin:0 300px;}
 	.company_logo{height: 105px;top: -105px;background-size:264px 62px;}
 	.ab_de_right{height:460px;}
@@ -1357,8 +1369,8 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.msg span h3{font-size: 20px;}
 	.msg p{font-size: 20px;}
 	.msgc{margin-top: 120px;}
-	.msg input[type='text']{height: 50px;line-height: 50px;font-size: 20px;padding:0 10px;}
-	.msg textarea{width:96.5%;height: 400px;font-size: 20px;font-family: "微软雅黑";}
+	.msg input[type='text']{height: 50px;line-height: 50px;font-size:16px;padding:0 10px;}
+	.msg textarea{width:96.5%;height: 400px;font-size:16px;font-family: "微软雅黑";}
 	.msg input[type="button"]{width: 340px;height: 54px;font-size: 22px;margin: 80px calc(50% - 170px) 0 calc(50% - 170px);margin: 80px -moz-calc(50% - 170px) 0 -moz-calc(50% - 170px);margin: 80px -ms-calc(50% - 170px) 0 -ms-calc(50% - 170px);margin:80px  -webkit-calc(50% - 170px) 0 -webkit-calc(50% - 170px);}
 	.map{margin: 0 300px;}
 	.map span{background-size: 40px 6px;}
