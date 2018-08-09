@@ -189,15 +189,17 @@ function trimSpace(array) {
 		 *	新闻板块
 		 */
 		_news: function (a) {
+			console.log(a)
 			var i = 0;
 			if (a.status == '200') {
+				console.log(a)
 				for (; i < a.data.length; i++) {
 					this.ele.append(
 						'<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
 						a.data[i].more +
 						'" class="img"/></span><span class="left display position overflow news_wz"><h1>' +
 						a.data[i].post_title +
-						'</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_title +
+						'</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_excerpt +
 						'</p><p class="s_s">' + a.data[i].published_time +
 						'</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
 					);
@@ -354,10 +356,12 @@ function trimSpace(array) {
 			}
 		}
 	};
+	win.od=Toload._successAjax;
 	$.fn.Toload = function (options) {
 		// var _this = this;
 		this.each(function () {
 			var es = new Toload(this, options);
+			
 			if (options.sign == 'join') {
 				//不做任何操作
 			} else {
@@ -373,9 +377,7 @@ function trimSpace(array) {
 					})
 				});
 			}
-			// return es;
 		});
-		// console.log(es)
 		return this;
 	}
 })(jQuery, window);

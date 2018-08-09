@@ -285,7 +285,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .news_con span:nth-of-type(2){width:65%;;height:calc(100% - 40px);height:-webkit-calc(100% - 40px);height:-moz-calc(100% - 40px);height:-ms-calc(100% - 40px);}
 .news_con span:nth-of-type(3){width:calc(5% - 1px);width:-webkit-calc(5% - 1px);width:-ms-calc(5% - 1px);width:-moz-calc(10% - 1px);border-left:1px solid #e5e5e5;height:calc(100% - 40px);height:-webkit-calc(100% - 40px);height:-moz-calc(100% - 40px);height:-ms-calc(100% - 40px);}
 .news_wz h1{font-size: 26px;color:#1a1a1a;position: absolute;left:30px;top:40px;font-weight: 900;cursor: pointer;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;width:65%;}
-.news_wz p{width:80%;position: absolute;left:30px;}
+.news_wz p{width:82%;position: absolute;left:30px;}
 .news_wz p:nth-of-type(1){top:80px;color: #007ee9;font-size: 14px;font-weight:400;}
 .news_wz p:nth-of-type(2){top:120px;height: 70px;overflow: hidden;font-size:14px;color: #525252;line-height: 130%;}
 .news_wz p:nth-of-type(3){bottom: 20px;background:url(../img/timera.png) no-repeat left center;background-size: 10px 10px;width: 80%;padding:0 0 0 15px;color: #999;font-size: 10px;height: 15px;line-height: 15px;}
@@ -940,7 +940,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.news_con{height: 336px;}
 	.news_wz h1{font-size: 40px;}
 	.news_wz p:nth-of-type(1){font-size: 20px;top: 100px;}
-	.news_wz p:nth-of-type(2){font-size: 18px;height: 115px;line-height: 150%;top: 150px;}
+	.news_wz p:nth-of-type(2){font-size: 18px;height: 115px;line-height: 150%;top: 120px;}
 	.news_wz p:nth-of-type(3){font-size: 14px;background-size: 16px 16px;padding:0px 0px 0px 20px;overflow: hidden;height: 20px;line-height: 20px;}
 	.news_avts p:nth-of-type(3){color:#f7f7f7;background: url(../img/times.png) no-repeat left center;background-size: 16px 16px;padding:0px 0px 0px 20px;}
 	/*josin_us 加入我们*/
@@ -1286,7 +1286,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 	.news_con{height: 336px;}
 	.news_wz h1{font-size: 40px;}
 	.news_wz p:nth-of-type(1){font-size: 20px;top: 100px;}
-	.news_wz p:nth-of-type(2){font-size: 18px;height: 115px;line-height: 150%;top: 150px;}
+	.news_wz p:nth-of-type(2){font-size: 18px;height: 115px;line-height: 150%;top: 120px;}
 	.news_wz p:nth-of-type(3){font-size: 14px;background-size: 16px 16px;padding:0px 0px 0px 20px;overflow: hidden;height: 20px;line-height: 20px;}
 	.news_avts p:nth-of-type(3){color:#f7f7f7;background: url(../img/times.png) no-repeat left center;background-size: 16px 16px;padding:0px 0px 0px 20px;}
 	/*josin_us 加入我们*/
