@@ -19,30 +19,7 @@ class AdminRecruitController extends AdminBaseController {
 	public function add()
 	{
 		$data = input('post.');
-
-		switch ($data['department']) {
-			case 0:
-				$data['department'] = '品牌部';
-				break;
-			case 1:
-				$data['department'] = '风控部';
-				break;
-			case 2:
-				$data['department'] = '业支部';
-				break;
-			case 3:
-				$data['department'] = '媒介部';
-				break;
-			case 4:
-				$data['department'] = '销售部';
-				break;
-			case 5:
-				$data['department'] = '运营部';
-				break;			
-			default:
-				$data['department'] = '品专集团';
-				break;
-		}
+		$data['department'] = trans_department($data['department']);
 
 		$validate = Loader::validate('AdminRecruit');
 		if ($validate->check($data)) {
@@ -102,30 +79,7 @@ class AdminRecruitController extends AdminBaseController {
 			return $this->error('缺少文章id', 'portal/AdminRecruit/index');
 		}
 
-		switch ($post['department']) {
-			case 0:
-				$post['department'] = '品牌部';
-				break;
-			case 1:
-				$post['department'] = '风控部';
-				break;
-			case 2:
-				$post['department'] = '业支部';
-				break;
-			case 3:
-				$post['department'] = '媒介部';
-				break;
-			case 4:
-				$post['department'] = '销售部';
-				break;
-			case 5:
-				$post['department'] = '运营部';
-				break;			
-			default:
-				$post['department'] = '品专集团';
-				break;
-		}
-
+		$post['department'] = trans_department($post['department']);
 		$update = Db::table('pz_recruit')->strict(false)->update($post);
 
 		if (false === $update) {

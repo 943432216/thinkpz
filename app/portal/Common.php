@@ -91,3 +91,37 @@ function category_arts_sum($category, $post_status=false, $delete_time=false)
 	$data = $db->select();
 	return count($data);
 }
+
+/**
+ * 将数字符号替换成具体的部门
+ * @param  string $department [前端传过来的部门数字字符]
+ * @return [string]  $department [部门名称]
+ */
+function trans_department($department='')
+{
+	switch ($department) {
+		case 0:
+			$department = '品牌部';
+			break;
+		case 1:
+			$department = '风控部';
+			break;
+		case 2:
+			$department = '业支部';
+			break;
+		case 3:
+			$department = '媒介部';
+			break;
+		case 4:
+			$department = '销售部';
+			break;
+		case 5:
+			$department = '运营部';
+			break;			
+		default:
+			$department = '品专集团';
+			break;
+	}
+
+	return $department;
+}
