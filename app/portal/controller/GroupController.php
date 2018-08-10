@@ -13,4 +13,9 @@ class GroupController extends HomeBaseController {
 		return $this->fetch('/group');
 	}
 
+	public function aboutPz()
+	{
+		return $this->fetch('/about_pz');
+	}
+
 }

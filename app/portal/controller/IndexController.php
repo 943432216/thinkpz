@@ -18,4 +18,15 @@ class IndexController extends HomeBaseController
     {
         return $this->fetch('/index');
     }
+
+    // 首页 - 集团简介
+    public function introdution()
+    {
+    	return $this->fetch('/sy_about');
+    }
+
+    public function aptitude()
+    {
+    	return $this->fetch('/sy_aptitude');
+    }
 }
