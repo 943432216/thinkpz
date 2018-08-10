@@ -158,7 +158,7 @@
                 </div>
                 <div class="left width more_box">
                     <div class="more position">
-                        <a href="http://thinkpz.cn/portal/business/index">更多业务&nbsp;&nbsp;→</a>
+                        <a href="{:url('portal/business/index')}">更多业务&nbsp;&nbsp;→</a>
                         <span></span>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                         $category_ids=2;
                     </php>
                     <portal:articles limit="3" order="post.published_time DESC" categoryIds="$category_ids">
-                        <div class="left news_index_box overflow" onclick="caseck({:url('portal/article/index', ['id' => $vo.id]), '', true})">
+                        <div class="left news_index_box overflow" onclick="caseck('{:url(\'portal/article/index\', [\'id\' => $vo.id])}')">
                             <span class="left width overflow">
                                 <img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img centre" />
                             </span>
@@ -228,7 +228,7 @@
                             </div>
                             <div class="left width news_index_se position">
                                 <p>{$vo.post_hits}</p>
-                                <p>2018</p>
+                                <p>{$vo.post_share}</p>
                                 <a href="details/news_company_1.html">进入查看</a>
                             </div>
                         </div>
@@ -236,7 +236,7 @@
                 </div>
                 <div class="left width more_box">
                     <div class="more position">
-                        <a href="http://thinkpz.cn/portal/news/index">更多新闻&nbsp;&nbsp;→</a>
+                        <a href="{:url('portal/news/index')}">更多新闻&nbsp;&nbsp;→</a>
                         <span></span>
                     </div>
                 </div>
