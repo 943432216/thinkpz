@@ -65,6 +65,7 @@ class ArticleController extends HomeBaseController
         hook('portal_before_assign_article', $article);
 
         $this->assign('article', $article);
+        $this->assign('categoryId', $categoryId); //品专官网新增，用于导航栏下划线的标注
         $this->assign('prev_article', $prevArticle);
         $this->assign('next_article', $nextArticle);
 
