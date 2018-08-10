@@ -208,11 +208,7 @@
                         $category_ids=2;
                     </php>
                     <portal:articles limit="3" order="post.published_time DESC" categoryIds="$category_ids">
-<<<<<<< HEAD
                         <div class="left news_index_box overflow" onclick="caseck({:url('portal/article/index', ['id' => $vo.id]), '', true})">
-=======
-                        <div class="left news_index_box overflow" onclick="caseck(details/news_company_1.html)">
->>>>>>> bd1b3adeeb799efb8c1f4980079e0b8fd8ded6f0
                             <span class="left width overflow">
                                 <img src="{:cmf_get_image_url($vo.more.thumbnail)}" class="img centre" />
                             </span>
