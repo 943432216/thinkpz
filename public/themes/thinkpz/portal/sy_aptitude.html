@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>品专互动</title>
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
+	</head>
+
+	<body>
+		<div class="pz_box overflow position">
+			<div class="pz_cb">
+				<ul>
+					<li>
+						<a href="javascript:;" class="top"></a>
+					</li>
+					<li>
+						<a href="javascript:;" class="kf"></a>
+					</li>
+					<li>
+						<a href="javascript:;" class="wx"></a>
+					</li>
+				</ul>
+			</div>
+			<div class="nav overflow left">
+				<div class="nav_logo left"></div>
+				<!-- 引入导航模板 -->
+	            <include file="common/nav" />
+	            <!-- 引入导航模板结束 -->
+				<div class="nav_ss left position">
+					<div class="search_click">
+						<input type="text" name="search" id="search" value="" />
+						<span><img src="__TMPL__/public/img/search.png"/></span>
+					</div>
+					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
+				</div>
+			</div>
+			<header class="width left overflow">
+				<div class="swiper-container position">
+					<img src="__TMPL__/public/img/al.png" alt="" class="img" />
+
+				</div>
+			</header>
+
+			<section class="width left overflow sections">
+				<div class='detailwd left particulars'>
+					<h1 class="width left">企业资质</h1>
+					<!--<b class="width left">日期：2018年-03-22</b>-->
+					<p style="height: 600px;">
+						资质信息正在整理中，暂时不对外展现
+					</p>
+				</div>
+			</section>
+			<!-- 引入页脚 -->
+	        <include file="common/footer" />
+	        <!-- 引入页脚结束 -->
+		</div>
+	</body>
+	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			sharp()
+			//初始化导航
+			
+			var margins = $('.pz_box').offset().left;
+			var widt=$('.pz_box').width();
+			$('.nav').css({
+				'display': 'block',
+				'background': 'transparent',
+				'height': '96px',
+				'width': widt,
+				'margin-left': margins
+			});
+			//返回顶部
+			$('.top').click(function() {
+				$("html,body").animate({
+					scrollTop: 0
+				}, 100);
+			})
+			//导航
+			$('.nav_logo').click(function() {
+				document.location.href = '../index.html';
+			})
+			searchs(4);
+			scrolls('.sections');
+			window.onscroll = function() {
+//				scrolls('.sections');
+				searchs(4);
+			}
+		})
+
+		//----------------------------
+	</script>
+
+</html>
