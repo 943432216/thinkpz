@@ -26,32 +26,9 @@
 			</div>
 			<div class="nav overflow left">
 				<div class="nav_logo left"></div>
-				<div class="nav_con left position">
-					<ul>
-						<li>
-							<a href="../index.html">首页</a>
-						</li>
-						<li>
-							<a href="../group.html">品专集团</a>
-						</li>
-						<li>
-							<a href="../business.html">业务板块</a>
-						</li>
-						<li>
-							<a href="../news.html">新闻中心</a>
-						</li>
-						<li>
-							<a href="../successful_case.html">经典案例</a>
-						</li>
-						<li>
-							<a href="../DSPsystem.html">DSP系统</a>
-						</li>
-						<li>
-							<a href="../join_us.html">加入我们</a>
-						</li>
-					</ul>
-					<div class="hx"></div>
-				</div>
+				<!-- 引入导航模板 -->
+				<include file="common/nav" />
+				<!-- 引入导航模板结束 -->
 				<div class="nav_ss left position">
 					<div class="search_click">
 						<input type="text" name="search" id="search" value="" />
@@ -91,7 +68,9 @@
 					<div id="map" class="left overflow"></div>
 
 			</section>
+			<!-- 引入页脚 -->
 			<include file="common/footer"/>
+			<!-- 引入页脚结束 -->
 			</div>
 	</body>
 	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=08e93dc1cc8db8a5d2b196e7f31cbc57"></script>
