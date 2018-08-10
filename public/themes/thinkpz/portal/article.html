@@ -11,6 +11,29 @@
 	</head>
 
 	<body>
+		<php>
+			$id = input('get.id');
+			if (input('?get.cid')) {
+				$cid =  input('get.cid');
+			} else {
+				$db_find = \think\Db::name('portal_category_post')->where('post_id', $id)->field('category_id')->find();
+			    $cid = $db_find['category_id'];
+			}
+			switch ($cid) {
+		    	case '5' :
+		    		$banner_id = 1;
+		    		break;
+		    	case '2' :
+		    		$banner_id = 2;
+		    		break;
+		    	case '4' :
+		    		$banner_id = 3;
+		    		break;
+		    	default:
+		    		$banner_id = 1;
+		    		break;
+		    }
+		</php>
 		<div class="pz_box overflow position">
 			<div class="pz_cb">
 				<ul>
@@ -40,8 +63,10 @@
 			</div>
 			<header class="width left overflow">
 				<div class="swiper-container position">
-					<slides id="5">
-						<img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" />
+					<slides id="6">
+						<if condition="$i == $banner_id">
+							<img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" />
+						</if>
 					</slides>
 				</div>
 			</header>
