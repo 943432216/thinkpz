@@ -116,6 +116,7 @@
                         });
                     });
                 });
+				
             }
         });
         //初始化导航
@@ -139,12 +140,6 @@
         var navwidth = $('.case_nav').width();
         $('.case_nav a').each(function (a, b) {
             allwidth += $(this).outerWidth(true);
-            //             $(this).click(function () {
-            //                 $('.case_con').css('display', 'none')
-            //                 $('.case_nav a').removeClass('case_avts');
-            //                 $(this).addClass('case_avts');
-            //                 $('.case_con').eq(a).css('display', 'block')
-            //             })
         })
         navwidth = navwidth / 2;
         allwidth = allwidth / 2

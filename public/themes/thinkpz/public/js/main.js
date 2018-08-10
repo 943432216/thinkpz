@@ -66,7 +66,6 @@ function moveT(i) {
     $('.hx').css('width', x);
     $('.hx').css('left', nx);
     $('.hx').css('opacity', '1');
-    //	console.log(b)
 
 }
 

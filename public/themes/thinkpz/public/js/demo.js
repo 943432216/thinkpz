@@ -189,17 +189,22 @@ function trimSpace(array) {
 		 *	新闻板块
 		 */
 		_news: function (a) {
-			console.log(a)
-			var i = 0;
+			var i = 0,
+				x=null
 			if (a.status == '200') {
-				console.log(a)
 				for (; i < a.data.length; i++) {
+					 x=a.data[i].post_excerpt.length;
+					 if(x<150){
+						 x=a.data[i].post_excerpt;
+					 }else{
+						 x=a.data[i].post_excerpt.substring(0, 145)+'...';
+					 }
 					this.ele.append(
 						'<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
 						a.data[i].more +
 						'" class="img"/></span><span class="left display position overflow news_wz"><h1>' +
 						a.data[i].post_title +
-						'</h1><p class="s_t"></p><p class="s_c">' + a.data[i].post_excerpt +
+						'</h1><p class="s_t"></p><p class="s_c">' + x +
 						'</p><p class="s_s">' + a.data[i].published_time +
 						'</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
 					);
