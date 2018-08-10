@@ -134,13 +134,12 @@
 				}, 100);
 			});
 			//导航
-			$('.nav_logo').click(function() {
-				document.location.href = 'index.html';
+			$('.nav_logo').click(function () {
+				document.location.href = "{:url('portal/index/index')}";
 			})
 			searchs(5);
 			scrolls('.sections');
 			window.onscroll = function() {
-//				scrolls('.sections');
 				searchs(5);
 			}
 			//blur
@@ -149,7 +148,6 @@
 					$(this).attr('placeholder','');
 				}).blur(function(){
 					if($(this).prop('id')=='user'){
-//						alert($(this).attr('id'))
 						$(this).attr('placeholder','请输入用户名');
 					}else if($(this).prop('id')=='tel'){
 						$(this).attr('placeholder','请输入手机号');

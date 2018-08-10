@@ -204,7 +204,6 @@
 				threshold: 200,
 				placeholder: "__TMPL__/public/img/pz_sys.png"
 			})
-			sharp()
 			colors('#PZ');
 			colors('#YZ');
 			colors('#DY');
@@ -260,6 +259,9 @@
 				'width': widt,
 				'margin-left': margins
 			});
+			$('.nav_logo').click(function () {
+				document.location.href = "{:url('portal/index/index')}";
+			})
 			//返回顶部
 			$('.top').click(function() {
 				$("html,body").animate({
@@ -267,13 +269,9 @@
 				}, 100);
 			});
 			//导航
-			$('.nav_logo').click(function() {
-				document.location.href = 'index.html';
-			})
 			searchs(1);
 			scrolls('.sections');
 			window.onscroll = function() {
-//				scrolls('.sections');
 				searchs(1);
 			}
 		})

@@ -111,18 +111,18 @@ function trimSpace(array) {
 				return false;
 			} else {
 				this._successAjax(); //初始化
-// 				var i,x=null;
-// 				i=document.location.href;
-// 				x=i.split('=')[1];
-// 				if(x==''||x==undefined){
-// 					
-// 				}else{
-// 					var data=setData(x);
-// 					this.data[data.key] = data.value;
-// 					console.log(this.data)
-// 					console.log(this.ele.children().length)
-// 					this.ele.empty();
-// 				}
+				// 				var i,x=null;
+				// 				i=document.location.href;
+				// 				x=i.split('=')[1];
+				// 				if(x==''||x==undefined){
+				// 					
+				// 				}else{
+				// 					var data=setData(x);
+				// 					this.data[data.key] = data.value;
+				// 					console.log(this.data)
+				// 					console.log(this.ele.children().length)
+				// 					this.ele.empty();
+				// 				}
 			}
 		},
 		_index: function (a) { //首页
@@ -167,8 +167,8 @@ function trimSpace(array) {
 						'</p><div class="case_hx left width position overflow"><b class="width"></b><s class="width"></s></div></div>'
 					);
 				}
-				this.ele.children('.items').each(function(i){
-					$(this).click(function(){
+				this.ele.children('.items').each(function (i) {
+					$(this).click(function () {
 						document.location.href = '' + a.data[i].links;
 					})
 				})
@@ -189,15 +189,15 @@ function trimSpace(array) {
 		 */
 		_news: function (a) {
 			var i = 0,
-				x=null
+				x = null
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
-					 x=a.data[i].post_excerpt.length;
-					 if(x<150){
-						 x=a.data[i].post_excerpt;
-					 }else{
-						 x=a.data[i].post_excerpt.substring(0, 145)+'...';
-					 }
+					x = a.data[i].post_excerpt.length;
+					if (x < 150) {
+						x = a.data[i].post_excerpt;
+					} else {
+						x = a.data[i].post_excerpt.substring(0, 145) + '...';
+					}
 					this.ele.append(
 						'<div class="news_con left"><span class="left display position overflow news_img"><img src="' +
 						a.data[i].more +
@@ -208,8 +208,8 @@ function trimSpace(array) {
 						'</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
 					);
 				}
-				this.ele.children('.news_con').each(function(i){
-					$(this).click(function(){
+				this.ele.children('.news_con').each(function (i) {
+					$(this).click(function () {
 						document.location.href = '' + a.data[i].links;
 					})
 				})
@@ -240,8 +240,8 @@ function trimSpace(array) {
 						a.data[i].post_keywords + '</h3></span><p class="left">' + a.data[i].post_excerpt +
 						'</p></div></div>');
 				}
-				this.ele.children('.serve_box').each(function(i){
-					$(this).click(function(){
+				this.ele.children('.serve_box').each(function (i) {
+					$(this).click(function () {
 						document.location.href = '' + a.data[i].links;
 					})
 				})
@@ -252,6 +252,9 @@ function trimSpace(array) {
 				}
 			}
 		},
+		/*
+		 *  招聘板块
+		 */
 		_join: function (a) {
 			var _this = this
 			// console.log(a)
@@ -359,14 +362,16 @@ function trimSpace(array) {
 				});
 
 			}
+		},
+		_callback:function(){
+			
 		}
 	};
-	win.od=Toload._successAjax;
 	$.fn.Toload = function (options) {
 		// var _this = this;
 		this.each(function () {
 			var es = new Toload(this, options);
-			
+
 			if (options.sign == 'join') {
 				//不做任何操作
 			} else {
@@ -375,7 +380,7 @@ function trimSpace(array) {
 				$('.prevbn').find('a').each(function () {
 					$(this).click(function () {
 						dx = $(this).attr('value');
-						data=setData(dx);
+						data = setData(dx);
 						options.data[data.key] = data.value;
 						es.ele.empty();
 						es._successAjax();

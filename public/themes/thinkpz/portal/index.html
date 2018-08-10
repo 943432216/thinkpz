@@ -399,9 +399,9 @@
             }, 100);
         })
         //导航
-        $('.nav_logo').click(function () {
-            document.location.href = 'index.html';
-        })
+		$('.nav_logo').click(function () {
+			document.location.href = "{:url('portal/index/index')}";
+		})
         searchs(0);
         scrolls('.sections');
         window.onscroll = function () {
