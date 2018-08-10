@@ -55,21 +55,7 @@
                 <a value="0" href="javascript:;" class="news_avt">公司新闻</a>
                 <a value="1" href="javascript:;">行业资讯</a>
             </div>
-            <div class="conwidth left news_box news_xs">
-                <!--<div class="news_con left">
-						<span class="left display position overflow news_img"><img src="__TMPL__/public/img/news_1.png"/></span>
-						<span class="left display position overflow news_wz">
-							<h1>品专互动赞助“千里侠”</h1>
-							<p>（为爱跨年的公益之旅）</p>
-							<p>2018年12月31日，在年末的最后一天，第二届“千里侠”公益骑行挑战活动将于广州举行，这次跨年大骑行将会持续不眠不休的24小时，最后于1月1日抵达这次活动的终点站——揭阳，此次骑行一心为公益，旨在帮助一群处在困境中的孩子，为的是不变的信念与从一而终的初心。</p>
-							<p>2018年-04-11</p>
-						</span>
-						<span class="left display position overflow jt">
-							<img src="__TMPL__/public/img/jt.png" class="jti"/>
-							<img src="__TMPL__/public/img/jts.png" class="jts"/>
-						</span>
-					</div>-->
-            </div>
+            <div class="conwidth left news_box news_xs"></div>
             <div class="section_bn left conwidth">查看更多</div>
         </section>
         <!-- 引入页脚 -->
@@ -126,7 +112,7 @@
         })
         //导航
         $('.nav_logo').click(function () {
-            document.location.href = 'index.html';
+            document.location.href = "{:url('portal/index/index')}";
         })
         searchs(3);
         scrolls('.sections');

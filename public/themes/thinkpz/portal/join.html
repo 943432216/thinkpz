@@ -247,49 +247,10 @@
 					$(this).find('.zbox_con').children('h1').css('color','#333');
 				});
 			});
-			//job_xx
-// 			var nd=null;
-// 			if(window.screen.width==1366){
-// 				nd='10px 7px';
-// 			}else if(window.screen.width>=1920){
-// 				nd='13px 8px';
-// 			}
-// 			$('.job_box').find('.job_xx').slideUp();
-// 			$('.job_box').each(function(a,b){
-// 				$(this).find('a').click(function(){
-// 					$(this).parents('.job_box').siblings().find('.job_xx').slideUp();
-// 					$(this).parents('.job_box').siblings().find('a').css('color','#525252');
-// 					$(this).css('color','#007EE9');
-// 					$(this).css({
-// 						'background':'url(__TMPL__/public/img/up.png) no-repeat right center',
-// 						'background-size':nd
-// 					});
-// 					$(this).parents('.job_box').siblings().find('a').css({
-// 						'background':'url(__TMPL__/public/img/down.png) no-repeat right center',
-// 						'background-size':nd
-// 					});
-// 					$(this).parents('.job_box').find('.job_xx').slideToggle(function(){
-// 						if($(this).is(':hidden')){
-// 							$(this).parents('.job_box').find('a').css({
-// 								'background':'url(__TMPL__/public/img/down.png) no-repeat right center',
-// 								'background-size':nd,
-// 								'color':'#525252'
-// 							});
-// 						}else{
-// 							$(this).parents('.job_box').find('a').css({
-// 								'background':'url(__TMPL__/public/img/up.png) no-repeat right center',
-// 								'background-size':nd,
-// 								'color':'#007EE9'
-// 							});
-// 						}
-// 					});
-// 					
-// 				})
-// 			})
-			//导航
-			$('.nav_logo').click(function() {
-				document.location.href = 'index.html';
+			$('.nav_logo').click(function () {
+				document.location.href = "{:url('portal/index/index')}";
 			})
+			//导航
 			searchs(6);
 			scrolls('.sections');
 			window.onscroll = function() {

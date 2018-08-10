@@ -138,13 +138,12 @@
 				$(this).attr('placeholder', tcon);
 			})
 			//导航
-			$('.nav_logo').click(function() {
-				document.location.href = '../index.html';
+			$('.nav_logo').click(function () {
+				document.location.href = "{:url('portal/index/index')}";
 			})
 			searchs(1);
 			scrolls('.sections');
 			window.onscroll = function() {
-				//				scrolls('.sections');
 				searchs(1);
 			}
 
