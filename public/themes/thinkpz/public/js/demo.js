@@ -86,8 +86,7 @@ function trimSpace(array) {
 	return array;
 }
 
-;
-(function ($, win) {
+;(function ($, win) {
 	function Toload(element, options) {
 		this.ele = $(element);
 		this.options = $.extend({}, this.defaults, options);
@@ -111,18 +110,6 @@ function trimSpace(array) {
 				return false;
 			} else {
 				this._successAjax(); //初始化
-				// 				var i,x=null;
-				// 				i=document.location.href;
-				// 				x=i.split('=')[1];
-				// 				if(x==''||x==undefined){
-				// 					
-				// 				}else{
-				// 					var data=setData(x);
-				// 					this.data[data.key] = data.value;
-				// 					console.log(this.data)
-				// 					console.log(this.ele.children().length)
-				// 					this.ele.empty();
-				// 				}
 			}
 		},
 		_index: function (a) { //首页
