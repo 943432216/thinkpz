@@ -167,12 +167,11 @@ function trimSpace(array) {
 						'</p><div class="case_hx left width position overflow"><b class="width"></b><s class="width"></s></div></div>'
 					);
 				}
-				this.ele.children('.items').click(function () {
-					for (i = 0; i < a.data.length; i++) {
+				this.ele.children('.items').each(function(i){
+					$(this).click(function(){
 						document.location.href = '' + a.data[i].links;
-					}
-				});
-
+					})
+				})
 			} else {
 				if (a.errcode == '1101' && a.errcode) {
 					alert('已经是最后一条数据')
@@ -209,11 +208,11 @@ function trimSpace(array) {
 						'</p></span><span class="left display position overflow jt"><img src="/themes/thinkpz/public/img/jt.png" class="jti"/><img src="/themes/thinkpz/public/img/jts.png" class="jts"/></span></div>'
 					);
 				}
-				this.ele.children('.news_con').click(function () {
-					for (i = 0; i < a.data.length; i++) {
+				this.ele.children('.news_con').each(function(i){
+					$(this).click(function(){
 						document.location.href = '' + a.data[i].links;
-					}
-				});
+					})
+				})
 			} else {
 				if (a.errcode == '1101' && a.errcode) {
 					alert('已经是最后一条数据')
@@ -231,6 +230,7 @@ function trimSpace(array) {
 		 */
 		_buss: function (a) {
 			var i = 0;
+			console.log(a)
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
 					this.ele.append(
@@ -240,11 +240,11 @@ function trimSpace(array) {
 						a.data[i].post_keywords + '</h3></span><p class="left">' + a.data[i].post_excerpt +
 						'</p></div></div>');
 				}
-				this.ele.children('.serve_box').click(function () {
-					for (i = 0; i < a.data.length; i++) {
+				this.ele.children('.serve_box').each(function(i){
+					$(this).click(function(){
 						document.location.href = '' + a.data[i].links;
-					}
-				});
+					})
+				})
 			} else {
 				if (data.errcode == '1101' && data.errcode) {
 					alert('已经是最后一条数据')
