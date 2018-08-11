@@ -1,10 +1,22 @@
 /*
- * sign 必填
- * data 必填
- * urls 必填
+ * sign 必填  data 必填  urls 必填
+ * 
+ *  一、工具
+ * 	1.设置ajax全局参数： 	_ajaxSet
+ *	2.ajax执行： 		_successAjax
+ *	3.部分加载：			_moreBn
+ *  4.回调： 			_callBack
+ *  5.去掉html标签：   	_filterHTMLTag
+ *  6.去除数组里的空值：	_trimSpace
+ * 
+ *  二、ajax成功后回调
+ *  1.首页：		_index
+ *  2.新闻：		_news
+ *  3.案例：		_case
+ *  4.业务：		_buss
+ *  5.加入我们： _join
  * 
  */
-
 
 
 function prevbn(str) {
@@ -21,11 +33,11 @@ function prevbn(str) {
 			$(this).click(function () {
 				$(this).siblings('a').removeClass(str + '_avt');
 				$(this).addClass(str + '_avt');
-				console.log(str)
+				// console.log(str)
 			})
 		})
 	}
-	
+
 }
 
 function setData(values) {
@@ -59,48 +71,22 @@ function setData(values) {
 
 }
 
-function filterHTMLTag(msg) {
-	var arrEntities = {
-		'lt': '<',
-		'gt': '>',
-		'nbsp': ' ',
-		'amp': '&',
-		'quot': '"'
-	};
-	msg = msg.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
-		return arrEntities[t];
-	});
-	var msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
-	msg = msg.replace(/[|]*\n/, '') //去除行尾空格
-	msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
-	return msg;
-}
 
-function trimSpace(array) {
-	for (var i = 0; i < array.length; i++) {
-		if (array[i] == "" || typeof (array[i]) == "undefined") {
-			array.splice(i, 1);
-			i = i - 1;
-
-		}
-	}
-	return array;
-}
-
-;(function ($, win) {
+;
+(function ($, win) {
 	function Toload(element, options) {
 		this.ele = $(element);
 		this.options = $.extend({}, this.defaults, options);
 		this._int(this.options)
 	};
 	Toload.defaults = {
-		sign: null, //index,cases,news,
+		sign: null, //index,cases,news,join,buss
 		data: {} || null,
 		urls: null,
 		fn: null
 	};
 	Toload.prototype = {
-		_int: function (options) { //最终调用的函数
+		_int: function (options) { //初始化
 			this.sign = options.sign;
 			this.urls = options.urls;
 			this.data = options.data;
@@ -110,10 +96,11 @@ function trimSpace(array) {
 				alert('请输入正确的参数');
 				return false;
 			} else {
-				this._successAjax(); //初始化
+				this._successAjax();
+
 			}
 		},
-		_index: function (a) { //首页
+		_index: function (a) {
 			var i = 0
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
@@ -135,9 +122,6 @@ function trimSpace(array) {
 				}
 			}
 		},
-		/*
-		 *	案例板块
-		 */
 		_case: function (a) {
 			var i = 0;
 			if (a.status == '200') {
@@ -162,9 +146,6 @@ function trimSpace(array) {
 				}
 			}
 		},
-		/*
-		 *	新闻板块
-		 */
 		_news: function (a) {
 			var i = 0,
 				x = null
@@ -198,9 +179,6 @@ function trimSpace(array) {
 				}
 			}
 		},
-		/*
-		 *	业务板块
-		 */
 		_buss: function (a) {
 			var i = 0;
 			if (a.status == '200') {
@@ -224,9 +202,6 @@ function trimSpace(array) {
 				}
 			}
 		},
-		/*
-		 *  招聘板块
-		 */
 		_join: function (a) {
 			var _this = this
 			var i = 0;
@@ -235,10 +210,10 @@ function trimSpace(array) {
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
 					this.ele.children('.job_header').after('<div class="job_box overflow"></div>');
-					rz[i] = filterHTMLTag(a.data[i].job_duty);
-					gw[i] = filterHTMLTag(a.data[i].job_require);
-					gw[i] = trimSpace(gw[i].split('。'));
-					rz[i] = trimSpace(rz[i].split('。'))
+					rz[i] = _this._filterHTMLTag(a.data[i].job_duty);
+					gw[i] = _this._filterHTMLTag(a.data[i].job_require);
+					rz[i] = _this._trimSpace(rz[i].split('。'));
+					gw[i] = _this._trimSpace(gw[i].split('。'));
 
 				}
 				for (i = 0; i < a.data.length; i++) {
@@ -276,13 +251,7 @@ function trimSpace(array) {
 				}
 			}
 		},
-		/*
-		 *	工具
-		 * 	1.设置ajax全局参数
-		 *	2.ajax执行
-		 *	3.部分加载
-		 */
-		_ajaxSet: function () { //全局参数
+		_ajaxSet: function () {
 			var set = {
 				type: 'post',
 				url: this.urls,
@@ -291,7 +260,7 @@ function trimSpace(array) {
 			};
 			return set;
 		},
-		_successAjax: function () { //ajax执行
+		_successAjax: function () {
 			var _this = this;
 			$.ajax(_this._ajaxSet()).done(function (data) {
 				var successData = data;
@@ -304,11 +273,12 @@ function trimSpace(array) {
 					join: "_join"
 				}
 				_this[successCfg[_this.sign]](successData);
-				_this._callBack('',_this.options.fn);
+				_this._callBack('', _this.options.fn);
 				_this._moreBn(successData);
+
 			});
 		},
-		_moreBn: function (data) { //部分加载    
+		_moreBn: function (data) {
 			var total = data.total, //总条数
 				page = data.page, //返回当前页数
 				num = data.number, //当前页面新闻条数
@@ -331,19 +301,45 @@ function trimSpace(array) {
 			}
 		},
 		_callBack: function (data, callback) {
-			var allData = data;
 			if (typeof callback == 'function') {
-				if (allData == '' || allData == undefined) {
+				if (data == '' || data == undefined) {
 					callback();
 				} else {
-					return callback(allData);
+					return callback(data);
 				}
 
 			} else {
 				//不做操作
 				return false;
 			}
+		},
+		_filterHTMLTag: function (msg) {
+			var arrEntities = {
+				'lt': '<',
+				'gt': '>',
+				'nbsp': ' ',
+				'amp': '&',
+				'quot': '"'
+			};
+			msg = msg.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
+				return arrEntities[t];
+			});
+			var msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
+			msg = msg.replace(/[|]*\n/, '') //去除行尾空格
+			msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
+			return msg;
+		},
+		_trimSpace: function (array) {
+			for (var i = 0; i < array.length; i++) {
+				if (array[i] == "" || typeof (array[i]) == "undefined") {
+					array.splice(i, 1);
+					i = i - 1;
+
+				}
+			}
+			return array;
 		}
+
 	};
 	$.fn.Toload = function (options) {
 		// var _this = this;
@@ -358,7 +354,7 @@ function trimSpace(array) {
 				$('.prevbn').find('a').each(function () {
 					$(this).click(function () {
 						dx = $(this).attr('value');
-						data = es._callBack(dx,setData)
+						data = es._callBack(dx, setData)
 						options.data[data.key] = data.value;
 						es.ele.empty();
 						es._successAjax();

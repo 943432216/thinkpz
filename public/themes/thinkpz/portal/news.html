@@ -2,125 +2,142 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>品专互动</title>
-    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
-    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
-    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-    <taglib name="app\portal\taglib\Portal" />
+	<meta charset="utf-8" />
+	<title>品专互动</title>
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
+	<taglib name="app\portal\taglib\Portal" />
 </head>
 
 <body>
-    <div class="pz_box overflow position">
-        <div class="pz_cb">
-            <ul>
-                <li>
-                    <a href="javascript:;" class="top"></a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="kf"></a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="wx"></a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav overflow left">
-            <div class="nav_logo left"></div>
-            <!-- 引入导航模板 -->
-            <include file="common/nav" />
-            <!-- 引入导航模板结束 -->
-            <div class="nav_ss left position">
-                <div class="search_click">
-                    <input type="text" name="search" id="search" value="" />
-                    <span>
-                        <img src="__TMPL__/public/img/search.png" />
-                    </span>
-                </div>
-                <div class="click_one">
-                    <img src="__TMPL__/public/img/search.png" />
-                </div>
-            </div>
-        </div>
-        <header class="width left overflow">
-            <div class="swiper-container header_banner position news_tl">
-                <img src="__TMPL__/public/img/news.png" alt="" class="img centre" />
-                <div class="banner_wz">
-                    <img src="__TMPL__/public/img/news_wz.png" class="img" />
-                </div>
-            </div>
-        </header>
-        <section class="width left overflow sections">
-            <div class="news_bn conwidth left prevbn">
-                <a value="0" href="javascript:;" class="news_avt">公司新闻</a>
-                <a value="1" href="javascript:;">行业资讯</a>
-            </div>
-            <div class="conwidth left news_box news_xs"></div>
-            <div class="section_bn left conwidth">查看更多</div>
-        </section>
-        <!-- 引入页脚 -->
-        <include file="common/footer" />
-        <!-- 引入页脚结束 -->
-    </div>
+	<div class="pz_box overflow position">
+		<div class="pz_cb">
+			<ul>
+				<li>
+					<a href="javascript:;" class="top"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="kf"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="wx"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav overflow left">
+			<div class="nav_logo left"></div>
+			<!-- 引入导航模板 -->
+			<include file="common/nav" />
+			<!-- 引入导航模板结束 -->
+			<div class="nav_ss left position">
+				<div class="search_click">
+					<input type="text" name="search" id="search" value="" />
+					<span>
+						<img src="__TMPL__/public/img/search.png" />
+					</span>
+				</div>
+				<div class="click_one">
+					<img src="__TMPL__/public/img/search.png" />
+				</div>
+			</div>
+		</div>
+		<header class="width left overflow">
+			<div class="swiper-container header_banner position news_tl">
+				<img src="__TMPL__/public/img/news.png" alt="" class="img centre" />
+				<div class="banner_wz">
+					<img src="__TMPL__/public/img/news_wz.png" class="img" />
+				</div>
+			</div>
+		</header>
+		<section class="width left overflow sections">
+			<div class="news_bn conwidth left prevbn">
+				<a value="0" href="javascript:;" class="news_avt">公司新闻</a>
+				<a value="1" href="javascript:;">行业资讯</a>
+			</div>
+			<div class="conwidth left news_box news_xs"></div>
+			<div class="section_bn left conwidth">查看更多</div>
+		</section>
+		<!-- 引入页脚 -->
+		<include file="common/footer" />
+		<!-- 引入页脚结束 -->
+	</div>
 </body>
 <script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-    $(function () {
-        $('.news_box').Toload({
-            sign: "news",
-            data: {
-                page: 1,
-                category: 2
-            },
-            urls: 'http://thinkpz.cn/portal/news/getnews',
-            fn: function () {
-                $('.news_box').children('.news_con').mouseenter(function () {
-                    $(this).css('background', '#007ee9');
-                    $(this).children('.news_wz').addClass('news_avts');
-                    $(this).find('.jts').stop().animate({
-                        left: '25%'
-                    }, 500)
-                }).mouseleave(function () {
-                    $(this).css('background', '#f7f7f7');
-                    $(this).children('.news_wz').removeClass('news_avts');
-                    $(this).find('.jts').stop().animate({
-                        left: '-25%'
-                    }, 500)
-                });
-				
-            }
-        });
-        //初始化导航
-        var margins = $('.pz_box').offset().left;
-        var widt = $('.pz_box').width();
-        var navh = $('.nav_con').height();
-        $('.nav').css({
-            'display': 'block',
-            'background': 'transparent',
-            'height': navh,
-            'width': widt,
-            'margin-left': margins
-        });
-        //返回顶部
-        $('.top').click(function () {
-            $("html,body").animate({
-                scrollTop: 0
-            }, 100);
-        })
-        //导航
-        $('.nav_logo').click(function () {
-            document.location.href = "{:url('portal/index/index')}";
-        })
-        searchs(3);
-        scrolls('.sections');
-        window.onscroll = function () {
-            searchs(3);
-        }
-        // addnews()
-    })
+	$(function () {
+		var n, x, d = null;
+		n = document.location.href;
+		d = n.split('?')[1]
+		if (d != null || d != undefined || d != '') {
+			x = n.split('=')[1]
+			$('.prevbn a').each(function () {
+				if ($(this).attr('value') == x) {
+					// console.log($(this))
+					$(this).siblings('a').removeClass('news_avt');
+					$(this).addClass('news_avt');
+				}
+			})
+			x=setData(x);
+			console.log(x)
+		} else {
+			x = 2
+		}
+		$('.news_box').Toload({
+			sign: "news",
+			data: {
+				page: 1,
+				category: x.value
+			},
+			urls: 'http://thinkpz.cn/portal/news/getnews',
+			fn: function () {
+				$('.news_box').children('.news_con').mouseenter(function () {
+					$(this).css('background', '#007ee9');
+					$(this).children('.news_wz').addClass('news_avts');
+					$(this).find('.jts').stop().animate({
+						left: '25%'
+					}, 500)
+				}).mouseleave(function () {
+					$(this).css('background', '#f7f7f7');
+					$(this).children('.news_wz').removeClass('news_avts');
+					$(this).find('.jts').stop().animate({
+						left: '-25%'
+					}, 500)
+				});
+
+			}
+		});
+		//初始化导航
+		var margins = $('.pz_box').offset().left;
+		var widt = $('.pz_box').width();
+		var navh = $('.nav_con').height();
+		$('.nav').css({
+			'display': 'block',
+			'background': 'transparent',
+			'height': navh,
+			'width': widt,
+			'margin-left': margins
+		});
+		//返回顶部
+		$('.top').click(function () {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 100);
+		})
+		//导航
+		$('.nav_logo').click(function () {
+			document.location.href = "{:url('portal/index/index')}";
+		})
+		searchs(3);
+		scrolls('.sections');
+		window.onscroll = function () {
+			searchs(3);
+		}
+		// addnews()
+	})
 </script>
 
 </html>
