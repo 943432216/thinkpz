@@ -10,4 +10,9 @@ class DspController extends HomeBaseController
 	{
 		return $this->fetch('/dsp');
 	}
+
+	public function dspRegister()
+	{
+		return $_POST;
+	}
 }

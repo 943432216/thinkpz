@@ -15,4 +15,9 @@ class AdminDspController extends AdminBaseController
 	{
 		return $this->fetch();
 	}
+
+	public function dsp_user()
+	{
+		
+	}
 }
