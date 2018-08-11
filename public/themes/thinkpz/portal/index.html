@@ -54,7 +54,7 @@
                         <if condition="$vo.list_order == 1">
                             <li class="swiper-slide">
                                 <img src="{:cmf_get_image_url($vo.image)}" alt="" class="img swiper-lazy" />
-                                <div class="banner_button" onclick="caseck('details/about_detalis.html')">
+                                <div class="banner_button" onclick="caseck({$vo.url|default=''})">
                                     <span>深入了解&ensp;></span>
                                     <div></div>
                                 </div>
