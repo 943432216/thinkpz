@@ -104,17 +104,10 @@
 		</div>
 	</body>
 	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
-			$("img").lazyload({
-				effect: "fadeIn",
-				threshold: 200,
-				 placeholder: "__TMPL__/public/img/pz_sys.png"
-			})
 			//初始化导航
 			var margins = $('.pz_box').offset().left;
 			var widt=$('.pz_box').width();
@@ -158,7 +151,25 @@
 						$(this).attr('placeholder','请输入验证码');
 					}
 				})
+			});
+			$('#btn').click(function(){
+				var dt={
+					dsp_name:$('#user').val(),
+					user_phone:$('#tel').val(),
+					user_pwds:$('#pwds').val(),
+					codes:$('#codes').val()
+				}
+				$.ajax({
+					type: 'post',
+					url: 'http://thinkpz.cn/portal/Dsp/dspRegister',
+					data: dt,
+					dataType: 'json',
+					success:function(data){
+						console.log(data)
+					}
+				})
 			})
+			
 		})
 	</script>
 

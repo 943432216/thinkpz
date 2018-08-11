@@ -1,9 +1,11 @@
 var formInspect = {
+	alts:null,
 	//名字
 	username: function(el) {
 		var reg = /^[\u4e00-\u9fa5]{1,8}$/;
 		if(($(el).val() == '') || (reg.test($(el).val())) == false) {
-			return false;
+			alts='姓名不能为空或请输入正确的姓名格式';
+			return alts;
 		} else {
 			return true;
 		}
@@ -12,7 +14,8 @@ var formInspect = {
 	site: function(el) {
 		var reg = /^(?=.*?[\u4E00-\u9FA5])[\dA-Za-z\u4E00-\u9FA5]+$/;
 		if(($(el).val() == '') || (reg.test($(el).val())) == false) {
-			return false
+			alts='请输入正确的地址';
+			return alts
 		} else {
 			return true;
 		}
@@ -20,7 +23,7 @@ var formInspect = {
 	//手机
 	phones: function(el) {
 		var reg = /^1[34578]\d{9}$/;
-		var alts;
+		
 		if($(el).val() == '') {
 			alts = '手机号不能为空';
 			return alts
@@ -37,7 +40,6 @@ var formInspect = {
 	//用户名
 	user: function(el) {
 		var reg = /^[a-zA-Z0-9_]{4,12}$/;
-		var alts;
 		if($(el).val() == '') {
 			alts = '用户名不能为空';
 			return alts
@@ -54,7 +56,6 @@ var formInspect = {
 	//密码
 	pwd: function(el) {
 		var reg = /^(\w){6,14}$/;
-		var alts;
 		if($(el).val() == '') {
 			alts = '密码不能为空';
 			return alts
@@ -72,7 +73,6 @@ var formInspect = {
 	pwds: function(el, els) {
 		var pwd =$(el).val();
 		var pwds =$(els).val();
-		var alts;
 		if(pwds==''){
 			return alts='请再次输入密码';
 		}else if(pwds!=pwd){
