@@ -61,7 +61,7 @@
                             </li>
                             <else/>
                             <li class="swiper-slide">
-                                <img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" />
+                                <img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" onclick="caseck('{$vo.url|default=\'\'}')" />
                             </li>
                         </if>
                     </slides>
@@ -229,7 +229,7 @@
                             <div class="left width news_index_se position">
                                 <p>{$vo.post_hits}</p>
                                 <p>{$vo.post_share}</p>
-                                <a href="details/news_company_1.html">进入查看</a>
+                                <a href="{:url(\'portal/article/index\', [\'id\' => $vo.id, \'cid\'=>$vo.category_id])}">进入查看</a>
                             </div>
                         </div>
                     </portal:articles>
@@ -410,6 +410,7 @@
     })
 
     function caseck(urls) {
+		console.log(urls)
         document.location.href = urls;
     }
 
