@@ -119,7 +119,6 @@
 	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(function() {
-			sharp()
 			//初始化导航
 			var margins = $('.pz_box').offset().left;
 			var widt=$('.pz_box').width();
@@ -140,12 +139,11 @@
 			movest()
 			//导航
 			$('.nav_logo').click(function() {
-				document.location.href = '../index.html';
+				document.location.href = "{:url('portal/index/index')}";
 			})
 			searchs(1);
 			scrolls('.sections');
 			window.onscroll = function() {
-//				scrolls('.sections');
 				searchs(1);
 			}
 		})

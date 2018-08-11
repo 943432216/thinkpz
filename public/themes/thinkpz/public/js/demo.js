@@ -21,10 +21,11 @@ function prevbn(str) {
 			$(this).click(function () {
 				$(this).siblings('a').removeClass(str + '_avt');
 				$(this).addClass(str + '_avt');
+				console.log(str)
 			})
 		})
 	}
-
+	
 }
 
 function setData(values) {
@@ -133,11 +134,6 @@ function trimSpace(array) {
 					alert('已经是最后一条数据')
 				}
 			}
-			if (this.options.fn == null || this.options.fn == undefined) {
-
-			} else {
-				this.options.fn();
-			}
 		},
 		/*
 		 *	案例板块
@@ -164,11 +160,6 @@ function trimSpace(array) {
 					alert('已经是最后一条数据')
 					this.bn.hide();
 				}
-			}
-			if (this.options.fn == null || this.options.fn == undefined) {
-
-			} else {
-				this.options.fn();
 			}
 		},
 		/*
@@ -206,18 +197,12 @@ function trimSpace(array) {
 					this.bn.hide();
 				}
 			}
-			if (this.options.fn == null || this.options.fn == undefined) {
-
-			} else {
-				this.options.fn();
-			}
 		},
 		/*
 		 *	业务板块
 		 */
 		_buss: function (a) {
 			var i = 0;
-			console.log(a)
 			if (a.status == '200') {
 				for (; i < a.data.length; i++) {
 					this.ele.append(
@@ -244,7 +229,6 @@ function trimSpace(array) {
 		 */
 		_join: function (a) {
 			var _this = this
-			// console.log(a)
 			var i = 0;
 			var rz = [],
 				gw = [];
@@ -291,11 +275,6 @@ function trimSpace(array) {
 					alert('已经是最后一条数据')
 				}
 			}
-			if (this.options.fn == null || this.options.fn == undefined) {
-
-			} else {
-				this.options.fn();
-			}
 		},
 		/*
 		 *	工具
@@ -325,6 +304,7 @@ function trimSpace(array) {
 					join: "_join"
 				}
 				_this[successCfg[_this.sign]](successData);
+				_this._callBack('',_this.options.fn);
 				_this._moreBn(successData);
 			});
 		},
@@ -350,8 +330,19 @@ function trimSpace(array) {
 
 			}
 		},
-		_callback:function(){
-			
+		_callBack: function (data, callback) {
+			var allData = data;
+			if (typeof callback == 'function') {
+				if (allData == '' || allData == undefined) {
+					callback();
+				} else {
+					return callback(allData);
+				}
+
+			} else {
+				//不做操作
+				return false;
+			}
 		}
 	};
 	$.fn.Toload = function (options) {
@@ -363,11 +354,11 @@ function trimSpace(array) {
 				//不做任何操作
 			} else {
 				//点击按钮
-				prevbn(options.sign);
+				es._callBack(options.sign, prevbn)
 				$('.prevbn').find('a').each(function () {
 					$(this).click(function () {
 						dx = $(this).attr('value');
-						data = setData(dx);
+						data = es._callBack(dx,setData)
 						options.data[data.key] = data.value;
 						es.ele.empty();
 						es._successAjax();

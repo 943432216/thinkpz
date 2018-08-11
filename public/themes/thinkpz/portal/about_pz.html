@@ -206,7 +206,6 @@
 		//企业活动
 
 		$(function() {
-			sharp()
 			certifySwiper = new Swiper('#certify .swiper-container', {
 				watchSlidesProgress: true,
 				slidesPerView: 'auto',
@@ -279,12 +278,11 @@
 			});
 			//导航
 			$('.nav_logo').click(function() {
-				document.location.href = '../index.html';
+				document.location.href = "{:url('portal/index/index')}";
 			})
 			searchs(1);
 			scrolls('.sections');
 			window.onscroll = function() {
-//				scrolls('.sections');
 				searchs(1);
 			}
 		})
