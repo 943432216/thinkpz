@@ -81,12 +81,12 @@
 					</span>
 					<span class="overflow display">
 						<p class="left">密&emsp;&emsp;码</p>
-						<input type="text" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display"/>
+						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display"/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">确认密码</p>
-						<input type="text" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display"/>
+						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display"/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
@@ -143,7 +143,7 @@
 			searchs(5);
 		}
 		//blur
-		$('input[type="text"]').each(function () {
+		$('input[type="text"],input[type="password"]').each(function () {
 			$(this).focus(function () {
 				$(this).attr('placeholder', '');
 			}).blur(function () {
@@ -165,7 +165,7 @@
 			var bc=document.location.hostname;
 			var urlsb=ac+'//'+bc;
 			var dt = {
-				dsp_name: '$('#user').val()',
+				dsp_name: $('#user').val(),
 				user_phone: $('#tel').val(),
 				user_pwd: $('#pwd').val(),
 				user_pwds: $('#pwds').val(),
@@ -175,13 +175,13 @@
 				type: 'post',
 				url:urlsb+'/portal/Dsp/dspRegister',
 				data: dt,
-				dataType: 'json',
+				// dataType: 'json',
 				success: function (data) {
 					console.log(data)
-				},
-				error:function(data){
-					console.log(data)
 				}
+// 				error:function(data){
+// 					console.log(data)
+// 				}
 			})
 
 
