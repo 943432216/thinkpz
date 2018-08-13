@@ -13,7 +13,7 @@ class DspController extends HomeBaseController
 
 	public function dspRegister()
 	{
-		halt($_POST);
+		print_r($_POST);exit;
 		$post = input('post.');
 
 		$result = $this->validate($post, 'PortalDsp', [], true);
