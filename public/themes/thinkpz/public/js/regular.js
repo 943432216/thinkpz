@@ -1,15 +1,5 @@
-var reg;
-(function (reg) {
-	console.log(this);
-	var alts = null;
-	var defaults = {
-		username: null,
-		site: null,
-		phones: null,
-		user: null,
-		pwd: null,
-		pwds: null
-	};
+function regs(defaults) {
+	var alts=null;
 	var formInspect = {
 		//名字
 		username: function (el) {
@@ -92,11 +82,16 @@ var reg;
 				return true;
 			}
 		}
-	};
-	var conTro = function () {
-		
 	}
-	
-	reg.conTro = conTro;
-	reg.defaults = defaults;
-})(reg || (reg = {}))
+	// console.log(defaults instanceof Array)
+	if(typeof defaults=='object'){
+		// console.log(defaults)
+		defaults.forEach(function(value,index){
+			var nx=formInspect[index](value);
+			console.log(nx)
+		})
+	}else{
+		// console.log(1)
+		return false;
+	}
+}

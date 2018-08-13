@@ -112,7 +112,7 @@
 	</div>
 </body>
 <script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-<!-- <script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function () {
@@ -161,6 +161,18 @@
 				}
 			})
 		});
+		var defaults={
+			username: '#user',
+			phones: '#tel'
+// 			user: '#user',
+// 			pwd: '#pwd',
+// 			pwds: '#pwds'
+		}
+		$('.DSP_box').find('input[type="text"],input[type="password"]').each(function(){
+			$(this).blur(function(){
+				regs(defaults)
+			})
+		})
 		$('#btn').click(function () {
 			var dt = {
 				dsp_name: $('#user').val(),
@@ -180,7 +192,7 @@
 			})
 
 
-		})
+		});
 
 	})
 </script>
