@@ -161,14 +161,13 @@
 				}
 			})
 		});
-		reg.defaults={
-			username: '#user',
-			phones: '#tel',
-			user: '#user',
-			pwd: '#pwd',
-			pwds: '#pwds'
-		}
-		reg.conTro();
+// 		reg.defaults={
+// 			username: '#user',
+// 			phones: '#tel',
+// 			user: '#user',
+// 			pwd: '#pwd',
+// 			pwds: '#pwds'
+// 		}
 		$('#btn').click(function () {
 			if (reg.ld.user('#user') == true && reg.ld.user('#tel') == true && reg.ld.user('#pwd') == true && reg.ld.user('#pwd', '#pwds') == true) {
 				var dt = {
