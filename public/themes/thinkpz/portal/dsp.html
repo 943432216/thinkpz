@@ -1,177 +1,200 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8" />
-		<title>品专互动</title>
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-		<taglib name="app\portal\taglib\Portal"/>
-	</head>
+<head>
+	<meta charset="utf-8" />
+	<title>品专互动</title>
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
+	<taglib name="app\portal\taglib\Portal" />
+</head>
 
-	<body>
-		<div class="pz_box overflow position">
-			<div class="pz_cb">
-				<ul>
-					<li>
-						<a href="javascript:;" class="top"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="kf"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="wx"></a>
-					</li>
-				</ul>
-			</div>
-			<div class="nav overflow left">
-				<div class="nav_logo left"></div>
-				<!-- 引入导航模板 -->
-				<include file="common/nav" />
-				<!-- 引入导航模板结束 -->
-				<div class="nav_ss left position">
-					<div class="search_click">
-						<input type="text" name="search" id="search" value="" />
-						<span><img src="__TMPL__/public/img/search.png"/></span>
-					</div>
-					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
+<body>
+	<div class="pz_box overflow position">
+		<div class="pz_cb">
+			<ul>
+				<li>
+					<a href="javascript:;" class="top"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="kf"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="wx"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav overflow left">
+			<div class="nav_logo left"></div>
+			<!-- 引入导航模板 -->
+			<include file="common/nav" />
+			<!-- 引入导航模板结束 -->
+			<div class="nav_ss left position">
+				<div class="search_click">
+					<input type="text" name="search" id="search" value="" />
+					<span>
+						<img src="__TMPL__/public/img/search.png" />
+					</span>
+				</div>
+				<div class="click_one">
+					<img src="__TMPL__/public/img/search.png" />
 				</div>
 			</div>
-			<header class="width left overflow">
-				<div class="swiper-container header_banner position DSPsystem">
-					<img src="__TMPL__/public/img/dsp.jpg" alt="" class="img centre" />
-					<div class="banner_wz"><img src="__TMPL__/public/img/DSP_wz.png" alt="" class="img" /></div>
-					<!--<h1 class="width left overflow">品专DSP系统</h1>
+		</div>
+		<header class="width left overflow">
+			<div class="swiper-container header_banner position DSPsystem">
+				<img src="__TMPL__/public/img/dsp.jpg" alt="" class="img centre" />
+				<div class="banner_wz">
+					<img src="__TMPL__/public/img/DSP_wz.png" alt="" class="img" />
+				</div>
+				<!--<h1 class="width left overflow">品专DSP系统</h1>
 					<h3 class="width left overflow">PINZHUAN DSP SYSTEM</h3>
 					<span class="width left overflow">
 						<p class="width left">在互联网广告产业中，DSP是一个系统，也是一种在线广告平台。它服务于广告主，<br />帮助广告主在互联网或者移动互联网上进行广告投放，</p>
 					</span>-->
-				</div>
-			</header>
-			
-			<section class="width left overflow sections">
-				<div class="conwidth left overflow DSP_box">
-					<div class="form left position">
-						<div class="width alerts">
-							<div class="left alerts_tc">
-								<h3>温馨提示</h3>
-								<div class="tc_con width">
-									<p>您已经<a href="javascript:;">注册成功</a>,账号尚未激活,请<a href="javascript:;">联系客服</a>激活</p>
-								</div>
+			</div>
+		</header>
+
+		<section class="width left overflow sections">
+			<div class="conwidth left overflow DSP_box">
+				<div class="form left position">
+					<div class="width alerts">
+						<div class="left alerts_tc">
+							<h3>温馨提示</h3>
+							<div class="tc_con width">
+								<p>您已经
+									<a href="javascript:;">注册成功</a>,账号尚未激活,请
+									<a href="javascript:;">联系客服</a>激活</p>
 							</div>
 						</div>
-						<span class="overflow display">
-							<p class="left">用&ensp;户&ensp;名</p>
-							<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display"/>
-							<!--<b class="left hint">*</b>-->
-						</span>
-						<span class="overflow display">
-							<p class="left">手&ensp;机&ensp;号</p>
-							<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display"/>
-							<!--<b class="left hint"></b>-->
-						</span>
-						<span class="overflow display">
-							<p class="left">密&emsp;&emsp;码</p>
-							<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display"/>
-							<!--<b class="left hint"></b>-->
-						</span>
-						<span class="overflow display">
-							<p class="left">确认密码</p>
-							<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display"/>
-							<!--<b class="left hint"></b>-->
-						</span>
-						<span class="overflow display">
-							<p class="left">验&ensp;证&ensp;码</p>
-							<input type="text" id="codes" name="codes" placeholder="请输入验证码"  class="left display"/>
-							<img src="{:captcha_src()}" class="left display codesi" onclick="this.src=this.src"/>
-							<!--<b class="left hint"></b>-->
-						</span>
-						<a href="javascript:;" class="left width login">已有帐号，点击登录</a>
-						<span class="overflow display">
-							<input type="button" id="btn" value="注册" class="left" />
-						</span>
 					</div>
+					<span class="overflow display">
+						<p class="left">用&ensp;户&ensp;名</p>
+						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display" />
+						<!--<b class="left hint">*</b>-->
+					</span>
+					<span class="overflow display">
+						<p class="left">手&ensp;机&ensp;号</p>
+						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display" />
+						<!--<b class="left hint"></b>-->
+					</span>
+					<span class="overflow display">
+						<p class="left">密&emsp;&emsp;码</p>
+						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display" />
+						<!--<b class="left hint"></b>-->
+					</span>
+					<span class="overflow display">
+						<p class="left">确认密码</p>
+						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display" />
+						<!--<b class="left hint"></b>-->
+					</span>
+					<span class="overflow display">
+						<p class="left">验&ensp;证&ensp;码</p>
+						<input type="text" id="codes" name="codes" placeholder="请输入验证码" class="left display" />
+						<img src="{:captcha_src()}" class="left display codesi" onclick="this.src=this.src" />
+						<!--<b class="left hint"></b>-->
+					</span>
+					<a href="javascript:;" class="left width login">已有帐号，点击登录</a>
+					<span class="overflow display">
+						<input type="button" id="btn" value="注册" class="left" />
+					</span>
 				</div>
-				<div class="DSP_bn left conwidth overflow">
-					<h1>DSP系统简介</h1>
-					<p>互联网广告DSP（Demand-Side Platform），就是需求方平台。这一概念起源于网络广告发达的欧美，是伴随着互联网和广告业的飞速发展新兴起的网络广告领域。它与AdExchange和RTB一起迅速崛起于美国，已在全球快速发展，2011年已经覆盖到了欧美、亚太以及澳洲。在世界网络展示广告领域，DSP方兴未艾。DSP传入中国，迅速成为热潮，成为推动中国网络展示广告RTB市场快速发展的主要动力之一。</p>
-				</div>
-			</section>
-			<!-- 引入页脚 -->
-			<include file="common/footer" />
-			<!-- 引入页脚结束 -->
-		</div>
-	</body>
-	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$(function() {
-			//初始化导航
-			var margins = $('.pz_box').offset().left;
-			var widt=$('.pz_box').width();
-			var navh = $('.nav_con').height();
-			$('.nav').css({
-				'display': 'block',
-				'background': 'transparent',
-				'height': navh,
-				'width': widt,
-				'margin-left': margins
-			});
-			//返回顶部
-			$('.top').click(function() {
-				$("html,body").animate({
-					scrollTop: 0
-				}, 100);
-			});
-			//导航
-			$('.nav_logo').click(function () {
-				document.location.href = "{:url('portal/index/index')}";
-			})
+			</div>
+			<div class="DSP_bn left conwidth overflow">
+				<h1>DSP系统简介</h1>
+				<p>互联网广告DSP（Demand-Side Platform），就是需求方平台。这一概念起源于网络广告发达的欧美，是伴随着互联网和广告业的飞速发展新兴起的网络广告领域。它与AdExchange和RTB一起迅速崛起于美国，已在全球快速发展，2011年已经覆盖到了欧美、亚太以及澳洲。在世界网络展示广告领域，DSP方兴未艾。DSP传入中国，迅速成为热潮，成为推动中国网络展示广告RTB市场快速发展的主要动力之一。</p>
+			</div>
+		</section>
+		<!-- 引入页脚 -->
+		<include file="common/footer" />
+		<!-- 引入页脚结束 -->
+	</div>
+</body>
+<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function () {
+		// console.log(reg.ld);
+		//初始化导航
+		var margins = $('.pz_box').offset().left;
+		var widt = $('.pz_box').width();
+		var navh = $('.nav_con').height();
+		$('.nav').css({
+			'display': 'block',
+			'background': 'transparent',
+			'height': navh,
+			'width': widt,
+			'margin-left': margins
+		});
+		//返回顶部
+		$('.top').click(function () {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 100);
+		});
+		//导航
+		$('.nav_logo').click(function () {
+			document.location.href = "{:url('portal/index/index')}";
+		})
+		searchs(5);
+		scrolls('.sections');
+		window.onscroll = function () {
 			searchs(5);
-			scrolls('.sections');
-			window.onscroll = function() {
-				searchs(5);
-			}
-			//blur
-			$('input[type="text"],input[type="password"]').each(function(){
-				$(this).focus(function(){
-					$(this).attr('placeholder','');
-				}).blur(function(){
-					if($(this).prop('id')=='user'){
-						$(this).attr('placeholder','请输入用户名');
-					}else if($(this).prop('id')=='tel'){
-						$(this).attr('placeholder','请输入手机号');
-					}else if($(this).prop('id')=='pwd'){
-						$(this).attr('placeholder','请输入6~12位密码');
-					}else if($(this).prop('id')=='pwds'){
-						$(this).attr('placeholder','请再次输入密码');
-					}else if($(this).prop('id')=='codes'){
-						$(this).attr('placeholder','请输入验证码');
-					}
-				})
-			});
-			$('#btn').click(function(){
-				var dt={
-					dsp_name:$('#user').val(),
-					user_phone:$('#tel').val(),
-					user_pwd:$('#pwd').val(),
-					user_pwds:$('#pwds').val(),
-					codes:$('#codes').val()
+		}
+		//blur
+		$('input[type="text"],input[type="password"]').each(function () {
+			$(this).focus(function () {
+				$(this).attr('placeholder', '');
+			}).blur(function () {
+				if ($(this).prop('id') == 'user') {
+					$(this).attr('placeholder', '请输入用户名');
+				} else if ($(this).prop('id') == 'tel') {
+					$(this).attr('placeholder', '请输入手机号');
+				} else if ($(this).prop('id') == 'pwd') {
+					$(this).attr('placeholder', '请输入6~12位密码');
+				} else if ($(this).prop('id') == 'pwds') {
+					$(this).attr('placeholder', '请再次输入密码');
+				} else if ($(this).prop('id') == 'codes') {
+					$(this).attr('placeholder', '请输入验证码');
+				}
+			})
+		});
+		reg.defaults={
+			username: '#user',
+			phones: '#tel',
+			user: '#user',
+			pwd: '#pwd',
+			pwds: '#pwds'
+		}
+		reg.conTro();
+		$('#btn').click(function () {
+			if (reg.ld.user('#user') == true && reg.ld.user('#tel') == true && reg.ld.user('#pwd') == true && reg.ld.user('#pwd', '#pwds') == true) {
+				var dt = {
+					dsp_name: $('#user').val(),
+					user_phone: $('#tel').val(),
+					user_pwd: $('#pwd').val(),
+					user_pwds: $('#pwds').val(),
+					codes: $('#codes').val()
 				}
 				$.ajax({
 					type: 'post',
 					url: 'http://thinkpz.cn/portal/Dsp/dspRegister',
 					data: dt,
 					dataType: 'json',
-					success:function(data){
+					success: function (data) {
 						console.log(data)
 					}
 				})
-			})
-			
+			}else{
+				
+			}
+
+
 		})
-	</script>
+
+	})
+</script>
 
 </html>

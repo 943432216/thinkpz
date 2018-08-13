@@ -72,7 +72,9 @@
 		var n, x, d = null;
 		n = document.location.href;
 		d = n.split('?')[1]
-		if (d != null || d != undefined || d != '') {
+		if (d == null || d == undefined || d == '') {
+			x=2
+		} else {
 			x = n.split('=')[1]
 			$('.prevbn a').each(function () {
 				if ($(this).attr('value') == x) {
@@ -82,9 +84,6 @@
 				}
 			})
 			x=setData(x);
-			console.log(x)
-		} else {
-			x = 2
 		}
 		$('.news_box').Toload({
 			sign: "news",

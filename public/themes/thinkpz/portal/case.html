@@ -81,22 +81,22 @@
 <script src="__TMPL__/public/js/demo.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function () {
-		var n,x,d=null;
-		n=document.location.href;
-		d=n.split('?')[1]
-		if(d!=null||d!=undefined||d!=''){
-			x=d.split('=')[1]
-			$('.prevbn a').each(function(){
-				if($(this).attr('value')==x){
+		var n, x, d = null;
+		n = document.location.href;
+		d = n.split('?')[1]
+		if (d == null || d == undefined || d == '') {
+			x = 0
+		} else {
+			x = d.split('=')[1]
+			$('.prevbn a').each(function () {
+				if ($(this).attr('value') == x) {
 					console.log($(this))
 					$(this).siblings('a').removeClass('cases_avt');
 					$(this).addClass('cases_avt');
 				}
 			})
-		}else{
-			x=0
 		}
-		
+
 		$('.case_con').Toload({
 			sign: 'cases',
 			data: {
