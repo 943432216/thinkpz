@@ -88,7 +88,7 @@ function setData(values) {
 	Toload.prototype = {
 		_int: function (options) { //初始化
 			this.sign = options.sign;
-			this.urls = options.urls;
+			this.urls = document.location.protocol+'//'+document.location.hostname+options.urls;
 			this.data = options.data;
 			this.bn = $('.section_bn');
 			this.flag = 0; //开关
@@ -96,6 +96,7 @@ function setData(values) {
 				alert('请输入正确的参数');
 				return false;
 			} else {
+				
 				this._successAjax();
 
 			}
