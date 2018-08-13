@@ -161,34 +161,23 @@
 				}
 			})
 		});
-// 		reg.defaults={
-// 			username: '#user',
-// 			phones: '#tel',
-// 			user: '#user',
-// 			pwd: '#pwd',
-// 			pwds: '#pwds'
-// 		}
 		$('#btn').click(function () {
-			if (reg.ld.user('#user') == true && reg.ld.user('#tel') == true && reg.ld.user('#pwd') == true && reg.ld.user('#pwd', '#pwds') == true) {
-				var dt = {
-					dsp_name: $('#user').val(),
-					user_phone: $('#tel').val(),
-					user_pwd: $('#pwd').val(),
-					user_pwds: $('#pwds').val(),
-					codes: $('#codes').val()
-				}
-				$.ajax({
-					type: 'post',
-					url: document.location.protocol+'//'+document.location.hostname+'/portal/Dsp/dspRegister',
-					data: dt,
-					dataType: 'json',
-					success: function (data) {
-						console.log(data)
-					}
-				})
-			}else{
-				
+			var dt = {
+				dsp_name: $('#user').val(),
+				user_phone: $('#tel').val(),
+				user_pwd: $('#pwd').val(),
+				user_pwds: $('#pwds').val(),
+				codes: $('#codes').val()
 			}
+			$.ajax({
+				type: 'post',
+				url: document.location.protocol + '//' + document.location.hostname + '/portal/Dsp/dspRegister',
+				data: dt,
+				dataType: 'json',
+				success: function (data) {
+					console.log(data)
+				}
+			})
 
 
 		})
