@@ -91,7 +91,7 @@
 					</span>
 					<span class="overflow display">
 						<p class="left">验&ensp;证&ensp;码</p>
-						<input type="text" id="codes" name="cds" placeholder="请输入验证码" class="left display" />
+						<input type="text" id="codes" name="codes" placeholder="请输入验证码" class="left display" />
 						<img src="{:captcha_src()}" class="left display codesi" onclick="this.src=this.src" />
 					</span>
 					<a href="javascript:;" class="left width login">已有帐号，点击登录</a>
@@ -164,18 +164,16 @@
 			var ac=document.location.protocol;
 			var bc=document.location.hostname;
 			var urlsb=ac+'//'+bc;
-			console.log()
 			var dt = {
-				dsp_name: $('#user').val(),
+				dsp_name: '$('#user').val()',
 				user_phone: $('#tel').val(),
 				user_pwd: $('#pwd').val(),
 				user_pwds: $('#pwds').val(),
-				cds: $('#codes').val()
+				codes: $('#codes').val()
 			}
-			// console.log(dt)
 			$.ajax({
 				type: 'post',
-				url:'http://thinkpz.cn/portal/Dsp/dspRegister',
+				url:urlsb+'/portal/Dsp/dspRegister',
 				data: dt,
 				dataType: 'json',
 				success: function (data) {
@@ -185,6 +183,7 @@
 					console.log(data)
 				}
 			})
+
 
 
 		});
