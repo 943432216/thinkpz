@@ -1,5 +1,5 @@
-function regs(defaults) {
-	var alts=null;
+function regs() {
+	var alts = null;
 	var formInspect = {
 		//名字
 		username: function (el) {
@@ -22,7 +22,7 @@ function regs(defaults) {
 			}
 		},
 		//手机
-		phones: function (el) {
+		tel: function (el) {
 			var reg = /^1[34578]\d{9}$/;
 
 			if ($(el).val() == '') {
@@ -83,15 +83,20 @@ function regs(defaults) {
 			}
 		}
 	}
-	// console.log(defaults instanceof Array)
-	if(typeof defaults=='object'){
-		// console.log(defaults)
-		defaults.forEach(function(value,index){
-			var nx=formInspect[index](value);
-			console.log(nx)
-		})
+	var e = {}
+	var nx = null
+	if(arguments.length<=2){
+		nx = formInspect[arguments[1]](arguments[0]);
 	}else{
-		// console.log(1)
-		return false;
+		nx = formInspect[arguments[2]](arguments[1], arguments[0]);
 	}
+	e[arguments[arguments.length-1]]=nx;
+	$.each(e,function(a){
+		if(e[a]==true){
+			//执行回调
+		}else{
+			console.log(e[a]);
+			//弹出错误
+		}
+	})
 }

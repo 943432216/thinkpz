@@ -111,11 +111,10 @@
 	</div>
 </body>
 <script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-<!-- <script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function () {
-		// console.log(reg.ld);
 		//初始化导航
 		var margins = $('.pz_box').offset().left;
 		var widt = $('.pz_box').width();
@@ -147,6 +146,15 @@
 			$(this).focus(function () {
 				$(this).attr('placeholder', '');
 			}).blur(function () {
+				var inID= $(this).attr('id');
+				var vaID='#'+inID
+				var vaID1='#pwd'
+				if(inID=='pwds'){
+					regs(vaID,vaID1,inID);
+				}else{
+					regs(vaID,inID);
+				}
+				
 				if ($(this).prop('id') == 'user') {
 					$(this).attr('placeholder', '请输入用户名');
 				} else if ($(this).prop('id') == 'tel') {

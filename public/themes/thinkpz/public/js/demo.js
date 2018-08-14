@@ -187,7 +187,7 @@ function setData(values) {
 					this.ele.append(
 						'<div class="serve_box left position"><span class="left width"><img src="' + a.data[
 							i].more +
-						'" /></span><div class="serve_con width"><span class="left"><h3 class="left">' +
+						'" class="img" /></span><div class="serve_con width"><span class="left"><h3 class="left">' +
 						a.data[i].post_keywords + '</h3></span><p class="left">' + a.data[i].post_excerpt +
 						'</p></div></div>');
 				}
