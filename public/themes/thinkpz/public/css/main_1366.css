@@ -329,7 +329,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .DSP_bn{margin: 0 170px 0 170px;}
 .DSP_bn h1{padding: 10px 0;width:80%;float: left;color: #1a1a1a;font-size:20px;font-weight:600;border-bottom: 1px solid #7d7d7d;margin: 120px 10% 10px 10%;}
 .DSP_bn p{margin: 0 10%;color: #525252;font-size:14px;float: left;line-height:150%;width:76%;}
-.alerts{position: absolute;left: 0;top: 0;height: 100%;background: rgba(0,0,0,0.76);border-radius: 5px;overflow:hidden;/* display:none; */}
+.alerts{position: absolute;left: 0;top: 0;height: 100%;background: rgba(0,0,0,0.76);border-radius: 5px;overflow:hidden;display:none;}
 .alerts .alerts_tc{width: 410px;background: #fff;border-radius: 16px;margin:12% calc(50% - 205px);margin:12% -moz-calc(50% - 205px);margin:12% -webkit-calc(50% - 205px);float: left;height: 256px;}
 .alerts .tc_con p{float:left;width: 100%;text-align: center;color: #333;font-size: 12px;margin-top:170px;letter-spacing:1px;}
 .alerts .tc_con p a{color: #007ee9;}
