@@ -492,7 +492,7 @@ footer{width:calc(100% - 340px);width:-webkit-calc(100% - 340px);width:-moz-calc
 .list_box .avts_list{border: 1px solid #007ee9;}
 .list_box .avts_list a{background:#007ee9;}
 .mod_bn p img{width: 175px;height: 66px;}
-
+.hint{text-align:left;color: #ff0000;font-size:12px;position: absolute;z-index: 6666;}
 /*end*/
 @media only screen and (max-width:1400px){
 	.pz_box{width: 1366px;max-width:1366px;}

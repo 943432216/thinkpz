@@ -81,6 +81,13 @@ function regs() {
 			} else {
 				return true;
 			}
+		},
+		codes:function(el){
+			if($(el).val() == ''||$(el).val() == null){
+				return alts = '验证码不能为空';
+			}else{
+				return true;
+			}
 		}
 	}
 	var e = {}
@@ -93,9 +100,18 @@ function regs() {
 	e[arguments[arguments.length-1]]=nx;
 	$.each(e,function(a){
 		if(e[a]==true){
-			//执行回调
+			
 		}else{
-			console.log(e[a]);
+			var pL=$('#'+a).siblings('p').innerWidth();
+			var spanL=$('#'+a).parent('span').css('margin-left');
+			var spanT=$('#'+a).parent('span').position().top;
+			var spanM=$('#'+a).parent('span').css('margin-top')
+			var innH=$('#'+a).parent('span').innerHeight();
+			var innw=$('#'+a).innerWidth();
+			offsetT=parseFloat(spanT)+parseFloat(innH)+parseFloat(spanM)+5;
+			offsetL=parseFloat(pL)+parseFloat(spanL);
+			var hint='<b class="hint" style="left:'+offsetL+'px;top:'+offsetT+'px;width:'+innw+'px;">'+e[a]+'</b>';
+			$('.form').append(hint);
 			//弹出错误
 		}
 	})
