@@ -158,7 +158,7 @@
 				}
 				$.ajax({
 					type: 'post',
-					url: urlsb + '/portal/Dsp/dspRegister',
+					url:{:url('portal/message/takeOver')},
 					data: dt,
 					dataType: 'json',
 					success: function (data) {
