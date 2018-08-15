@@ -3,6 +3,7 @@
 namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
+use think\Db;
 
 class DspController extends HomeBaseController
 {
@@ -11,36 +12,41 @@ class DspController extends HomeBaseController
 		return $this->fetch('/dsp');
 	}
 
+	// DSP注册信息添加
 	public function dspRegister()
 	{
-		print_r(json_encode($_POST));exit;
+		
+		$post = input('post.');
 
+		$result = $this->validate($post, 'PortalDsp', [], true);
 
-		// $post = input('post.');
+		if (true !== $result) {
+			$this->result($result, '400','注册失败');
+		}
 
-		// $result = $this->validate($post, 'PortalDsp', [], true);
+		if(captcha_check($post['codes'])){
+		 	//验证码正确
+		 	$city = get_city();
+		 	$insert_data = [
+		 		'dsp_name' => $post['dsp_name'],
+		 		'user_pwd' => cmf_password($post['user_pwd']),
+		 		'user_phone' => $post['user_phone'],
+		 		'create_time' => time(),
+		 		'address' => empty($city) ? '无法定位' : $city['region'] . $city['city'],
+		 		'user_ip' => get_client_ip(),
+		 	];
 
-		// if (true !== $result) {
-		// 	$this->result('400','注册失败', $result);
-		// }
-
-		// // halt(captcha_check($result['codes']));
-
-		// if(captcha_check($result['codes'])){
-		//  	//验证码正确
-		//  	$this->success('注册成功');
-		//  	return ['codes' => '200'];
-		//  	$insert_data = [
-		//  		'dsp_name' => $post['dsp_name'],
-		//  		'user_pwd' => $post['user_pwd'],
-		//  		'user_phone' => $post['user_']
-		//  	];
+		 	$insert_result = Db::table('pz_dsp_account')->insert($insert_data);
+		 	if ($insert_result) {
+		 		$this->result('', '200', '注册成功');					
+		 	} else {
+		 		$this->result(['database' => '数据提交数据库添加失败'], '400', '注册失败');
+		 	}
 		 	
-		// } else {
-		// 	//验证码不正确
-		// 	$this->error('注册失败');
-		// 	$this->result('400', '注册失败', ['codes'=>'验证码不正确']);
-		// }
-
+		} else {
+			//验证码不正确
+			$this->result(['codes'=>'验证码不正确'], '400', '注册失败');
+		}
 	}
+
 }

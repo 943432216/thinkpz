@@ -72,6 +72,13 @@ function handle_img_url($data)
 	return $data;
 }
 
+/**
+ * 获取某个文章分类下的文章数目
+ * @param  [type]  $category    [文章分类]
+ * @param  boolean $post_status [发布状态 false:所有数据;1:已发布;0:未发布]
+ * @param  boolean $delete_time [删除时间筛选 false:所有数据;非false:那个时间点删除的文章]
+ * @return [type]               [description]
+ */
 function category_arts_sum($category, $post_status=false, $delete_time=false)
 {
 	$db = \think\DB::name('portal_post')->alias('a')
@@ -86,7 +93,7 @@ function category_arts_sum($category, $post_status=false, $delete_time=false)
 	if (false == $delete_time) {
 		$db->where('delete_time', '>=', 0);		
 	} else {
-		$db->where('delete_time', 0);
+		$db->where('delete_time', $delete_time);
 	}
 	$data = $db->select();
 	return count($data);
@@ -124,4 +131,19 @@ function trans_department($department='')
 	}
 
 	return $department;
+}
+
+function get_city($ip = '')
+{
+    if ($ip == '') {
+       $ip = get_client_ip();
+    }
+    $url = "http://ip.taobao.com/service/getIpInfo.php?ip=" . $ip;
+    $city = json_decode(file_get_contents($url));   
+    if ((string)$city->code == '1') {
+       return false;
+    }
+    $city_dt = (array)$city->data;
+    
+    return $city_dt;   
 }

@@ -39,7 +39,6 @@ class AdminRecruitController extends AdminBaseController {
 	{
 		$id = input('post.id');
 		$db = Db::table('pz_recruit')->where(['id' => $id])->delete();
-		$db = 1;
 		if ($db) {
 			return ['code' => 200, 'msg' => '删除成功'];
 		} else {
