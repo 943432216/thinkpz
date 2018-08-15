@@ -12,23 +12,24 @@
 		  <button class="layui-btn" data-type="batchDelete">批量删除</button>
 		</div>
 		 
-		<table class="layui-table" lay-data="{url:'http://thinkpz.cn/portal/admin_dsp/dspList', page:true, limit:10, id:'idTest', where:{'status':0}}" lay-filter="demo">
+		<table class="layui-table" lay-data="{url:'{:url(\'portal/admin_message/msgList\')}', page:true, limit:10, id:'idTest', where:{'status':0}}" lay-filter="demo">
 		  <thead>
 		    <tr>
 		      <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-		      <th lay-data="{field:'id', width:70, align:'center', sort: true, fixed: true}">ID</th>
-		      <th lay-data="{field:'dsp_name', width:200, align:'center'}">用户名</th>
-		      <th lay-data="{field:'user_phone', width:135, align:'center'}">联系电话</th>
-		      <th lay-data="{field:'create_time', width:180, align:'center'}">创建时间</th>
-		      <th lay-data="{field:'address', width:130, align:'center'}">所在城市</th>
-		      <th lay-data="{field:'user_ip', width:160, align:'center'}">注册地IP</th>
-		      <th lay-data="{width:178, align:'center', toolbar: '#barDemo'}">操作</th>
+		      <th lay-data="{field:'id', width:60, align:'center', sort: true, fixed: true}">ID</th>
+		      <th lay-data="{field:'msg_name', width:100, align:'center'}">姓名</th>
+		      <th lay-data="{field:'msg_phone', width:120, align:'center'}">联系电话</th>
+		      <th lay-data="{field:'msg_email', width:200, align:'center'}">联系邮箱</th>
+		      <th lay-data="{field:'create_time', width:170, align:'center'}">创建时间</th>
+		      <th lay-data="{field:'custom_city', width:120, align:'center'}">所在城市</th>
+		      <th lay-data="{field:'custom_ip', width:130, align:'center'}">注册地IP</th>
+		      <th lay-data="{width:170, align:'center', toolbar: '#barDemo'}">操作</th>
 		    </tr>
 		  </thead>
 		</table>
 		 
 		<script type="text/html" id="barDemo">
-		  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="handle">审核通过</a>
+		  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看详情</a>
 		  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 		</script>
 	</div>
@@ -39,18 +40,11 @@
 		  var table = layui.table;
 		  table.on('tool(demo)', function(obj){
 		    var data = obj.data;
-		    if(obj.event === 'handle'){
-		      $.post("{:url('portal/AdminDsp/beOne')}", {'id':data.id,'status':1}, function(result){
-		      	if (1 == result.code) {
-		      		location.reload();
-		      		layer.msg('已审核成功');
-		      	} else {
-		      		layer.msg('审核操作失败，请重试');
-		      	}
-		      },'json');
+		    if(obj.event === 'detail'){
+		    	layer.alert(data.message, {icon: 1});
 		    } else if(obj.event === 'del'){
 		      layer.confirm('真的删除行么', function(index){
-		        $.post('{:url("portal/admin_dsp/delDsp")}',{'id':data.id}, function(rel){
+		        $.post('{:url("portal/admin_message/delOne")}',{'id':data.id}, function(rel){
 		      		if (rel.code == 200) {
 		      			obj.del();
 		      			layer.msg(rel.msg);
@@ -64,25 +58,6 @@
 		  });
 		  
 		  var $ = layui.$, active = {
-		    batchPass: function(){ //获取选中数据
-		      var checkStatus = table.checkStatus('idTest')
-		      ,data = checkStatus.data,post_data = '';
-		      $.each(data, function(index,value){
-		      	if (index == data.length-1) {
-		      		post_data  = post_data+value.id;
-		      	} else {
-		      		post_data  = post_data+value.id+',';
-		      	}
-		      });
-		      $.post("{:url('portal/AdminDsp/beMany')}", {'ids':post_data,'status':1}, function(result){
-		      	if (1 == result.code) {
-		      		location.reload();
-		      		layer.msg('已审核成功');
-		      	} else {
-		      		layer.msg('审核操作失败，请重试');
-		      	}
-		      },'json');		      
-		    },
 		    batchDelete: function(){ //获取选中数据
 		      var checkStatus = table.checkStatus('idTest')
 		      ,data = checkStatus.data,post_data = '';
@@ -93,7 +68,7 @@
 		      		post_data  = post_data+value.id+',';
 		      	}
 		      });
-		      $.post("{:url('portal/AdminDsp/delAll')}", {'ids' : post_data}, function(result){
+		      $.post("{:url('portal/admin_message/delMany')}", {'ids' : post_data}, function(result){
 		      	if (1 == result.code) {
 		      		location.reload();
 		      		layer.msg('删除成功');
