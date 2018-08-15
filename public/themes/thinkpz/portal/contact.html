@@ -145,20 +145,18 @@
 			window.onscroll = function() {
 				searchs(1);
 			};
-			$('#btn').click(function () {
-				var ac = document.location.protocol;
-				var bc = document.location.hostname;
-				var urlsb = ac + '//' + bc;
+			$('#bns').click(function () {
+// 				var ac = document.location.protocol;
+// 				var bc = document.location.hostname;
+// 				var urlsb = ac + '//' + bc;
 				var dt = {
-					dsp_name: $('#user').val(),
-					user_phone: $('#tel').val(),
-					user_pwd: $('#pwd').val(),
-					user_pwds: $('#pwds').val(),
-					codes: $('#codes').val()
+					msg_name: $('#name').val(),
+					msg_phone: $('#tel').val(),
+					msg_email: $('#e_mail').val()
 				}
 				$.ajax({
 					type: 'post',
-					url:{:url('portal/message/takeOver')},
+					url:"{:url('portal/message/takeOver')}",
 					data: dt,
 					dataType: 'json',
 					success: function (data) {
