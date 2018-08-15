@@ -71,22 +71,22 @@
 					</div>
 					<span class="overflow display">
 						<p class="left">用&ensp;户&ensp;名</p>
-						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display"/>
+						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display" />
 						<!--<b class="left hint">*</b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">手&ensp;机&ensp;号</p>
-						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display"/>
+						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display" />
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">密&emsp;&emsp;码</p>
-						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display"/>
+						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display" />
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">确认密码</p>
-						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display"/>
+						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display" />
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
@@ -146,15 +146,17 @@
 			$(this).focus(function () {
 				$(this).attr('placeholder', '');
 			}).blur(function () {
-				var inID= $(this).attr('id');
-				var vaID='#'+inID
-				var vaID1='#pwd'
-				if(inID=='pwds'){
-					regs(vaID,vaID1,inID);
-				}else{
-					regs(vaID,inID);
+				var inID = $(this).attr('id'),
+					vaID = '#' + inID,
+					vaID1 = '#pwd',
+					reg = null
+
+				if (inID == 'pwds') {
+					reg = new regs(inID, [vaID1, vaID]);
+				} else {
+					reg = new regs(inID,vaID );
 				}
-				
+
 				if ($(this).prop('id') == 'user') {
 					$(this).attr('placeholder', '请输入用户名');
 				} else if ($(this).prop('id') == 'tel') {
@@ -169,9 +171,9 @@
 			})
 		});
 		$('#btn').click(function () {
-			var ac=document.location.protocol;
-			var bc=document.location.hostname;
-			var urlsb=ac+'//'+bc;
+			var ac = document.location.protocol;
+			var bc = document.location.hostname;
+			var urlsb = ac + '//' + bc;
 			var dt = {
 				dsp_name: $('#user').val(),
 				user_phone: $('#tel').val(),
@@ -181,7 +183,7 @@
 			}
 			$.ajax({
 				type: 'post',
-				url:urlsb+'/portal/Dsp/dspRegister',
+				url: urlsb + '/portal/Dsp/dspRegister',
 				data: dt,
 				dataType: 'json',
 				success: function (data) {
