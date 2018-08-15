@@ -28,19 +28,18 @@
 		tel: function (el) {
 			var reg = /^1[34578]\d{9}$/;
 			var ele=$(el);
-// 			if ($(el).val() == '') {
-// 				alts = '手机号不能为空';
-// 				return alts
-// 			} else if (reg.test($(el).val()) == false) {
-// 				alts = '请输入正确的11位手机号码';
-// 				return alts;
-// 			} else if ($(el).val().length < 11 || $(el).val().length > 11) {
-// 				alts = '请输入正确的11位手机号码';
-// 				return alts;
-// 			} else {
-// 				return true;
-// 			}
-			return el
+			if ($(el).val() == '') {
+				alts = '手机号不能为空';
+				return alts
+			} else if (reg.test($(el).val()) == false) {
+				alts = '请输入正确的11位手机号码';
+				return alts;
+			} else if ($(el).val().length < 11 || $(el).val().length > 11) {
+				alts = '请输入正确的11位手机号码';
+				return alts;
+			} else {
+				return true;
+			}
 		},
 		//用户名
 		user: function (el) {
@@ -52,7 +51,7 @@
 				alts = '用户名的长度为4~12位';
 				return alts;
 			} else if (reg.test($(el).val()) == false) {
-				alts = '用户名是以数字、字母开头';
+				alts = '用户名是以数字、字母组成';
 				return alts
 			} else {
 				return true;
@@ -96,17 +95,17 @@
 	}
 
 	function regs(index,value,callback) {
-		if (value=='string') {
+		if (typeof value=='string') {
 			nx = formInspect[index](value);
+			console.log(1)
 		} else {
 			nx = formInspect[index](value[1], value[0]);
+			console.log(2)
 		}
 		e[index] = nx;
-		console.log(nx)
-		console.log(value)
 		$.each(e, function (a) {
 			if (e[a] == true) {
-				
+				//执行回调
 			} else {
 				console.log($('#' + a))
 				var pL = $('#' + a).siblings('p').innerWidth();
