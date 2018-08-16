@@ -17,7 +17,7 @@
 		//地址
 		site: function (el) {
 			var reg = /^(?=.*?[\u4E00-\u9FA5])[\dA-Za-z\u4E00-\u9FA5]+$/;
-			if (($(''+el).val() == '') || (reg.test($(el).val())) == false) {
+			if (($('' + el).val() == '') || (reg.test($(el).val())) == false) {
 				alts = '请输入正确的地址';
 				return alts
 			} else {
@@ -27,7 +27,7 @@
 		//手机
 		tel: function (el) {
 			var reg = /^1[34578]\d{9}$/;
-			var ele=$(el);
+			var ele = $(el);
 			if ($(el).val() == '') {
 				alts = '手机号不能为空';
 				return alts
@@ -94,34 +94,28 @@
 		}
 	}
 
-	function regs(index,value,callback) {
-		if (typeof value=='string') {
+	function regs(index, value, success,errors) {
+		if (typeof value == 'string') {
 			nx = formInspect[index](value);
-			console.log(1)
 		} else {
 			nx = formInspect[index](value[1], value[0]);
-			console.log(2)
 		}
 		e[index] = nx;
 		$.each(e, function (a) {
 			if (e[a] == true) {
-				//执行回调
+				if (typeof success == 'function') {
+					success();
+				} else {
+					//不做操作
+					return false;
+				}
 			} else {
-				console.log($('#' + a))
-				var pL = $('#' + a).siblings('p').innerWidth();
-				var spanL = $('#' + a).parent('span').css('margin-left');
-				var spanT = $('#' + a).parent('span').position().top;
-				var spanM = $('#' + a).parent('span').css('margin-top')
-				var innH = $('#' + a).parent('span').innerHeight();
-				var innw = $('#' + a).innerWidth();
-				offsetT = parseFloat(spanT) + parseFloat(innH) + parseFloat(spanM) + 5;
-				offsetL = parseFloat(pL) + parseFloat(spanL);
-				var hint = '<b class="hint" style="left:' + offsetL + 'px;top:' + offsetT + 'px;width:' + innw + 'px;">' + e[a] +
-					'</b>';
-				$('.form').append(hint);
-				$('#' + a).focus(function(){
-					$('.hint').remove();
-				})
+				if (typeof errors == 'function') {
+					errors(a,e[a]);
+				} else {
+					//不做操作
+					return false;
+				}
 			}
 		})
 	}

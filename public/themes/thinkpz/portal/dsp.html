@@ -71,27 +71,27 @@
 					</div>
 					<span class="overflow display">
 						<p class="left">用&ensp;户&ensp;名</p>
-						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display" />
+						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display" data-required="true" autocomplete="off"/>
 						<!--<b class="left hint">*</b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">手&ensp;机&ensp;号</p>
-						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display" />
+						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display" data-required="true" autocomplete="off"/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">密&emsp;&emsp;码</p>
-						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display" />
+						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display" data-required="true" autocomplete="off"/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">确认密码</p>
-						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display" />
+						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display" data-required="true" autocomplete="off"/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">验&ensp;证&ensp;码</p>
-						<input type="text" id="codes" name="codes" placeholder="请输入验证码" class="left display" />
+						<input type="text" id="codes" name="codes" placeholder="请输入验证码" class="left display" data-required="true" autocomplete="off"/>
 						<img src="{:captcha_src()}" class="left display codesi" onclick="this.src=this.src" />
 					</span>
 					<a href="javascript:;" class="left width login">已有帐号，点击登录</a>
@@ -112,9 +112,57 @@
 </body>
 <script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/regular.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/rule.js" type="text/javascript" charset="utf-8"></script>
 <script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function () {
+		$('.form').rule({
+			btn: '#btn',
+			reg: {
+				user: '#user',
+				tel: '#tel',
+				pwd: '#pwd',
+				pwds: ['#pwd', '#pwds'],
+				codes: '#codes'
+			},
+			hint: function (index) {
+				console.log(index)
+				var pL = $('#' + index[0]).siblings('p').innerWidth();
+				var spanL = $('#' + index[0]).parent('span').css('margin-left');
+				var spanT = $('#' + index[0]).parent('span').position().top;
+				var spanM = $('#' + index[0]).parent('span').css('margin-top')
+				var innH = $('#' + index[0]).parent('span').innerHeight();
+				var innw = $('#' + index[0]).innerWidth();
+				offsetT = parseFloat(spanT) + parseFloat(innH) + parseFloat(spanM) + 5;
+				offsetL = parseFloat(pL) + parseFloat(spanL);
+				var hint = '<b class="hint" style="left:' + offsetL + 'px;top:' + offsetT + 'px;width:' + innw + 'px;">' +
+					index[1] +
+					'</b>';
+				$('.form').append(hint);
+				$('#' + index).focus(function () {
+					$('.hint').remove();
+				});
+			},
+			sub: function () {
+				var dt = {
+					dsp_name: $('#user').val(),
+					user_phone: $('#tel').val(),
+					user_pwd: $('#pwd').val(),
+					user_pwds: $('#pwds').val(),
+					codes: $('#codes').val()
+				}
+				$.ajax({
+					type: 'post',
+					url: "{:url('portal/Dsp/dspRegister')}",
+					data: dt,
+					dataType: 'json',
+					success: function (data) {
+						console.log(data)
+					}
+				})
+
+			}
+		})
 		//初始化导航
 		var margins = $('.pz_box').offset().left;
 		var widt = $('.pz_box').width();
@@ -142,21 +190,11 @@
 			searchs(5);
 		}
 		//blur
-		$('input[type="text"],input[type="password"]').each(function () {
+		$('.form input[type="text"],.form input[type="password"]').each(function () {
+
 			$(this).focus(function () {
 				$(this).attr('placeholder', '');
 			}).blur(function () {
-				var inID = $(this).attr('id'),
-					vaID = '#' + inID,
-					vaID1 = '#pwd',
-					reg = null
-
-				if (inID == 'pwds') {
-					reg = new regs(inID, [vaID1, vaID]);
-				} else {
-					reg = new regs(inID,vaID );
-				}
-
 				if ($(this).prop('id') == 'user') {
 					$(this).attr('placeholder', '请输入用户名');
 				} else if ($(this).prop('id') == 'tel') {
@@ -170,10 +208,10 @@
 				}
 			})
 		});
+	})
+
+	function registers() {
 		$('#btn').click(function () {
-			var ac = document.location.protocol;
-			var bc = document.location.hostname;
-			var urlsb = ac + '//' + bc;
 			var dt = {
 				dsp_name: $('#user').val(),
 				user_phone: $('#tel').val(),
@@ -183,7 +221,7 @@
 			}
 			$.ajax({
 				type: 'post',
-				url: urlsb + '/portal/Dsp/dspRegister',
+				url: "{:url('portal/Dsp/dspRegister')}",
 				data: dt,
 				dataType: 'json',
 				success: function (data) {
@@ -191,8 +229,27 @@
 				}
 			})
 		});
+	}
 
-	})
+	function errorsd(index, value) {
+		var pL = $('#' + index).siblings('p').innerWidth();
+		var spanL = $('#' + index).parent('span').css('margin-left');
+		var spanT = $('#' + index).parent('span').position().top;
+		var spanM = $('#' + index).parent('span').css('margin-top')
+		var innH = $('#' + index).parent('span').innerHeight();
+		var innw = $('#' + index).innerWidth();
+		offsetT = parseFloat(spanT) + parseFloat(innH) + parseFloat(spanM) + 5;
+		offsetL = parseFloat(pL) + parseFloat(spanL);
+		var hint = '<b class="hint" style="left:' + offsetL + 'px;top:' + offsetT + 'px;width:' + innw + 'px;">' + value +
+			'</b>';
+		$('.form').append(hint);
+		$('#' + index).focus(function () {
+			$('.hint').remove();
+		});
+		$('#btn').click(function () {
+			alert('请填写完整的信息完成注册')
+		})
+	}
 </script>
 
 </html>
