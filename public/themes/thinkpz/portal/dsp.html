@@ -126,7 +126,7 @@
 				codes: '#codes'
 			},
 			hint: function (index) {
-				console.log(index)
+				// console.log(index)
 				var pL = $('#' + index[0]).siblings('p').innerWidth();
 				var spanL = $('#' + index[0]).parent('span').css('margin-left');
 				var spanT = $('#' + index[0]).parent('span').position().top;
@@ -157,6 +157,7 @@
 					data: dt,
 					dataType: 'json',
 					success: function (data) {
+						console.log(dt)
 						console.log(data)
 					}
 				})

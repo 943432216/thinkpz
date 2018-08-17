@@ -26,8 +26,8 @@
 			this.btn = $(this.opt.btn);
 			this.reg = this.opt.reg;
 			var _this = this,
+				flag = false,
 				a = null,
-				c = null,
 				d = null,
 				e = null,
 				b = [],
@@ -37,38 +37,33 @@
 				alert('请填写配置信息reg')
 				return false;
 			} else {
-				for (a in this.reg) {
-					h.push(a) //活的参数长度	
+				for( a in this.reg){
+					h.push(a)
 				}
+				// console.log(h)
 				this.ele.find('input').each(function () {
 					if ($(this).attr('data-required') == 'true') {
 						$(this).blur(function () {
 							e = $(this).attr('id');
-							if (typeof _this.reg[e] == 'string') {
-								d = _this.files(e, _this.reg[e]);
+							d = _this.files(e, _this.reg[e]);
+							if (d[e] == true) {
+								flag=true;
+								return;
 							} else {
-								d = _this.files(e, _this.reg[e]);
-							}
-							f[e] = d;
-							if (f[e] == true) {
-								//click
-								_this.btn.click(function () {
-									_this.callBack(_this.opt.sub);
-								})
-							} else {
-								_this.callBack(_this.opt.hint, [e, d]);
+								_this.callBack(_this.opt.hint, [e, d[e]]);
 							}
 
 						})
 						b.push(this); //获取必填选项长度
 					}
 				})
-				console.log(f)
-				// return false;
 			}
 			this.btn.click(function () {
-				if (a.length == b.length) {
-					alert('数据正在提交');
+				if (h.length == b.length) {//判断必填项是否填写
+					console.log(flag)
+					if(flag==true){
+						_this.callBack(_this.opt.sub);
+					}
 				} else {
 					alert('请填写完整信息')
 				}
@@ -173,13 +168,19 @@
 		},
 		files: function (index, value) {
 			var file = this.cfg()
-			var filev = null;
+			var _this = this,
+				filev = null,
+				a = null,
+				f = {};
 			if (typeof value == 'string') {
 				filev = file[index](value);
 			} else {
 				filev = file[index](value[0], value[1]);
 			}
-			return filev;
+			f[index] = filev;
+			// console.log(f)
+			return f;
+
 		},
 		callBack: function (cbk, value) {
 			if (typeof cbk == 'function') {
