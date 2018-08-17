@@ -157,8 +157,7 @@
 					data: dt,
 					dataType: 'json',
 					success: function (data) {
-						console.log(dt)
-						console.log(data)
+						
 					}
 				})
 
@@ -211,46 +210,6 @@
 		});
 	})
 
-	function registers() {
-		$('#btn').click(function () {
-			var dt = {
-				dsp_name: $('#user').val(),
-				user_phone: $('#tel').val(),
-				user_pwd: $('#pwd').val(),
-				user_pwds: $('#pwds').val(),
-				codes: $('#codes').val()
-			}
-			$.ajax({
-				type: 'post',
-				url: "{:url('portal/Dsp/dspRegister')}",
-				data: dt,
-				dataType: 'json',
-				success: function (data) {
-					console.log(data)
-				}
-			})
-		});
-	}
-
-	function errorsd(index, value) {
-		var pL = $('#' + index).siblings('p').innerWidth();
-		var spanL = $('#' + index).parent('span').css('margin-left');
-		var spanT = $('#' + index).parent('span').position().top;
-		var spanM = $('#' + index).parent('span').css('margin-top')
-		var innH = $('#' + index).parent('span').innerHeight();
-		var innw = $('#' + index).innerWidth();
-		offsetT = parseFloat(spanT) + parseFloat(innH) + parseFloat(spanM) + 5;
-		offsetL = parseFloat(pL) + parseFloat(spanL);
-		var hint = '<b class="hint" style="left:' + offsetL + 'px;top:' + offsetT + 'px;width:' + innw + 'px;">' + value +
-			'</b>';
-		$('.form').append(hint);
-		$('#' + index).focus(function () {
-			$('.hint').remove();
-		});
-		$('#btn').click(function () {
-			alert('请填写完整的信息完成注册')
-		})
-	}
 </script>
 
 </html>

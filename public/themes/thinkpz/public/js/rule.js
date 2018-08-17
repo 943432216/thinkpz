@@ -40,7 +40,6 @@
 				for( a in this.reg){
 					h.push(a)
 				}
-				// console.log(h)
 				this.ele.find('input').each(function () {
 					if ($(this).attr('data-required') == 'true') {
 						$(this).blur(function () {
@@ -60,7 +59,6 @@
 			}
 			this.btn.click(function () {
 				if (h.length == b.length) {//判断必填项是否填写
-					console.log(flag)
 					if(flag==true){
 						_this.callBack(_this.opt.sub);
 					}
@@ -170,7 +168,6 @@
 			var file = this.cfg()
 			var _this = this,
 				filev = null,
-				a = null,
 				f = {};
 			if (typeof value == 'string') {
 				filev = file[index](value);
