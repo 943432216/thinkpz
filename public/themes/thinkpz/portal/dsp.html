@@ -71,27 +71,32 @@
 					</div>
 					<span class="overflow display">
 						<p class="left">用&ensp;户&ensp;名</p>
-						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display" data-required="true" autocomplete="off"/>
+						<input type="text" id="user" name="dsp_name" placeholder="请输入用户名" class="left display" data-required="true" autocomplete="off"
+						/>
 						<!--<b class="left hint">*</b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">手&ensp;机&ensp;号</p>
-						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display" data-required="true" autocomplete="off"/>
+						<input type="text" id="tel" name="user_phone" placeholder="请输入你的手机号" class="left display" data-required="true" autocomplete="off"
+						/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">密&emsp;&emsp;码</p>
-						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display" data-required="true" autocomplete="off"/>
+						<input type="password" id="pwd" name="user_pwd" placeholder="请输入6~12位密码" class="left display" data-required="true" autocomplete="off"
+						/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">确认密码</p>
-						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display" data-required="true" autocomplete="off"/>
+						<input type="password" id="pwds" name="user_pwds" placeholder="请再次输入密码" class="left display" data-required="true" autocomplete="off"
+						/>
 						<!--<b class="left hint"></b>-->
 					</span>
 					<span class="overflow display">
 						<p class="left">验&ensp;证&ensp;码</p>
-						<input type="text" id="codes" name="codes" placeholder="请输入验证码" class="left display" data-required="true" autocomplete="off"/>
+						<input type="text" id="codes" name="codes" placeholder="请输入验证码" class="left display" data-required="true" autocomplete="off"
+						/>
 						<img src="{:captcha_src()}" class="left display codesi" onclick="this.src=this.src" />
 					</span>
 					<a href="javascript:;" class="left width login">已有帐号，点击登录</a>
@@ -151,13 +156,23 @@
 					user_pwds: $('#pwds').val(),
 					codes: $('#codes').val()
 				}
+				var reVal = {
+					'400': '验证码错误',
+					'401': '数据插入失败，请重新注册'
+				}
 				$.ajax({
 					type: 'post',
 					url: "{:url('portal/Dsp/dspRegister')}",
 					data: dt,
 					dataType: 'json',
 					success: function (data) {
-						
+						if(data.code=='200'){
+							$('.alerts').css('display','block');
+						}else{
+							var nx = reVal[data.code];
+							$('.codesi').click();
+							alert(nx);
+						}
 					}
 				})
 
@@ -209,7 +224,6 @@
 			})
 		});
 	})
-
 </script>
 
 </html>
