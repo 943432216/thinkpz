@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<<<<<<< HEAD
-<head>
-	<meta charset="utf-8" />
-	<title>品专互动</title>
-	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css//nitialize.css" />
-	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css//main_1366.css" />
-	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css//swiper.min.css" />
-</head>
-=======
 	<head>
 		<meta charset="utf-8" />
 		<title>品专互动</title>
@@ -17,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
 		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
 	</head>
->>>>>>> 6eb9d4fdb92a8e11280bffed316657151adabcdc
 
 <body>
 	<php>
@@ -83,83 +73,17 @@
 				</div>
 				{$article.post_content}
 			</div>
-<<<<<<< HEAD
 		</section>
 		<!-- 引入页脚 -->
 		<include file="common/footer" />
 		<!-- 引入页脚结束 -->
 	</div>
 </body>
-<script src="__TMPL__/public/js//jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="__TMPL__/public/js//swiper.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="__TMPL__/public/js//main.js" type="text/javascript" charset="utf-8"></script>
-=======
-			<header class="width left overflow">
-				<div class="swiper-container position">
-					<slides id="6">
-						<if condition="$i == $banner_id">
-							<img src="{:cmf_get_image_url($vo.image)}" alt="" class="img" />
-						</if>
-					</slides>
-				</div>
-			</header>
-			
-			<section class="width left overflow sections">
-				<div class='detailwd left particulars'>
-					<h1 class="width left">{$article.post_title}</h1>
-					{$article.post_content}
-				</div>
-			</section>
-			<!-- 引入页脚 -->
-			<include file="common/footer" />
-			<!-- 引入页脚结束 -->
-		</div>
-	</body>
+
 	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$(function() {
-			//初始化导航
-			var margins = $('.pz_box').offset().left;
-			var widt=$('.pz_box').width();
-			var navh = $('.nav_con').height();
-			$('.nav').css({
-				'display': 'block',
-				'background': 'transparent',
-				'height': navh,
-				'width': widt,
-				'margin-left': margins
-			});
-			//返回顶部
-			$('.top').click(function() {
-				$("html,body").animate({
-					scrollTop: 0
-				}, 100);
-			});
-			//导航
-			var ux,cid=null;
-			ux=document.location.href;
-			cid=ux.split('cid=')[1]
-			var cg={
-				'1':3,
-				'2':3,
-				'3':3,
-				'4':4,
-				'5':2
-			}
-			var nd=cg[cid];
-			$('.nav_logo').click(function () {
-				document.location.href = "{:url('portal/index/index')}";
-			})
-			searchs(nd);
-			scrolls('.sections');
-			window.onscroll = function() {
-				searchs(nd);
-			}
-			
-		})
->>>>>>> 6eb9d4fdb92a8e11280bffed316657151adabcdc
+	
 
 <script>
 	window._bd_share_config = {
