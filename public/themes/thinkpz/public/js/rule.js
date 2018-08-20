@@ -59,8 +59,11 @@
 			}
 			this.btn.click(function () {
 				if (h.length == b.length) {//判断必填项是否填写
+					console.log(flag)
 					if(flag==true){
 						_this.callBack(_this.opt.sub);
+					}else{
+						alert('请填写完整信息')
 					}
 				} else {
 					alert('请填写完整信息')
