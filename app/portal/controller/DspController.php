@@ -40,12 +40,12 @@ class DspController extends HomeBaseController
 		 	if ($insert_result) {
 		 		$this->result('', '200', '注册成功');					
 		 	} else {
-		 		$this->result(['database' => '数据提交数据库添加失败'], '400', '注册失败');
+		 		$this->result('', '401', '数据提交数据库添加失败');
 		 	}
 		 	
 		} else {
 			//验证码不正确
-			$this->result(['codes'=>'验证码不正确'], '400', '注册失败');
+			$this->result('', '402', '验证码不正确');
 		}
 	}
 
