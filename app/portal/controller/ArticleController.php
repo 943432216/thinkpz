@@ -92,4 +92,17 @@ class ArticleController extends HomeBaseController
         }
     }
 
+    // PZ - 更新分享的次数
+    public function shareUp()
+    {
+        $id = input('post.id');
+
+        if (empty($id)) {
+            $this->result('', 400, 'id不能为空');
+        } else {
+            Db::name('portal_post')->where('id', $id)->setInc('post_share');
+            $this->result('', 200, '点赞数据更新成功');
+        }
+    }
+
 }
