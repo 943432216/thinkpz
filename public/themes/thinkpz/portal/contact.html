@@ -1,172 +1,210 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8" />
-		<title>品专互动</title>
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
-		<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
-	</head>
+<head>
+	<meta charset="utf-8" />
+	<title>品专互动</title>
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
+</head>
 
-	<body>
-		<div class="pz_box overflow position">
-			<div class="pz_cb">
-				<ul>
-					<li>
-						<a href="javascript:;" class="top"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="kf"></a>
-					</li>
-					<li>
-						<a href="javascript:;" class="wx"></a>
-					</li>
-				</ul>
-			</div>
-			<div class="nav overflow left">
-				<div class="nav_logo left"></div>
-				<!-- 引入导航模板 -->
-				<include file="common/nav" />
-				<!-- 引入导航模板结束 -->
-				<div class="nav_ss left position">
-					<div class="search_click">
-						<input type="text" name="search" id="search" value="" />
-						<span><img src="__TMPL__/public/img/search.png"/></span>
-					</div>
-					<div class="click_one"><img src="__TMPL__/public/img/search.png" /></div>
-				</div>
-			</div>
-			<header class="width left overflow">
-				<div class="swiper-container position">
-					<img src="__TMPL__/public/img/contact.png" alt="" class="img" />
-				</div>
-			</header>
-
-			<section class="width left overflow sections">
-				<div class="conwidth left overflow msg">
-					<span class="left width overflow">
-						<h1>给我们留言</h1>
-						<h3>LEAVE A MESSAGE</h3>
+<body>
+	<div class="pz_box overflow position">
+		<div class="pz_cb">
+			<ul>
+				<li>
+					<a href="javascript:;" class="top"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="kf"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="wx"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav overflow left">
+			<div class="nav_logo left"></div>
+			<!-- 引入导航模板 -->
+			<include file="common/nav" />
+			<!-- 引入导航模板结束 -->
+			<div class="nav_ss left position">
+				<div class="search_click">
+					<input type="text" name="search" id="search" value="" />
+					<span>
+						<img src="__TMPL__/public/img/search.png" />
 					</span>
-					<p>您好,感谢您来到品专互动，若您有合作意向，请您为我们留言或者使用以下方式联系我们，我们将<br />尽快给您回复，并为您提供最真诚的服务，谢谢！</p>
-					<div class="left width overflow msgc">
-						<input type="text" name="msg_name" id="name" value="" placeholder="您的姓名" />
-						<input type="text" name="msg_phone" id="tel" value="" placeholder="您的电话" />
-						<input type="text" name="msg_email" id="e_mail" value="" placeholder="您的邮箱" />
-						<textarea name="message" id="msgs" rows="13" cols="" placeholder="消息留言(字数不超过400字)"></textarea>
-						<div class="left width overflow">
-							<input type="button" name="bns" id="bns" value="提交" />
-						</div>
+				</div>
+				<div class="click_one">
+					<img src="__TMPL__/public/img/search.png" />
+				</div>
+			</div>
+		</div>
+		<header class="width left overflow">
+			<div class="swiper-container position">
+				<img src="__TMPL__/public/img/contact.png" alt="" class="img" />
+			</div>
+		</header>
+
+		<section class="width left overflow sections">
+			<div class="conwidth left overflow msg">
+				<span class="left width overflow">
+					<h1>给我们留言</h1>
+					<h3>LEAVE A MESSAGE</h3>
+				</span>
+				<p>您好,感谢您来到品专互动，若您有合作意向，请您为我们留言或者使用以下方式联系我们，我们将
+					<br />尽快给您回复，并为您提供最真诚的服务，谢谢！</p>
+				<div class="left width overflow msgc">
+					<input type="text" name="msg_name" id="username" value="" placeholder="您的姓名" data-required="true" />
+					<input type="text" name="msg_phone" id="tel" value="" placeholder="您的电话" data-required="true" />
+					<input type="text" name="msg_email" id="e_mail" value="" placeholder="您的邮箱" data-required="true" />
+					<textarea name="message" id="msgs" rows="13" cols="" placeholder="消息留言(字数不超过400字)" data-required="true"></textarea>
+					<div class="left width overflow">
+						<input type="button" name="bns" id="bns" value="提交" />
 					</div>
 				</div>
-				<div class="conwidth left overflow map">
-					<span class="left width overflow">
-						<h1>地图显示</h1>
-						<h3>MAP DISPLAY</h3>
-					</span>
-					<div id="map" class="left overflow"></div>
-
-			</section>
-			<!-- 引入页脚 -->
-			<include file="common/footer"/>
-			<!-- 引入页脚结束 -->
 			</div>
-	</body>
-	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=08e93dc1cc8db8a5d2b196e7f31cbc57"></script>
-	<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		var map = new AMap.Map('map', {
-			resizeEnable: true,
-			zoom: 16,
-			center: [113.378816, 23.096012]
+			<div class="conwidth left overflow map">
+				<span class="left width overflow">
+					<h1>地图显示</h1>
+					<h3>MAP DISPLAY</h3>
+				</span>
+				<div id="map" class="left overflow"></div>
+
+		</section>
+		<!-- 引入页脚 -->
+		<include file="common/footer" />
+		<!-- 引入页脚结束 -->
+		</div>
+</body>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=08e93dc1cc8db8a5d2b196e7f31cbc57"></script>
+<script src="__TMPL__/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__/public/js/rule.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var map = new AMap.Map('map', {
+		resizeEnable: true,
+		zoom: 16,
+		center: [113.378816, 23.096012]
+	});
+	var marker = new AMap.Marker({
+		position: [113.378816, 23.096012]
+	});
+	marker.setMap(map);
+	marker.on('click', function (e) {
+		infowindow.open(map, e.target.getPosition());
+	})
+	AMap.plugin('AMap.AdvancedInfoWindow', function () {
+		infowindow = new AMap.AdvancedInfoWindow({
+			content: '<div class="info-title">品专集团</div><div class="info-content">' +
+				'<img src="__TMPL__/public/img/pz_map.jpg" class="left">' +
+				'<p class="left">品专集团是一家专注于医药健康行业品牌推广与网络营销双重提升的互联网集团企业</p>' +
+				'<a target="_blank" href = "../index.html" class="left">点击了解品专集团</a></div>',
+			offset: new AMap.Pixel(0, -30)
 		});
-		var marker = new AMap.Marker({
-			position: [113.378816, 23.096012]
-		});
-		marker.setMap(map);
-		marker.on('click', function(e) {
-			infowindow.open(map, e.target.getPosition());
-		})
-		AMap.plugin('AMap.AdvancedInfoWindow', function() {
-			infowindow = new AMap.AdvancedInfoWindow({
-				content: '<div class="info-title">品专集团</div><div class="info-content">' +
-					'<img src="__TMPL__/public/img/pz_map.jpg" class="left">' +
-					'<p class="left">品专集团是一家专注于医药健康行业品牌推广与网络营销双重提升的互联网集团企业</p>' +
-					'<a target="_blank" href = "../index.html" class="left">点击了解品专集团</a></div>',
-				offset: new AMap.Pixel(0, -30)
-			});
-			infowindow.open(map, [113.378816, 23.096012]);
-		})
-	</script>
-	<script type="text/javascript">
-		$(function() {
-			//初始化导航
-			var margins = $('.pz_box').offset().left;
-			var widt = $('.pz_box').width();
-			var navh = $('.nav_con').height();
-			$('.nav').css({
-				'display': 'block',
-				'background': 'transparent',
-				'height': navh,
-				'width': widt,
-				'margin-left': margins
-			});
-			//返回顶部
-			$('.top').click(function() {
-				$("html,body").animate({
-					scrollTop: 0
-				}, 100);
-			})
-			//表单
-			$('input[type="text"]').each(function(a) {
-				var xcon = $(this).attr('placeholder');
-				//				console.log(a)
-				$(this).focus(function() {
-					$(this).attr('placeholder', '');
-				}), $(this).blur(function() {
-					$(this).attr('placeholder', xcon);
-				})
-			})
-			var tcon = $('#msgs').attr('placeholder');
-			$('#msgs').focus(function() {
-				$(this).attr('placeholder', '');
-			}), $('#msgs').blur(function() {
-				$(this).attr('placeholder', tcon);
-			})
-			//导航
-			$('.nav_logo').click(function () {
-				document.location.href = "{:url('portal/index/index')}";
-			})
-			searchs(1);
-			scrolls('.sections');
-			window.onscroll = function() {
-				searchs(1);
-			};
-			$('#bns').click(function () {
-// 				var ac = document.location.protocol;
-// 				var bc = document.location.hostname;
-// 				var urlsb = ac + '//' + bc;
+		infowindow.open(map, [113.378816, 23.096012]);
+	})
+</script>
+<script type="text/javascript">
+	$(function () {
+		$('.msgc').rule({
+			btn: '#bns',
+			reg: {
+				username: '#username',
+				tel: '#tel',
+				e_mail: '#e_mail'
+			},
+			hint: function (index) {
+				var offsetT = $('#'+index[0]).position().top+$('#'+index[0]).innerHeight()+5;
+				var marL=$('#'+index[0]).css('margin-left');
+				var offsetL = $('#'+index[0]).position().left+parseFloat(marL);
+				var innw = $('#' + index[0]).innerWidth();
+				var hint = '<b class="hint" style="left:' + offsetL + 'px;top:' + offsetT + 'px;width:' + innw + 'px;">' +
+					index[1] +
+					'</b>';
+				$('.msgc').append(hint);
+				$('#' + index).focus(function () {
+					$('.hint').remove();
+				});
+			},
+			sub: function () {
 				var dt = {
 					msg_name: $('#name').val(),
 					msg_phone: $('#tel').val(),
 					msg_email: $('#e_mail').val(),
-					message:$('#msgs').val()
+					message: $('#msgs').val(),
+				}
+				var reVal = {
+					'200': '留言成功',
+					'400': '留言失败，请重试或联系客服'
 				}
 				$.ajax({
 					type: 'post',
-					url:"{:url('portal/message/takeOver')}",
+					url: "{:url('portal/Message/takeOver')}",
 					data: dt,
 					dataType: 'json',
 					success: function (data) {
-						console.log(data)
+						var nx = reVal[data.code];
+						alert(nx);
 					}
 				})
-			});
 
+			}
 		})
-	</script>
+
+
+		//初始化导航
+		var margins = $('.pz_box').offset().left;
+		var widt = $('.pz_box').width();
+		var navh = $('.nav_con').height();
+		$('.nav').css({
+			'display': 'block',
+			'background': 'transparent',
+			'height': navh,
+			'width': widt,
+			'margin-left': margins
+		});
+		//返回顶部
+		$('.top').click(function () {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 100);
+		})
+		//表单
+		$('input[type="text"]').each(function (a) {
+			var xcon = $(this).attr('placeholder');
+			//				console.log(a)
+			$(this).focus(function () {
+				$(this).attr('placeholder', '');
+			}), $(this).blur(function () {
+				$(this).attr('placeholder', xcon);
+			})
+		})
+		var tcon = $('#msgs').attr('placeholder');
+		$('#msgs').focus(function () {
+			$(this).attr('placeholder', '');
+		}), $('#msgs').blur(function () {
+			$(this).attr('placeholder', tcon);
+		})
+		//导航
+		$('.nav_logo').click(function () {
+			document.location.href = "{:url('portal/index/index')}";
+		})
+// 		$('#msgs').blur(function(){
+// 			var icon=$(this).val();
+// 			var iconN=icon.length;
+// 			if(iconN.length>400){
+// 				alert(iconN);
+// 			}
+// 		})
+		searchs(1);
+		scrolls('.sections');
+		window.onscroll = function () {
+			searchs(1);
+		};
+
+	})
+</script>
 
 </html>

@@ -48,11 +48,6 @@
 				<div class="banner_wz">
 					<img src="__TMPL__/public/img/DSP_wz.png" alt="" class="img" />
 				</div>
-				<!--<h1 class="width left overflow">品专DSP系统</h1>
-					<h3 class="width left overflow">PINZHUAN DSP SYSTEM</h3>
-					<span class="width left overflow">
-						<p class="width left">在互联网广告产业中，DSP是一个系统，也是一种在线广告平台。它服务于广告主，<br />帮助广告主在互联网或者移动互联网上进行广告投放，</p>
-					</span>-->
 			</div>
 		</header>
 
@@ -131,15 +126,14 @@
 				codes: '#codes'
 			},
 			hint: function (index) {
-				// console.log(index)
 				var pL = $('#' + index[0]).siblings('p').innerWidth();
 				var spanL = $('#' + index[0]).parent('span').css('margin-left');
 				var spanT = $('#' + index[0]).parent('span').position().top;
 				var spanM = $('#' + index[0]).parent('span').css('margin-top')
 				var innH = $('#' + index[0]).parent('span').innerHeight();
 				var innw = $('#' + index[0]).innerWidth();
-				offsetT = parseFloat(spanT) + parseFloat(innH) + parseFloat(spanM) + 5;
-				offsetL = parseFloat(pL) + parseFloat(spanL);
+				var offsetT = parseFloat(spanT) + parseFloat(innH) + parseFloat(spanM) + 5;
+				var offsetL = parseFloat(pL) + parseFloat(spanL);
 				var hint = '<b class="hint" style="left:' + offsetL + 'px;top:' + offsetT + 'px;width:' + innw + 'px;">' +
 					index[1] +
 					'</b>';

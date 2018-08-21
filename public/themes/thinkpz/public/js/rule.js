@@ -77,9 +77,8 @@
 				//名字
 				username: function (el) {
 					var reg = /^[\u4e00-\u9fa5]{1,8}$/;
-					// var ele=$(el)
 					if (($(el).val() == '') || (reg.test($(el).val())) == false) {
-						alts = '姓名不能为空或请输入正确的姓名格式';
+						alts = '请输入正确的姓名格式';
 						return alts;
 					} else {
 						return true;
@@ -162,6 +161,18 @@
 					} else {
 						return true;
 					}
+				},
+				e_mail:function(el){
+					var reg=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+					if($(el).val() == ''){
+						alts='邮箱不能为空';
+						return alts;
+					}else if(reg.test($(el).val()) == false){
+						alts='请填写正确的邮箱';
+						return alts;
+					}else{
+						return true
+					}
 				}
 			}
 			return formInspect;
@@ -171,13 +182,13 @@
 			var _this = this,
 				filev = null,
 				f = {};
+				// console.log(value)
 			if (typeof value == 'string') {
 				filev = file[index](value);
 			} else {
 				filev = file[index](value[0], value[1]);
 			}
 			f[index] = filev;
-			// console.log(f)
 			return f;
 
 		},
