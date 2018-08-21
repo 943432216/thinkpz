@@ -5,15 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>品专互动</title>
-
+	<link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/nitialize.css" />
-    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" id="ins" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/main_1366.css" />
     <link rel="stylesheet" type="text/css" href="__TMPL__/public/css/swiper.min.css" />
     <taglib name="app\portal\taglib\Portal" />
 </head>
 
 <body>
     <div class="pz_box overflow position">
+		
         <div class="pz_cb">
             <ul>
                 <li>
@@ -27,12 +28,19 @@
                 </li>
             </ul>
         </div>
-        <div class="nav overflow left">
+        <div class="nav left">
             <div class="nav_logo left"></div>
             <!-- 引入导航模板 -->
             <include file="common/nav" />
             <!-- 引入导航模板结束 -->
             <div class="nav_ss left position">
+				<div class="srechc">
+					<ul>
+						<li><a href="{:url('portal/Case/index')}">经典案例</a></li>
+						<li><a href="{:url('portal/Dsp/index')}">DSP系统</a></li>
+						<li><a href="{:url('portal/contact/index')}">联系我们</a></li>
+					</ul>
+				</div>
                 <div class="search_click">
                     <input type="text" name="search" id="search" value="" />
                     <span>
