@@ -68,7 +68,7 @@
 						<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
 						<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
 						<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-						<a href="#" class="bds_count" data-cmd="count" style="display: none;"></a> 
+						<!-- <a href="#" class="bds_count" data-cmd="count" style="display: none;"></a> -->
 					</div>
 				</div>
 				{$article.post_content}
@@ -123,6 +123,9 @@
 		//导航
 		var ux, cid = null;
 		ux = document.location.href;
+		var ids=ux.split('&')[0];
+		ids=ids.split('id=')[1]
+		console.log(ids)
 		cid = ux.split('cid=')[1]
 		var cg = {
 			'1': 3,
@@ -140,7 +143,23 @@
 		window.onscroll = function () {
 			searchs(nd);
 		}
-		console.log($('.bds_count').html())
+		$('.bdsharebuttonbox').find('a').click(function(){
+			$.ajax({
+				type: 'post',
+				url: "{:url('portal/Article/shareUp')}",
+				data:{
+					id:ids
+				},
+				dataType: 'json',
+				success:function(data){
+					if(data.code=='200'){
+						alert('分享成功');
+					}else{
+						alert('分享失败');
+					}
+				}
+			})
+		})
 	})
 </script>
 
