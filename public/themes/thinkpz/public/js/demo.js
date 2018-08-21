@@ -112,10 +112,12 @@ function setData(values) {
 						'</p> <b class="left">READ MORE</b> </div> <div class="left ca_con_bn"><p>' + a.data[i].post_hits + '</p><b>' +
 						a.data[i].post_share + '</b></div></div>')
 				}
-				this.ele.children('div').click(function () {
-					for (i = 0; i < a.data.length; i++) {
-						document.location.href = '' + a.data[i].links;
-					}
+				this.ele.children('.case_con_box').each(function (i) {
+					// console.log(a.data[i].links);
+					$(this).click(function(){
+						window.location.href = '' + a.data[i].links;
+						// console.log(a.data[i].links);
+					})
 				});
 			} else {
 				if (a.errcode == '1101' && a.errcode) {
