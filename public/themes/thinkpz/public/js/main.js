@@ -5,6 +5,7 @@
 var t1;
 
 function searchs(num) {
+	var flag=false
 	//导航-搜索框
 	$('.click_one').on({
 		click: function () {
@@ -18,11 +19,16 @@ function searchs(num) {
 			});
 			$('#search').blur(function () {
 				if ($('#search').val().length > 0) {
-					console.log(1)
+					
 				} else {
-					$('.nav_ss').mouseleave(function () {
-						closes()
-					})
+					$('.search_click').stop()
+					closes()
+				}
+			})
+			$('.nav_ss').mouseleave(function () {
+				if($('#search').val().length <= 0){
+					$('.search_click').stop()
+					closes()
 				}
 			})
 		}
