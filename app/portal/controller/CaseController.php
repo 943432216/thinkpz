@@ -19,7 +19,7 @@ class CaseController extends HomeBaseController
 	public function listCase()
 	{
 		$category = 4;
-		$year = input('?post.year') ? input('post.year') : '';
+		$year = input('?post.year') ? input('post.year') : 0;
 		$page = input('?post.page') ? input('post.page') : 1;
 		$number = input('?post.number') ? input('post.number') : 6;
 		$field = 'a.id,post_title,more,published_time,post_excerpt,post_hits,post_share';
@@ -30,6 +30,6 @@ class CaseController extends HomeBaseController
 			return json_encode(['errcode' => '1101','error' => '没有相关数据'], JSON_UNESCAPED_UNICODE);
 		}
 
-		return ArticleLogic::handle_success_data($category, $page, $number, $data);
+		return ArticleLogic::handle_success_data($category, $page, $number, $data, $year);
 	}
 }

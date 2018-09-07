@@ -200,7 +200,7 @@
                 <!--2-->
                 <div class="left width more_box">
                     <div class="moret position">
-                        <a href="http://thinkpz.cn/portal/Case/index">更多案例&nbsp;&nbsp;→</a>
+                        <a href="{:url('portal/Case/index')}">更多案例&nbsp;&nbsp;→</a>
                         <span></span>
                     </div>
                 </div>
@@ -278,6 +278,12 @@
             urls: '/portal/case/listCase',
             fn: function () {
                 cased()
+				$('.case_con_box').each(function(){
+					var coms=$(this).find('.ca_con_mod').children('p').html();
+					if(coms.length>130){
+						$(this).find('.ca_con_mod').children('p').html(coms.substring(0, 50) + '...')
+					}
+				})
             }
         })
         //页面-banner
@@ -318,7 +324,7 @@
             window.location.href = '{:url("portal/index/introdution")}';
             //相应页面				
         }), $('.span_02').click(function () {
-            window.location.href = '{:url("portal/group/aboutPz")}'
+            window.location.href = '{:url("portal/index/aptitude")}'
             //相应页面				
         })
         //首页-主营业务
@@ -390,35 +396,15 @@
             });
         })
         //导航初始化
-        var margins = $('.pz_box').offset().left;
-        var widt = $('.pz_box').width();
-        var navh = $('.nav_con').height();
-        $('.nav').css({
-            'display': 'block',
-            'background': 'transparent',
-            'height': navh,
-            'width': widt,
-            'margin-left': margins
-        });
-        //返回顶部
-        $('.top').click(function () {
-            $("html,body").animate({
-                scrollTop: 0
-            }, 100);
-        })
-        //导航
-		$('.nav_logo').click(function () {
-			document.location.href = "{:url('portal/index/index')}";
-		})
-        searchs(0);
-        scrolls('.sections');
-        window.onscroll = function () {
-            searchs(0);
-        }
+		new zxcHad({
+			num: 0,
+			ele: '.sections',
+			urls: '{:url('portal/index/index')}'
+		});
+
     })
 
     function caseck(urls) {
-		console.log(urls)
         document.location.href = urls;
     }
 

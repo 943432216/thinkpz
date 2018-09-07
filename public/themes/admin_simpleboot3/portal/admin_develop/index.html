@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发展历程</title>
+	<link href="__TMPL__/public/thinkpz/layui/css/layui.css" rel="stylesheet">
+	<script src="__TMPL__/public/thinkpz/layui/layui.js" charset="utf-8"></script>
+</head>
+<body>
+	<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+	  	<ul class="layui-tab-title">
+	    	<li class="layui-this">历程列表</li>
+	    	<li>添加历程</li>
+	  	</ul>
+	</div> 
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">
+
+        </div>
+    	<div class="layui-tab-item">
+			<div class="layui-form-item">
+		    	<label class="layui-form-label">时间</label>
+		    	<div class="layui-input-block">
+		      		<input type="text" name="devel_time" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    	</div>
+		  	</div>
+    	</div>
+  	</div>
+
+  	<script>
+		layui.use('element', function(){
+		  	var $ = layui.jquery,
+		  		element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+		});
+	</script>
+</body>
+</html>

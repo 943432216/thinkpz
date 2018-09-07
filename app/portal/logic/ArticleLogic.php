@@ -3,7 +3,7 @@
 namespace app\portal\logic;
 
 class ArticleLogic {
-	public static function handle_success_data ($category, $page, $number, $data)
+	public static function handle_success_data ($category, $page, $number, $data, $year=0)
 	{
 		$data = handle_img_url($data);
 		foreach ($data as $k => $v) {
@@ -11,7 +11,7 @@ class ArticleLogic {
 			$data[$k]['published_time'] = date('Y-m-d', $v['published_time']);
 		}
 		$json['status'] = '200';
-		$json['total'] = category_arts_sum($category, 1, true);
+		$json['total'] = empty($year) ? category_arts_sum($category, 1) : category_arts_sum($category, 1, false, $year);
 		$json['page'] = $page;
 		$json['number'] = $number;
 		$json['data'] = $data;

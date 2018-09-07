@@ -77,17 +77,18 @@ function handle_img_url($data)
  * @param  [type]  $category    [文章分类]
  * @param  boolean $post_status [发布状态 false:所有数据;1:已发布;0:未发布]
  * @param  boolean $delete_time [删除时间筛选 false:所有数据;非false:那个时间点删除的文章]
+ * @param  int 	   $year        [年份筛选 0:所有数据;非0:哪个年份的文章]
  * @return [type]               [description]
  */
-function category_arts_sum($category, $post_status=false, $delete_time=false)
+function category_arts_sum($category, $post_status=false, $delete_time=false, $year=0)
 {
 	$db = \think\DB::name('portal_post')->alias('a')
 	                                    ->join('portal_category_post b', 'a.id=b.post_id')
 	                                    ->where('b.category_id', $category);
 	if (false == $post_status) {
-		$db->where('post_status', '>=', 0);
+		$db->where('status', '>=', 0);
 	} elseif(in_array($post_status, ['0','1'])) {
-		$db->where('post_status', $post_status);
+		$db->where('status', $post_status);
 	}
 	                                    
 	if (false == $delete_time) {
@@ -95,6 +96,14 @@ function category_arts_sum($category, $post_status=false, $delete_time=false)
 	} else {
 		$db->where('delete_time', $delete_time);
 	}
+
+	if (!empty($year)) {
+		$time_begin = mktime(0,0,0,1,1,$year);
+		$time_end = mktime(0,0,0,1,1,++$year);
+		$db->where('published_time', '>=', $time_begin)
+		   ->where('published_time', '<', $time_end);	                           
+	}
+
 	$data = $db->select();
 	return count($data);
 }
